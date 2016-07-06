@@ -1,0 +1,2 @@
+# JajkaDB
+Projekt rodzinny
