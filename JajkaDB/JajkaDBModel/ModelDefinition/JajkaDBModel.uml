@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="5e9ac607-c8b4-4e4e-b97a-ed818272e8db"
+  name="JajkaDBModel" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="46058617-1303-4383-b81f-7bea1ade2b29">
+      <body>Różne ceny</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="9b766bfa-b8c5-40bc-9d62-51cc29cd848c"
+          LastKnownName="Sprzedaż jajek"
+          LastKnownLocation="JajkaDBModel.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="0314a314-d09b-4926-b64b-78595ce22c03">
+      <body>W jakimś czasie, wybór daty</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="35d3f8a9-a519-4eaa-9519-ca21856793d7"
+          LastKnownName="Zestawienie kto ile"
+          LastKnownLocation="JajkaDBModel.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="ff6766f5-62f5-4d5c-a877-c93bf1dbd21e">
+      <body>Ile sprzedano, przychód, wydatki</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="a4827cb6-a49b-4b74-9238-285cea80cb96"
+          LastKnownName="Raport miesięczny"
+          LastKnownLocation="JajkaDBModel.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="a27fbf16-b0e1-4bf7-8040-ce9165a52f32">
+      <body>Data, kwota, notka</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="79c94c66-ab11-4911-b42d-1a9ef0a9a42a"
+          LastKnownName="Dopisywanie wydatków"
+          LastKnownLocation="JajkaDBModel.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="be9b7d89-482b-4900-a4a6-e724fdd67009"
+        name="Użytkownik"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="85ba66be-8401-488f-acf8-621783a6f503"
+            isDerived="false"
+            sourceEndRoleName="Użytkownik"
+            targetEndRoleName="Dodawanie jaj"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="dbf6ad31-a6ce-4bdc-ae49-426b063a25bf"
+              LastKnownName="Dodawanie jaj"
+              LastKnownLocation="JajkaDBModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cde48fad-d128-4c30-afbf-fc8de6838bc9"
+                  name="Użytkownik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c5ab824c-987d-4ab5-a368-15cd02595963"
+                  name="Dodawanie jaj"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ba43f6a2-7f08-436a-9e0a-ab0530f97acc"
+            isDerived="false"
+            sourceEndRoleName="Użytkownik"
+            targetEndRoleName="Sprzedaż"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="cefd96c8-6e80-480b-a805-2a513c8cf280"
+              LastKnownName="Sprzedaż"
+              LastKnownLocation="JajkaDBModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1d6d822d-a991-4083-9994-350089126a00"
+                  name="Użytkownik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9829882e-a2c2-4ae2-8591-bcae0fe0cf50"
+                  name="Sprzedaż"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="6aa57f87-7a4a-4947-8fea-dd892085f77a"
+            isDerived="false"
+            sourceEndRoleName="Użytkownik"
+            targetEndRoleName="Statystyka"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="7239812d-341a-4615-8038-b6db5f9f9334"
+              LastKnownName="Statystyka"
+              LastKnownLocation="JajkaDBModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="942ebdc8-203a-49ff-aca9-fa4f2e46682b"
+                  name="Użytkownik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0c162915-33d9-4be1-8c60-0e12cf158792"
+                  name="Statystyka"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="69d3fead-65e8-4a1c-a619-a0d303326acd"
+            isDerived="false"
+            sourceEndRoleName="Użytkownik"
+            targetEndRoleName="Wydatki"
+            isLeaf="false"
+            isAbstract="false">
+            <subsystemMoniker
+              Id="5da2fbaf-2f09-4fbf-806d-11e028830d75"
+              LastKnownName="Wydatki"
+              LastKnownLocation="JajkaDBModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9e38186f-9818-4cdb-bbe4-c5347b219be9"
+                  name="Użytkownik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="76790103-a5c0-4b54-b625-46c83291ab5b"
+                  name="Wydatki"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1a5dfc5d-8772-43a5-9a1d-9698730998e0"
+        name="Zniesionych"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="dbf6ad31-a6ce-4bdc-ae49-426b063a25bf"
+            LastKnownName="Dodawanie jaj"
+            LastKnownLocation="JajkaDBModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="dbf6ad31-a6ce-4bdc-ae49-426b063a25bf"
+        name="Dodawanie jaj"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5724f605-fc83-4f10-8351-782e422e63c3"
+        name="Dokupionych"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="dbf6ad31-a6ce-4bdc-ae49-426b063a25bf"
+            LastKnownName="Dodawanie jaj"
+            LastKnownLocation="JajkaDBModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="cefd96c8-6e80-480b-a805-2a513c8cf280"
+        name="Sprzedaż"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="86888e6b-3e20-431e-bce9-8550d4173d11"
+        name="Klienci"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="85d80326-6230-4ddd-a577-76aafd01777c"
+        name="Nowy klient"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="cefd96c8-6e80-480b-a805-2a513c8cf280"
+            LastKnownName="Sprzedaż"
+            LastKnownLocation="JajkaDBModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9b766bfa-b8c5-40bc-9d62-51cc29cd848c"
+        name="Sprzedaż jajek"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="8d9bad4c-67f3-4c05-8f98-21fd53b9a265">
+            <useCaseMoniker
+              Id="85d80326-6230-4ddd-a577-76aafd01777c"
+              LastKnownName="Nowy klient"
+              LastKnownLocation="JajkaDBModel.uml" />
+          </include>
+          <include
+            Id="bd083c67-9234-454e-86d6-f3603cf71235">
+            <useCaseMoniker
+              Id="24484612-d3b1-45be-867c-0e8e16ef44a7"
+              LastKnownName="Istniejący klient"
+              LastKnownLocation="JajkaDBModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="cefd96c8-6e80-480b-a805-2a513c8cf280"
+            LastKnownName="Sprzedaż"
+            LastKnownLocation="JajkaDBModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="de3543e4-687e-4f0b-8ac1-c261e8ea5cce"
+        name="Baza Danych"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="7239812d-341a-4615-8038-b6db5f9f9334"
+        name="Statystyka"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="35d3f8a9-a519-4eaa-9519-ca21856793d7"
+        name="Zestawienie kto ile"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="7239812d-341a-4615-8038-b6db5f9f9334"
+            LastKnownName="Statystyka"
+            LastKnownLocation="JajkaDBModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a4827cb6-a49b-4b74-9238-285cea80cb96"
+        name="Raport miesięczny"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="7239812d-341a-4615-8038-b6db5f9f9334"
+            LastKnownName="Statystyka"
+            LastKnownLocation="JajkaDBModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="24484612-d3b1-45be-867c-0e8e16ef44a7"
+        name="Istniejący klient"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="cefd96c8-6e80-480b-a805-2a513c8cf280"
+            LastKnownName="Sprzedaż"
+            LastKnownLocation="JajkaDBModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="79c94c66-ab11-4911-b42d-1a9ef0a9a42a"
+        name="Dopisywanie wydatków"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="5da2fbaf-2f09-4fbf-806d-11e028830d75"
+            LastKnownName="Wydatki"
+            LastKnownLocation="JajkaDBModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="29fb5374-2c66-4c6f-8db3-3a38739970b6"
+        name="Historia wydatków"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="5da2fbaf-2f09-4fbf-806d-11e028830d75"
+            LastKnownName="Wydatki"
+            LastKnownLocation="JajkaDBModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="5da2fbaf-2f09-4fbf-806d-11e028830d75"
+        name="Wydatki"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

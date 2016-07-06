@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="4e07940c-e066-4f93-8a87-81b2b7720edd" name="UseCases" linkedPackageId="aad6afe6-c0df-4479-a66e-844f0a6907b0" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="83a35736-eb92-4cf3-afa8-f584a3cb268f">
+      <profileInstance Id="fd4c13bd-bdbe-4b36-9887-7eae8089d6f7" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="7b94e735-ce32-4873-b208-cf3d01033fbd">
+      <profileInstance Id="db516fb4-ad7c-48bf-9170-d7c4f7b62f47" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="c80169fe-00f1-4d6e-b43c-e9b90ffddfed" name="Użytkownik" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="be9b7d89-482b-4900-a4a6-e724fdd67009" />
+        <targetEnds>
+          <association Id="4834fca2-b8e4-4990-a74a-d49ae68936fd" isDerived="false" sourceEndRoleName="Użytkownik" targetEndRoleName="Dodawanie jaj" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="5b5328ce-372f-4e4b-bb8d-e9f5d73099c4" LastKnownName="Dodawanie jaj" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="21ee9734-96d7-453e-9a0a-148df23d5d05" name="Użytkownik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="cde48fad-d128-4c30-afbf-fc8de6838bc9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="553b038b-e2fc-4d43-a1a9-8343fa718db1" name="Dodawanie jaj" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c5ab824c-987d-4ab5-a368-15cd02595963" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="85ba66be-8401-488f-acf8-621783a6f503" />
+          </association>
+          <association Id="f948560f-a20a-42bb-9679-1284a4ad9c1f" isDerived="false" sourceEndRoleName="Użytkownik" targetEndRoleName="Sprzedaż" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="1efdcb9d-e38d-4c43-a5ea-9bf1b653e566" LastKnownName="Sprzedaż" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9b7301e6-0858-42c0-8e4f-eab4322dfc36" name="Użytkownik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1d6d822d-a991-4083-9994-350089126a00" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="23468d01-356a-4c0a-88b5-5b13be7f5d25" name="Sprzedaż" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9829882e-a2c2-4ae2-8591-bcae0fe0cf50" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ba43f6a2-7f08-436a-9e0a-ab0530f97acc" />
+          </association>
+          <association Id="c9a0948e-855e-4e5d-9e84-b8bd3c4755bf" isDerived="false" sourceEndRoleName="Użytkownik" targetEndRoleName="Statystyka" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="4f28b3c4-0d04-43e1-809d-23ddd18eedcd" LastKnownName="Statystyka" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3491cc16-cf07-492e-a85e-030578d3d276" name="Użytkownik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="942ebdc8-203a-49ff-aca9-fa4f2e46682b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2f9ab54a-52aa-4e4e-a3f3-d7bbb68a7a28" name="Statystyka" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0c162915-33d9-4be1-8c60-0e12cf158792" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6aa57f87-7a4a-4947-8fea-dd892085f77a" />
+          </association>
+          <association Id="c52c18cb-781e-4343-9f9f-67b1cbb8687f" isDerived="false" sourceEndRoleName="Użytkownik" targetEndRoleName="Wydatki" isLeaf="false" isAbstract="false">
+            <subsystemMoniker Id="fd8e372a-5933-417d-8d9a-551f726fab88" LastKnownName="Wydatki" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="dc9560c9-15e9-42e1-81c6-3bffc535d1c6" name="Użytkownik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9e38186f-9818-4cdb-bbe4-c5347b219be9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0c2f0a93-b6ed-40f3-923e-4fced0cf74f6" name="Wydatki" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="76790103-a5c0-4b54-b625-46c83291ab5b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="69d3fead-65e8-4a1c-a619-a0d303326acd" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="6939baf3-e237-4459-af32-89575ddd1370" name="Zniesionych" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1a5dfc5d-8772-43a5-9a1d-9698730998e0" />
+        <subjects>
+          <subsystemMoniker Id="5b5328ce-372f-4e4b-bb8d-e9f5d73099c4" LastKnownName="Dodawanie jaj" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="5b5328ce-372f-4e4b-bb8d-e9f5d73099c4" name="Dodawanie jaj" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="dbf6ad31-a6ce-4bdc-ae49-426b063a25bf" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="a7eea42f-aa1b-4874-a0ce-226cbba7e8a7" name="Dokupionych" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5724f605-fc83-4f10-8351-782e422e63c3" />
+        <subjects>
+          <subsystemMoniker Id="5b5328ce-372f-4e4b-bb8d-e9f5d73099c4" LastKnownName="Dodawanie jaj" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="1efdcb9d-e38d-4c43-a5ea-9bf1b653e566" name="Sprzedaż" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <ownedCommentsInternal>
+          <comment Id="40dfb6af-483c-4546-baa5-5fd37efb2931">
+            <elementDefinition Id="46058617-1303-4383-b81f-7bea1ade2b29" />
+            <body>Różne ceny</body>
+            <annotatedElements>
+              <useCaseMoniker Id="2a37ac2e-bfd4-46d2-ab8c-2c992d99e755" LastKnownName="Sprzedaż jajek" />
+            </annotatedElements>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="cefd96c8-6e80-480b-a805-2a513c8cf280" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="598a147a-f67e-488c-a348-030cd15fca0e" name="Nowy klient" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="85d80326-6230-4ddd-a577-76aafd01777c" />
+        <subjects>
+          <subsystemMoniker Id="1efdcb9d-e38d-4c43-a5ea-9bf1b653e566" LastKnownName="Sprzedaż" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="2a37ac2e-bfd4-46d2-ab8c-2c992d99e755" name="Sprzedaż jajek" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9b766bfa-b8c5-40bc-9d62-51cc29cd848c" />
+        <additions>
+          <include Id="8b249381-61dd-4daa-b92e-edcf0080d719">
+            <useCaseMoniker Id="598a147a-f67e-488c-a348-030cd15fca0e" LastKnownName="Nowy klient" />
+            <elementDefinition Id="8d9bad4c-67f3-4c05-8f98-21fd53b9a265" />
+          </include>
+          <include Id="0fe52505-846d-4f29-9a42-2d2142352c0e">
+            <useCaseMoniker Id="46a11bf0-4ae2-4b4c-a2f3-1605fbfe8dbb" LastKnownName="Istniejący klient" />
+            <elementDefinition Id="bd083c67-9234-454e-86d6-f3603cf71235" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="1efdcb9d-e38d-4c43-a5ea-9bf1b653e566" LastKnownName="Sprzedaż" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <artifact Id="6c31baba-c130-499d-831a-2a2dc11d10e3" name="Baza Danych" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="de3543e4-687e-4f0b-8ac1-c261e8ea5cce" />
+      </artifact>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="4f28b3c4-0d04-43e1-809d-23ddd18eedcd" name="Statystyka" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <ownedCommentsInternal>
+          <comment Id="954dce85-5cf1-44e6-8815-18484d5b2729">
+            <elementDefinition Id="0314a314-d09b-4926-b64b-78595ce22c03" />
+            <body>W jakimś czasie, wybór daty</body>
+            <annotatedElements>
+              <useCaseMoniker Id="a504403d-db66-453d-8d8e-80048b3cf321" LastKnownName="Zestawienie kto ile" />
+            </annotatedElements>
+          </comment>
+          <comment Id="02ab9658-2de0-417c-a41c-3f21f9a45c83">
+            <elementDefinition Id="ff6766f5-62f5-4d5c-a877-c93bf1dbd21e" />
+            <body>Ile sprzedano, przychód, wydatki</body>
+            <annotatedElements>
+              <useCaseMoniker Id="eb5c4886-bb23-40a5-84e3-e16cb2944d6b" LastKnownName="Raport miesięczny" />
+            </annotatedElements>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="7239812d-341a-4615-8038-b6db5f9f9334" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="a504403d-db66-453d-8d8e-80048b3cf321" name="Zestawienie kto ile" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="35d3f8a9-a519-4eaa-9519-ca21856793d7" />
+        <subjects>
+          <subsystemMoniker Id="4f28b3c4-0d04-43e1-809d-23ddd18eedcd" LastKnownName="Statystyka" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="eb5c4886-bb23-40a5-84e3-e16cb2944d6b" name="Raport miesięczny" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a4827cb6-a49b-4b74-9238-285cea80cb96" />
+        <subjects>
+          <subsystemMoniker Id="4f28b3c4-0d04-43e1-809d-23ddd18eedcd" LastKnownName="Statystyka" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="46a11bf0-4ae2-4b4c-a2f3-1605fbfe8dbb" name="Istniejący klient" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="24484612-d3b1-45be-867c-0e8e16ef44a7" />
+        <subjects>
+          <subsystemMoniker Id="1efdcb9d-e38d-4c43-a5ea-9bf1b653e566" LastKnownName="Sprzedaż" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <useCase Id="894c232b-7d31-41b3-8c43-af9e8d4f0262" name="Dopisywanie wydatków" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="79c94c66-ab11-4911-b42d-1a9ef0a9a42a" />
+        <subjects>
+          <subsystemMoniker Id="fd8e372a-5933-417d-8d9a-551f726fab88" LastKnownName="Wydatki" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="4d3691c1-d325-42fd-b217-ea78ecef2576" name="Historia wydatków" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="29fb5374-2c66-4c6f-8db3-3a38739970b6" />
+        <subjects>
+          <subsystemMoniker Id="fd8e372a-5933-417d-8d9a-551f726fab88" LastKnownName="Wydatki" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="fd8e372a-5933-417d-8d9a-551f726fab88" name="Wydatki" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <ownedCommentsInternal>
+          <comment Id="176f822d-ae36-4b69-ba25-be955c75aa1f">
+            <elementDefinition Id="a27fbf16-b0e1-4bf7-8040-ce9165a52f32" />
+            <body>Data, kwota, notka</body>
+            <annotatedElements>
+              <useCaseMoniker Id="894c232b-7d31-41b3-8c43-af9e8d4f0262" LastKnownName="Dopisywanie wydatków" />
+            </annotatedElements>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="5da2fbaf-2f09-4fbf-806d-11e028830d75" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="aad6afe6-c0df-4479-a66e-844f0a6907b0" name="JajkaDBModel">
+    <elementDefinition Id="5e9ac607-c8b4-4e4e-b97a-ed818272e8db" />
+  </package>
+</useCaseModelRoot>

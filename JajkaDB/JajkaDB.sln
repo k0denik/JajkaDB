@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JajkaDB", "JajkaDB\JajkaDB.csproj", "{3A79478F-62B0-4DE1-AA40-A5A462B24A01}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "JajkaDBModel", "JajkaDBModel\JajkaDBModel.modelproj", "{F62FE816-83B5-46AC-9D0B-53D9503A6EF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A79478F-62B0-4DE1-AA40-A5A462B24A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A79478F-62B0-4DE1-AA40-A5A462B24A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A79478F-62B0-4DE1-AA40-A5A462B24A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A79478F-62B0-4DE1-AA40-A5A462B24A01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62FE816-83B5-46AC-9D0B-53D9503A6EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62FE816-83B5-46AC-9D0B-53D9503A6EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62FE816-83B5-46AC-9D0B-53D9503A6EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62FE816-83B5-46AC-9D0B-53D9503A6EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
