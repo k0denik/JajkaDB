@@ -19,18 +19,27 @@ namespace JajkaDB
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Dokupione' table. You can move, or remove it, as needed.
+            this.dokupioneTableAdapter.Fill(this.databaseDataSet.Dokupione);
             // TODO: This line of code loads data into the 'databaseDataSet.Zniesione' table. You can move, or remove it, as needed.
             this.zniesioneTableAdapter.Fill(this.databaseDataSet.Zniesione);
-            // TODO: This line of code loads data into the 'databaseDataSet.Klienci' table. You can move, or remove it, as needed.
-            this.klienciTableAdapter.Fill(this.databaseDataSet.Klienci);
             dateTimePicker1.Value = DateTime.Today;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int Id = int.Parse("1");
-            zniesioneTableAdapter.DeleteQueryById(Id);
-            this.zniesioneTableAdapter.Fill(this.databaseDataSet.Zniesione);
+            try
+            {
+                int id = int.Parse(dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                zniesioneTableAdapter.DeleteByIdQuery(id);
+                zniesioneTableAdapter.Update(databaseDataSet.Zniesione);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                throw;
+            }
+            zniesioneTableAdapter.Fill(databaseDataSet.Zniesione);
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -56,25 +65,19 @@ namespace JajkaDB
                 int ilosc = int.Parse(textBoxIlosc.Text);
                 var notka = textBoxNotka.Text;
                 var data = dateTimePicker1.Value;
-                var newRow = databaseDataSet.Zniesione.NewZniesioneRow();
-                newRow.Jajka = ilosc;
-                newRow.Notka = notka;
-                newRow.Data = data;
-                databaseDataSet.Zniesione.AddZniesioneRow(newRow);
-                                zniesioneTableAdapter.InsertQueryZniesione(ilosc, notka, data.ToShortDateString());
-
-                databaseDataSet.Zniesione.AcceptChanges();
-                //zniesioneBindingSource.EndEdit();
-                zniesioneTableAdapter.Adapter.Update(databaseDataSet.Zniesione);
-            
-
+                zniesioneTableAdapter.Insert(ilosc, notka, data);
+                zniesioneTableAdapter.Update(databaseDataSet.Zniesione);
             }
             catch (Exception exc)
             {
                 MessageBox.Show("Coś poszło nie tak:" + exc.Message);
             }
             this.zniesioneTableAdapter.Fill(this.databaseDataSet.Zniesione);
-            int i = 1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
