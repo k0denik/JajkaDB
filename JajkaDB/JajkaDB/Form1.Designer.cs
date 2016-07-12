@@ -33,6 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageZniesione = new System.Windows.Forms.TabPage();
@@ -46,16 +50,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonUsun = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPageDokupione = new System.Windows.Forms.TabPage();
-            this.tabPageTransakcje = new System.Windows.Forms.TabPage();
-            this.databaseDataSet = new JajkaDB.DatabaseDataSet();
-            this.databaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zniesioneBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zniesioneTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.ZniesioneTableAdapter();
-            this.tabPageStatystyka = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tabPageDokupione = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxDokupioneNotka = new System.Windows.Forms.TextBox();
@@ -63,30 +59,82 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerDokupione = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
-            this.dokupioneBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dokupioneTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.DokupioneTableAdapter();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iloscDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groszeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notkaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dokupioneBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPageTransakcje = new System.Windows.Forms.TabPage();
+            this.tabPageStatystyka = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxNazwiskoKlienci = new System.Windows.Forms.TextBox();
+            this.textBoxImieKlienci = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dataGridViewKlienci = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.button6 = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxDokupionezloty = new System.Windows.Forms.TextBox();
+            this.textBoxDokupioneGroszy = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iloscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSet = new JajkaDB.DatabaseDataSet();
+            this.iloscDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groszeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notkaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwiskoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.klienciBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zniesioneTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.ZniesioneTableAdapter();
+            this.dokupioneTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.DokupioneTableAdapter();
+            this.klienciTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.KlienciTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPageZniesione.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPageDokupione.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zniesioneBindingSource)).BeginInit();
+            this.tabPageDokupione.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dokupioneBindingSource)).BeginInit();
+            this.tabPageTransakcje.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKlienci)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.klienciBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -95,11 +143,12 @@
             this.tabControl1.Controls.Add(this.tabPageDokupione);
             this.tabControl1.Controls.Add(this.tabPageTransakcje);
             this.tabControl1.Controls.Add(this.tabPageStatystyka);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(584, 361);
+            this.tabControl1.Size = new System.Drawing.Size(584, 411);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPageZniesione
@@ -109,7 +158,7 @@
             this.tabPageZniesione.Location = new System.Drawing.Point(4, 22);
             this.tabPageZniesione.Name = "tabPageZniesione";
             this.tabPageZniesione.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageZniesione.Size = new System.Drawing.Size(576, 335);
+            this.tabPageZniesione.Size = new System.Drawing.Size(576, 385);
             this.tabPageZniesione.TabIndex = 0;
             this.tabPageZniesione.Text = "Zniesione jajka";
             this.tabPageZniesione.UseVisualStyleBackColor = true;
@@ -125,9 +174,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 269);
+            this.groupBox2.Location = new System.Drawing.Point(6, 319);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(562, 58);
+            this.groupBox2.Size = new System.Drawing.Size(562, 60);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dodawanie jajek";
@@ -191,7 +240,7 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(562, 257);
+            this.groupBox1.Size = new System.Drawing.Size(562, 307);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zniesione Historia";
@@ -199,7 +248,7 @@
             // 
             // buttonUsun
             // 
-            this.buttonUsun.Location = new System.Drawing.Point(452, 224);
+            this.buttonUsun.Location = new System.Drawing.Point(452, 278);
             this.buttonUsun.Name = "buttonUsun";
             this.buttonUsun.Size = new System.Drawing.Size(104, 23);
             this.buttonUsun.TabIndex = 1;
@@ -235,8 +284,13 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridView1.Size = new System.Drawing.Size(443, 238);
+            this.dataGridView1.Size = new System.Drawing.Size(443, 288);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // zniesioneBindingSource
+            // 
+            this.zniesioneBindingSource.DataMember = "Zniesione";
+            this.zniesioneBindingSource.DataSource = this.databaseDataSetBindingSource;
             // 
             // tabPageDokupione
             // 
@@ -245,48 +299,82 @@
             this.tabPageDokupione.Location = new System.Drawing.Point(4, 22);
             this.tabPageDokupione.Name = "tabPageDokupione";
             this.tabPageDokupione.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDokupione.Size = new System.Drawing.Size(576, 335);
+            this.tabPageDokupione.Size = new System.Drawing.Size(576, 385);
             this.tabPageDokupione.TabIndex = 1;
             this.tabPageDokupione.Text = "Dokupione jajka";
             this.tabPageDokupione.UseVisualStyleBackColor = true;
             // 
-            // tabPageTransakcje
+            // groupBox4
             // 
-            this.tabPageTransakcje.Location = new System.Drawing.Point(4, 22);
-            this.tabPageTransakcje.Name = "tabPageTransakcje";
-            this.tabPageTransakcje.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTransakcje.Size = new System.Drawing.Size(576, 335);
-            this.tabPageTransakcje.TabIndex = 2;
-            this.tabPageTransakcje.Text = "Sprzedaż";
-            this.tabPageTransakcje.UseVisualStyleBackColor = true;
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.textBoxDokupioneGroszy);
+            this.groupBox4.Controls.Add(this.textBoxDokupionezloty);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.textBoxDokupioneNotka);
+            this.groupBox4.Controls.Add(this.textBoxDokupioneIlosc);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.dateTimePickerDokupione);
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Location = new System.Drawing.Point(6, 319);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(562, 60);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Dodawanie jajek";
             // 
-            // databaseDataSet
+            // label3
             // 
-            this.databaseDataSet.DataSetName = "DatabaseDataSet";
-            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(213, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Notka";
             // 
-            // databaseDataSetBindingSource
+            // textBoxDokupioneNotka
             // 
-            this.databaseDataSetBindingSource.DataSource = this.databaseDataSet;
-            this.databaseDataSetBindingSource.Position = 0;
+            this.textBoxDokupioneNotka.Location = new System.Drawing.Point(216, 33);
+            this.textBoxDokupioneNotka.Name = "textBoxDokupioneNotka";
+            this.textBoxDokupioneNotka.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDokupioneNotka.TabIndex = 7;
             // 
-            // zniesioneBindingSource
+            // textBoxDokupioneIlosc
             // 
-            this.zniesioneBindingSource.DataMember = "Zniesione";
-            this.zniesioneBindingSource.DataSource = this.databaseDataSetBindingSource;
+            this.textBoxDokupioneIlosc.Location = new System.Drawing.Point(7, 33);
+            this.textBoxDokupioneIlosc.Name = "textBoxDokupioneIlosc";
+            this.textBoxDokupioneIlosc.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDokupioneIlosc.TabIndex = 6;
+            this.textBoxDokupioneIlosc.WordWrap = false;
             // 
-            // zniesioneTableAdapter
+            // label4
             // 
-            this.zniesioneTableAdapter.ClearBeforeFill = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Ilość";
             // 
-            // tabPageStatystyka
+            // dateTimePickerDokupione
             // 
-            this.tabPageStatystyka.Location = new System.Drawing.Point(4, 22);
-            this.tabPageStatystyka.Name = "tabPageStatystyka";
-            this.tabPageStatystyka.Size = new System.Drawing.Size(576, 335);
-            this.tabPageStatystyka.TabIndex = 3;
-            this.tabPageStatystyka.Text = "Statystyka";
-            this.tabPageStatystyka.UseVisualStyleBackColor = true;
+            this.dateTimePickerDokupione.Location = new System.Drawing.Point(322, 33);
+            this.dateTimePickerDokupione.Name = "dateTimePickerDokupione";
+            this.dateTimePickerDokupione.Size = new System.Drawing.Size(153, 20);
+            this.dateTimePickerDokupione.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(481, 31);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Dodaj";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox3
             // 
@@ -296,14 +384,14 @@
             this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(562, 257);
+            this.groupBox3.Size = new System.Drawing.Size(562, 307);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dodane Historia";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(452, 224);
+            this.button2.Location = new System.Drawing.Point(452, 278);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 23);
             this.button2.TabIndex = 1;
@@ -340,84 +428,8 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridView2.Size = new System.Drawing.Size(443, 238);
+            this.dataGridView2.Size = new System.Drawing.Size(443, 288);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.textBoxDokupioneNotka);
-            this.groupBox4.Controls.Add(this.textBoxDokupioneIlosc);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.dateTimePickerDokupione);
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Location = new System.Drawing.Point(6, 269);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(562, 58);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Dodawanie jajek";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(110, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Notka";
-            // 
-            // textBoxDokupioneNotka
-            // 
-            this.textBoxDokupioneNotka.Location = new System.Drawing.Point(113, 33);
-            this.textBoxDokupioneNotka.Name = "textBoxDokupioneNotka";
-            this.textBoxDokupioneNotka.Size = new System.Drawing.Size(203, 20);
-            this.textBoxDokupioneNotka.TabIndex = 7;
-            // 
-            // textBoxDokupioneIlosc
-            // 
-            this.textBoxDokupioneIlosc.Location = new System.Drawing.Point(7, 33);
-            this.textBoxDokupioneIlosc.Name = "textBoxDokupioneIlosc";
-            this.textBoxDokupioneIlosc.Size = new System.Drawing.Size(100, 20);
-            this.textBoxDokupioneIlosc.TabIndex = 6;
-            this.textBoxDokupioneIlosc.WordWrap = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Ilość";
-            // 
-            // dateTimePickerDokupione
-            // 
-            this.dateTimePickerDokupione.Location = new System.Drawing.Point(322, 33);
-            this.dateTimePickerDokupione.Name = "dateTimePickerDokupione";
-            this.dateTimePickerDokupione.Size = new System.Drawing.Size(153, 20);
-            this.dateTimePickerDokupione.TabIndex = 1;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(481, 31);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Dodaj";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // dokupioneBindingSource
-            // 
-            this.dokupioneBindingSource.DataMember = "Dokupione";
-            this.dokupioneBindingSource.DataSource = this.databaseDataSetBindingSource;
-            // 
-            // dokupioneTableAdapter
-            // 
-            this.dokupioneTableAdapter.ClearBeforeFill = true;
             // 
             // Id
             // 
@@ -426,29 +438,326 @@
             this.Id.Name = "Id";
             this.Id.Visible = false;
             // 
-            // iloscDataGridViewTextBoxColumn1
+            // dokupioneBindingSource
             // 
-            this.iloscDataGridViewTextBoxColumn1.DataPropertyName = "Ilosc";
-            this.iloscDataGridViewTextBoxColumn1.HeaderText = "Ilosc";
-            this.iloscDataGridViewTextBoxColumn1.Name = "iloscDataGridViewTextBoxColumn1";
+            this.dokupioneBindingSource.DataMember = "Dokupione";
+            this.dokupioneBindingSource.DataSource = this.databaseDataSetBindingSource;
             // 
-            // groszeDataGridViewTextBoxColumn
+            // tabPageTransakcje
             // 
-            this.groszeDataGridViewTextBoxColumn.DataPropertyName = "Grosze";
-            this.groszeDataGridViewTextBoxColumn.HeaderText = "Grosze";
-            this.groszeDataGridViewTextBoxColumn.Name = "groszeDataGridViewTextBoxColumn";
+            this.tabPageTransakcje.Controls.Add(this.groupBox7);
+            this.tabPageTransakcje.Controls.Add(this.groupBox8);
+            this.tabPageTransakcje.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTransakcje.Name = "tabPageTransakcje";
+            this.tabPageTransakcje.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTransakcje.Size = new System.Drawing.Size(576, 385);
+            this.tabPageTransakcje.TabIndex = 2;
+            this.tabPageTransakcje.Text = "Sprzedaż";
+            this.tabPageTransakcje.UseVisualStyleBackColor = true;
             // 
-            // notkaDataGridViewTextBoxColumn1
+            // tabPageStatystyka
             // 
-            this.notkaDataGridViewTextBoxColumn1.DataPropertyName = "Notka";
-            this.notkaDataGridViewTextBoxColumn1.HeaderText = "Notka";
-            this.notkaDataGridViewTextBoxColumn1.Name = "notkaDataGridViewTextBoxColumn1";
+            this.tabPageStatystyka.Location = new System.Drawing.Point(4, 22);
+            this.tabPageStatystyka.Name = "tabPageStatystyka";
+            this.tabPageStatystyka.Size = new System.Drawing.Size(576, 385);
+            this.tabPageStatystyka.TabIndex = 3;
+            this.tabPageStatystyka.Text = "Statystyka";
+            this.tabPageStatystyka.UseVisualStyleBackColor = true;
             // 
-            // dataDataGridViewTextBoxColumn1
+            // tabPage1
             // 
-            this.dataDataGridViewTextBoxColumn1.DataPropertyName = "Data";
-            this.dataDataGridViewTextBoxColumn1.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn1.Name = "dataDataGridViewTextBoxColumn1";
+            this.tabPage1.Controls.Add(this.groupBox5);
+            this.tabPage1.Controls.Add(this.groupBox6);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(576, 385);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.textBoxNazwiskoKlienci);
+            this.groupBox5.Controls.Add(this.textBoxImieKlienci);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.Controls.Add(this.button4);
+            this.groupBox5.Location = new System.Drawing.Point(7, 270);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(562, 108);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Dodawanie nowego klienta";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(110, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Nazwisko";
+            // 
+            // textBoxNazwiskoKlienci
+            // 
+            this.textBoxNazwiskoKlienci.Location = new System.Drawing.Point(113, 33);
+            this.textBoxNazwiskoKlienci.Name = "textBoxNazwiskoKlienci";
+            this.textBoxNazwiskoKlienci.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNazwiskoKlienci.TabIndex = 7;
+            // 
+            // textBoxImieKlienci
+            // 
+            this.textBoxImieKlienci.Location = new System.Drawing.Point(7, 33);
+            this.textBoxImieKlienci.Name = "textBoxImieKlienci";
+            this.textBoxImieKlienci.Size = new System.Drawing.Size(100, 20);
+            this.textBoxImieKlienci.TabIndex = 6;
+            this.textBoxImieKlienci.WordWrap = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Imię";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(481, 31);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Dodaj";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.Controls.Add(this.button5);
+            this.groupBox6.Controls.Add(this.dataGridViewKlienci);
+            this.groupBox6.Location = new System.Drawing.Point(7, 7);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(562, 257);
+            this.groupBox6.TabIndex = 3;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Klienci";
+            this.groupBox6.Enter += new System.EventHandler(this.groupBox6_Enter);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(452, 224);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(104, 23);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Usuń";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // dataGridViewKlienci
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewKlienci.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewKlienci.AutoGenerateColumns = false;
+            this.dataGridViewKlienci.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridViewKlienci.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewKlienci.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridViewKlienci.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridViewKlienci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewKlienci.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.idDataGridViewTextBoxColumn1,
+            this.imieDataGridViewTextBoxColumn,
+            this.nazwiskoDataGridViewTextBoxColumn});
+            this.dataGridViewKlienci.DataSource = this.klienciBindingSource;
+            this.dataGridViewKlienci.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridViewKlienci.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewKlienci.Name = "dataGridViewKlienci";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewKlienci.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewKlienci.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewKlienci.Size = new System.Drawing.Size(443, 238);
+            this.dataGridViewKlienci.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox7.Controls.Add(this.label7);
+            this.groupBox7.Controls.Add(this.textBox1);
+            this.groupBox7.Controls.Add(this.textBox2);
+            this.groupBox7.Controls.Add(this.label8);
+            this.groupBox7.Controls.Add(this.dateTimePicker2);
+            this.groupBox7.Controls.Add(this.button6);
+            this.groupBox7.Location = new System.Drawing.Point(7, 303);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(562, 76);
+            this.groupBox7.TabIndex = 4;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Dodawanie transakcji";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(110, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(36, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Notka";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(113, 33);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(203, 20);
+            this.textBox1.TabIndex = 7;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(7, 33);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 6;
+            this.textBox2.WordWrap = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Ilość";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(322, 33);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(153, 20);
+            this.dateTimePicker2.TabIndex = 1;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(481, 31);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 0;
+            this.button6.Text = "Dodaj";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox8.Controls.Add(this.button7);
+            this.groupBox8.Controls.Add(this.dataGridView4);
+            this.groupBox8.Location = new System.Drawing.Point(6, 6);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(562, 291);
+            this.groupBox8.TabIndex = 3;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Dodane Historia";
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(452, 262);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(104, 23);
+            this.button7.TabIndex = 1;
+            this.button7.Text = "Usuń";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView4
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridView4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView4.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridView4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.dataGridView4.DataSource = this.dokupioneBindingSource;
+            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridView4.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView4.Name = "dataGridView4";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView4.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridView4.Size = new System.Drawing.Size(443, 272);
+            this.dataGridView4.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // textBoxDokupionezloty
+            // 
+            this.textBoxDokupionezloty.Location = new System.Drawing.Point(113, 33);
+            this.textBoxDokupionezloty.Name = "textBoxDokupionezloty";
+            this.textBoxDokupionezloty.Size = new System.Drawing.Size(29, 20);
+            this.textBoxDokupionezloty.TabIndex = 9;
+            // 
+            // textBoxDokupioneGroszy
+            // 
+            this.textBoxDokupioneGroszy.Location = new System.Drawing.Point(164, 33);
+            this.textBoxDokupioneGroszy.Name = "textBoxDokupioneGroszy";
+            this.textBoxDokupioneGroszy.Size = new System.Drawing.Size(29, 20);
+            this.textBoxDokupioneGroszy.TabIndex = 10;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(142, 39);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(16, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "zł";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(194, 39);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(16, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "gr";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -476,11 +785,105 @@
             this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
             this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
             // 
+            // databaseDataSetBindingSource
+            // 
+            this.databaseDataSetBindingSource.DataSource = this.databaseDataSet;
+            this.databaseDataSetBindingSource.Position = 0;
+            // 
+            // databaseDataSet
+            // 
+            this.databaseDataSet.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // iloscDataGridViewTextBoxColumn1
+            // 
+            this.iloscDataGridViewTextBoxColumn1.DataPropertyName = "Ilosc";
+            this.iloscDataGridViewTextBoxColumn1.HeaderText = "Ilosc";
+            this.iloscDataGridViewTextBoxColumn1.Name = "iloscDataGridViewTextBoxColumn1";
+            // 
+            // groszeDataGridViewTextBoxColumn
+            // 
+            this.groszeDataGridViewTextBoxColumn.DataPropertyName = "Grosze";
+            this.groszeDataGridViewTextBoxColumn.HeaderText = "Grosze";
+            this.groszeDataGridViewTextBoxColumn.Name = "groszeDataGridViewTextBoxColumn";
+            // 
+            // notkaDataGridViewTextBoxColumn1
+            // 
+            this.notkaDataGridViewTextBoxColumn1.DataPropertyName = "Notka";
+            this.notkaDataGridViewTextBoxColumn1.HeaderText = "Notka";
+            this.notkaDataGridViewTextBoxColumn1.Name = "notkaDataGridViewTextBoxColumn1";
+            // 
+            // dataDataGridViewTextBoxColumn1
+            // 
+            this.dataDataGridViewTextBoxColumn1.DataPropertyName = "Data";
+            this.dataDataGridViewTextBoxColumn1.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn1.Name = "dataDataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Ilosc";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Ilosc";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Grosze";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Grosze";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Notka";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Notka";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Data";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Data";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // imieDataGridViewTextBoxColumn
+            // 
+            this.imieDataGridViewTextBoxColumn.DataPropertyName = "Imie";
+            this.imieDataGridViewTextBoxColumn.HeaderText = "Imie";
+            this.imieDataGridViewTextBoxColumn.Name = "imieDataGridViewTextBoxColumn";
+            // 
+            // nazwiskoDataGridViewTextBoxColumn
+            // 
+            this.nazwiskoDataGridViewTextBoxColumn.DataPropertyName = "Nazwisko";
+            this.nazwiskoDataGridViewTextBoxColumn.HeaderText = "Nazwisko";
+            this.nazwiskoDataGridViewTextBoxColumn.Name = "nazwiskoDataGridViewTextBoxColumn";
+            // 
+            // klienciBindingSource
+            // 
+            this.klienciBindingSource.DataMember = "Klienci";
+            this.klienciBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // zniesioneTableAdapter
+            // 
+            this.zniesioneTableAdapter.ClearBeforeFill = true;
+            // 
+            // dokupioneTableAdapter
+            // 
+            this.dokupioneTableAdapter.ClearBeforeFill = true;
+            // 
+            // klienciTableAdapter
+            // 
+            this.klienciTableAdapter.ClearBeforeFill = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 361);
+            this.ClientSize = new System.Drawing.Size(584, 411);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(600, 400);
@@ -493,15 +896,26 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPageDokupione.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zniesioneBindingSource)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPageDokupione.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dokupioneBindingSource)).EndInit();
+            this.tabPageTransakcje.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKlienci)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.klienciBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -548,6 +962,41 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iloscDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn notkaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxNazwiskoKlienci;
+        private System.Windows.Forms.TextBox textBoxImieKlienci;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridView dataGridViewKlienci;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource klienciBindingSource;
+        private DatabaseDataSetTableAdapters.KlienciTableAdapter klienciTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imieDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazwiskoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxDokupioneGroszy;
+        private System.Windows.Forms.TextBox textBoxDokupionezloty;
     }
 }
 

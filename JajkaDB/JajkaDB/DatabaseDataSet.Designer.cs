@@ -34,8 +34,6 @@ namespace JajkaDB {
         
         private ZniesioneDataTable tableZniesione;
         
-        private global::System.Data.DataRelation relationFK_Transakcje_ToTable;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -292,7 +290,6 @@ namespace JajkaDB {
                     this.tableZniesione.InitVars();
                 }
             }
-            this.relationFK_Transakcje_ToTable = this.Relations["FK_Transakcje_ToTable"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -313,10 +310,6 @@ namespace JajkaDB {
             base.Tables.Add(this.tableWydatki);
             this.tableZniesione = new ZniesioneDataTable();
             base.Tables.Add(this.tableZniesione);
-            this.relationFK_Transakcje_ToTable = new global::System.Data.DataRelation("FK_Transakcje_ToTable", new global::System.Data.DataColumn[] {
-                        this.tableKlienci.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTransakcje.KlientColumn}, false);
-            this.Relations.Add(this.relationFK_Transakcje_ToTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1039,11 +1032,11 @@ namespace JajkaDB {
             
             private global::System.Data.DataColumn columnGrosze;
             
-            private global::System.Data.DataColumn columnKlient;
-            
             private global::System.Data.DataColumn columnNotka;
             
             private global::System.Data.DataColumn columnData;
+            
+            private global::System.Data.DataColumn columnPelne;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1104,14 +1097,6 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn KlientColumn {
-                get {
-                    return this.columnKlient;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn NotkaColumn {
                 get {
                     return this.columnNotka;
@@ -1123,6 +1108,14 @@ namespace JajkaDB {
             public global::System.Data.DataColumn DataColumn {
                 get {
                     return this.columnData;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PelneColumn {
+                get {
+                    return this.columnPelne;
                 }
             }
             
@@ -1163,18 +1156,15 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TransakcjeRow AddTransakcjeRow(int Jajka, int Grosze, KlienciRow parentKlienciRowByFK_Transakcje_ToTable, string Notka, System.DateTime Data) {
+            public TransakcjeRow AddTransakcjeRow(int Jajka, int Grosze, string Notka, System.DateTime Data, string Pelne) {
                 TransakcjeRow rowTransakcjeRow = ((TransakcjeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Jajka,
                         Grosze,
-                        null,
                         Notka,
-                        Data};
-                if ((parentKlienciRowByFK_Transakcje_ToTable != null)) {
-                    columnValuesArray[3] = parentKlienciRowByFK_Transakcje_ToTable[0];
-                }
+                        Data,
+                        Pelne};
                 rowTransakcjeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTransakcjeRow);
                 return rowTransakcjeRow;
@@ -1207,9 +1197,9 @@ namespace JajkaDB {
                 this.columnId = base.Columns["Id"];
                 this.columnJajka = base.Columns["Jajka"];
                 this.columnGrosze = base.Columns["Grosze"];
-                this.columnKlient = base.Columns["Klient"];
                 this.columnNotka = base.Columns["Notka"];
                 this.columnData = base.Columns["Data"];
+                this.columnPelne = base.Columns["Pelne"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1221,12 +1211,12 @@ namespace JajkaDB {
                 base.Columns.Add(this.columnJajka);
                 this.columnGrosze = new global::System.Data.DataColumn("Grosze", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGrosze);
-                this.columnKlient = new global::System.Data.DataColumn("Klient", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKlient);
                 this.columnNotka = new global::System.Data.DataColumn("Notka", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNotka);
                 this.columnData = new global::System.Data.DataColumn("Data", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnData);
+                this.columnPelne = new global::System.Data.DataColumn("Pelne", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPelne);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -1236,6 +1226,8 @@ namespace JajkaDB {
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
                 this.columnNotka.MaxLength = 2147483647;
+                this.columnPelne.ReadOnly = true;
+                this.columnPelne.MaxLength = 101;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2190,17 +2182,6 @@ namespace JajkaDB {
             public void SetNazwiskoNull() {
                 this[this.tableKlienci.NazwiskoColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TransakcjeRow[] GetTransakcjeRows() {
-                if ((this.Table.ChildRelations["FK_Transakcje_ToTable"] == null)) {
-                    return new TransakcjeRow[0];
-                }
-                else {
-                    return ((TransakcjeRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Transakcje_ToTable"])));
-                }
-            }
         }
         
         /// <summary>
@@ -2262,22 +2243,6 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Klient {
-                get {
-                    try {
-                        return ((int)(this[this.tableTransakcje.KlientColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Klient\' in table \'Transakcje\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTransakcje.KlientColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Notka {
                 get {
                     try {
@@ -2310,12 +2275,17 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public KlienciRow KlienciRow {
+            public string Pelne {
                 get {
-                    return ((KlienciRow)(this.GetParentRow(this.Table.ParentRelations["FK_Transakcje_ToTable"])));
+                    try {
+                        return ((string)(this[this.tableTransakcje.PelneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pelne\' in table \'Transakcje\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Transakcje_ToTable"]);
+                    this[this.tableTransakcje.PelneColumn] = value;
                 }
             }
             
@@ -2345,18 +2315,6 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsKlientNull() {
-                return this.IsNull(this.tableTransakcje.KlientColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetKlientNull() {
-                this[this.tableTransakcje.KlientColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNotkaNull() {
                 return this.IsNull(this.tableTransakcje.NotkaColumn);
             }
@@ -2377,6 +2335,18 @@ namespace JajkaDB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDataNull() {
                 this[this.tableTransakcje.DataColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPelneNull() {
+                return this.IsNull(this.tableTransakcje.PelneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPelneNull() {
+                this[this.tableTransakcje.PelneColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2914,21 +2884,19 @@ namespace JajkaDB.DatabaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Dokupione] ([Id], [Ilosc], [Grosze], [Notka], [Data]) VALUES (" +
-                "@Id, @Ilosc, @Grosze, @Notka, @Data);\r\nSELECT Id, Ilosc, Grosze, Notka, Data FRO" +
-                "M Dokupione WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Dokupione] ([Ilosc], [Grosze], [Notka], [Data]) VALUES (@Ilosc" +
+                ", @Grosze, @Notka, @Data);\r\nSELECT Id, Ilosc, Grosze, Notka, Data FROM Dokupione" +
+                " WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ilosc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ilosc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grosze", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grosze", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Notka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Dokupione] SET [Id] = @Id, [Ilosc] = @Ilosc, [Grosze] = @Grosze, [Notka] = @Notka, [Data] = @Data WHERE (([Id] = @Original_Id) AND ((@IsNull_Ilosc = 1 AND [Ilosc] IS NULL) OR ([Ilosc] = @Original_Ilosc)) AND ((@IsNull_Grosze = 1 AND [Grosze] IS NULL) OR ([Grosze] = @Original_Grosze)) AND ((@IsNull_Data = 1 AND [Data] IS NULL) OR ([Data] = @Original_Data)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Dokupione] SET [Ilosc] = @Ilosc, [Grosze] = @Grosze, [Notka] = @Notka, [Data] = @Data WHERE (([Id] = @Original_Id) AND ((@IsNull_Ilosc = 1 AND [Ilosc] IS NULL) OR ([Ilosc] = @Original_Ilosc)) AND ((@IsNull_Grosze = 1 AND [Grosze] IS NULL) OR ([Grosze] = @Original_Grosze)) AND ((@IsNull_Data = 1 AND [Data] IS NULL) OR ([Data] = @Original_Data)));
 SELECT Id, Ilosc, Grosze, Notka, Data FROM Dokupione WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ilosc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ilosc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grosze", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grosze", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Notka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2940,6 +2908,7 @@ SELECT Id, Ilosc, Grosze, Notka, Data FROM Dokupione WHERE (Id = @Id)";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Grosze", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grosze", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Data", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3067,31 +3036,30 @@ SELECT Id, Ilosc, Grosze, Notka, Data FROM Dokupione WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Id, global::System.Nullable<int> Ilosc, global::System.Nullable<int> Grosze, string Notka, global::System.Nullable<global::System.DateTime> Data) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Id));
+        public virtual int Insert(global::System.Nullable<int> Ilosc, global::System.Nullable<int> Grosze, string Notka, global::System.Nullable<global::System.DateTime> Data) {
             if ((Ilosc.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Ilosc.Value));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Ilosc.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Grosze.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Grosze.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Grosze.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Grosze.Value));
-            }
-            else {
+            if ((Notka == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Notka == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Notka));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Notka));
             }
             if ((Data.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(Data.Value));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(Data.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3113,57 +3081,57 @@ SELECT Id, Ilosc, Grosze, Notka, Data FROM Dokupione WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Id, global::System.Nullable<int> Ilosc, global::System.Nullable<int> Grosze, string Notka, global::System.Nullable<global::System.DateTime> Data, int Original_Id, global::System.Nullable<int> Original_Ilosc, global::System.Nullable<int> Original_Grosze, global::System.Nullable<global::System.DateTime> Original_Data) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Id));
+        public virtual int Update(global::System.Nullable<int> Ilosc, global::System.Nullable<int> Grosze, string Notka, global::System.Nullable<global::System.DateTime> Data, int Original_Id, global::System.Nullable<int> Original_Ilosc, global::System.Nullable<int> Original_Grosze, global::System.Nullable<global::System.DateTime> Original_Data, int Id) {
             if ((Ilosc.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Ilosc.Value));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Ilosc.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Grosze.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Grosze.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Grosze.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Grosze.Value));
-            }
-            else {
+            if ((Notka == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Notka == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Notka));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Notka));
             }
             if ((Data.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Data.Value));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(Data.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Id));
             if ((Original_Ilosc.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Ilosc.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Ilosc.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((Original_Grosze.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Grosze.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Grosze.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((Original_Data.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_Data.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_Data.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3185,7 +3153,7 @@ SELECT Id, Ilosc, Grosze, Notka, Data FROM Dokupione WHERE (Id = @Id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(global::System.Nullable<int> Ilosc, global::System.Nullable<int> Grosze, string Notka, global::System.Nullable<global::System.DateTime> Data, int Original_Id, global::System.Nullable<int> Original_Ilosc, global::System.Nullable<int> Original_Grosze, global::System.Nullable<global::System.DateTime> Original_Data) {
-            return this.Update(Original_Id, Ilosc, Grosze, Notka, Data, Original_Id, Original_Ilosc, Original_Grosze, Original_Data);
+            return this.Update(Ilosc, Grosze, Notka, Data, Original_Id, Original_Ilosc, Original_Grosze, Original_Data, Original_Id);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3725,54 +3693,10 @@ SELECT Id, Imie, Nazwisko FROM Klienci WHERE (Id = @Id)";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Jajka", "Jajka");
             tableMapping.ColumnMappings.Add("Grosze", "Grosze");
-            tableMapping.ColumnMappings.Add("Klient", "Klient");
             tableMapping.ColumnMappings.Add("Notka", "Notka");
             tableMapping.ColumnMappings.Add("Data", "Data");
+            tableMapping.ColumnMappings.Add("Pelne", "Pelne");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Transakcje] WHERE (([Id] = @Original_Id) AND ((@IsNull_Jajka = 1 AND [Jajka] IS NULL) OR ([Jajka] = @Original_Jajka)) AND ((@IsNull_Grosze = 1 AND [Grosze] IS NULL) OR ([Grosze] = @Original_Grosze)) AND ((@IsNull_Klient = 1 AND [Klient] IS NULL) OR ([Klient] = @Original_Klient)) AND ((@IsNull_Data = 1 AND [Data] IS NULL) OR ([Data] = @Original_Data)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Jajka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jajka", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Jajka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jajka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Grosze", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grosze", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Grosze", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grosze", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Klient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Klient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Klient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Klient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Data", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Transakcje] ([Jajka], [Grosze], [Klient], [Notka], [Data]) VAL" +
-                "UES (@Jajka, @Grosze, @Klient, @Notka, @Data);\r\nSELECT Id, Jajka, Grosze, Klient" +
-                ", Notka, Data FROM Transakcje WHERE (Id = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jajka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jajka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grosze", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grosze", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Klient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Klient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Notka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Transakcje] SET [Jajka] = @Jajka, [Grosze] = @Grosze, [Klient] = @Klient, [Notka] = @Notka, [Data] = @Data WHERE (([Id] = @Original_Id) AND ((@IsNull_Jajka = 1 AND [Jajka] IS NULL) OR ([Jajka] = @Original_Jajka)) AND ((@IsNull_Grosze = 1 AND [Grosze] IS NULL) OR ([Grosze] = @Original_Grosze)) AND ((@IsNull_Klient = 1 AND [Klient] IS NULL) OR ([Klient] = @Original_Klient)) AND ((@IsNull_Data = 1 AND [Data] IS NULL) OR ([Data] = @Original_Data)));
-SELECT Id, Jajka, Grosze, Klient, Notka, Data FROM Transakcje WHERE (Id = @Id)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jajka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jajka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grosze", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grosze", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Klient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Klient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Notka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Jajka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jajka", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Jajka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jajka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Grosze", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grosze", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Grosze", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grosze", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Klient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Klient", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Klient", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Klient", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Data", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Data", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3785,16 +3709,29 @@ SELECT Id, Jajka, Grosze, Klient, Notka, Data FROM Transakcje WHERE (Id = @Id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Jajka, Grosze, Klient, Notka, Data FROM dbo.Transakcje";
+            this._commandCollection[0].CommandText = "SELECT        Transakcje.Id, Transakcje.Jajka, Transakcje.Grosze, Klienci.Imie + " +
+                "\' \' + Klienci.Nazwisko AS Pelne, Transakcje.Notka, Transakcje.Data\r\nFROM        " +
+                "    Transakcje INNER JOIN\r\n                         Klienci ON Transakcje.Klient" +
+                " = Klienci.Id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "DELETE FROM [dbo].[Transakcje] WHERE ([Id] = @id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "INSERT INTO Transakcje\r\n                         (Jajka, Grosze, Klient, Notka, D" +
+                "ata)\r\nVALUES        (@jajka,@grosze,@klient,@notka,@data)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@jajka", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Jajka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@grosze", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Grosze", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@klient", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Klient", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@notka", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Notka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3824,237 +3761,63 @@ SELECT Id, Jajka, Grosze, Klient, Notka, Data FROM Transakcje WHERE (Id = @Id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DatabaseDataSet.TransakcjeDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DatabaseDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Transakcje");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, global::System.Nullable<int> Original_Jajka, global::System.Nullable<int> Original_Grosze, global::System.Nullable<int> Original_Klient, global::System.Nullable<global::System.DateTime> Original_Data) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_Jajka.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Jajka.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Grosze.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Grosze.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Klient.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Klient.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Data.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_Data.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Jajka, global::System.Nullable<int> Grosze, global::System.Nullable<int> Klient, string Notka, global::System.Nullable<global::System.DateTime> Data) {
-            if ((Jajka.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Jajka.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Grosze.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Grosze.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Klient.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Klient.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Notka == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Notka));
-            }
-            if ((Data.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(Data.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Jajka, global::System.Nullable<int> Grosze, global::System.Nullable<int> Klient, string Notka, global::System.Nullable<global::System.DateTime> Data, int Original_Id, global::System.Nullable<int> Original_Jajka, global::System.Nullable<int> Original_Grosze, global::System.Nullable<int> Original_Klient, global::System.Nullable<global::System.DateTime> Original_Data, int Id) {
-            if ((Jajka.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Jajka.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Grosze.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Grosze.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Klient.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Klient.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Notka == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Notka));
-            }
-            if ((Data.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Data.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id));
-            if ((Original_Jajka.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Jajka.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Grosze.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Grosze.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Klient.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Klient.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Data.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_Data.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Jajka, global::System.Nullable<int> Grosze, global::System.Nullable<int> Klient, string Notka, global::System.Nullable<global::System.DateTime> Data, int Original_Id, global::System.Nullable<int> Original_Jajka, global::System.Nullable<int> Original_Grosze, global::System.Nullable<int> Original_Klient, global::System.Nullable<global::System.DateTime> Original_Data) {
-            return this.Update(Jajka, Grosze, Klient, Notka, Data, Original_Id, Original_Jajka, Original_Grosze, Original_Klient, Original_Data, Original_Id);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
         public virtual int DeleteByIdQuery(int id) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             command.Parameters[0].Value = ((int)(id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(global::System.Nullable<int> jajka, global::System.Nullable<int> grosze, global::System.Nullable<int> klient, string notka, string data) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((jajka.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(jajka.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((grosze.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(grosze.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((klient.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(klient.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((notka == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((string)(notka));
+            }
+            if ((data == null)) {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[4].Value = ((string)(data));
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4739,8 +4502,6 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
         
         private KlienciTableAdapter _klienciTableAdapter;
         
-        private TransakcjeTableAdapter _transakcjeTableAdapter;
-        
         private WydatkiTableAdapter _wydatkiTableAdapter;
         
         private ZniesioneTableAdapter _zniesioneTableAdapter;
@@ -4785,20 +4546,6 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
             }
             set {
                 this._klienciTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public TransakcjeTableAdapter TransakcjeTableAdapter {
-            get {
-                return this._transakcjeTableAdapter;
-            }
-            set {
-                this._transakcjeTableAdapter = value;
             }
         }
         
@@ -4857,10 +4604,6 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
                             && (this._klienciTableAdapter.Connection != null))) {
                     return this._klienciTableAdapter.Connection;
                 }
-                if (((this._transakcjeTableAdapter != null) 
-                            && (this._transakcjeTableAdapter.Connection != null))) {
-                    return this._transakcjeTableAdapter.Connection;
-                }
                 if (((this._wydatkiTableAdapter != null) 
                             && (this._wydatkiTableAdapter.Connection != null))) {
                     return this._wydatkiTableAdapter.Connection;
@@ -4888,9 +4631,6 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
                 if ((this._klienciTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._transakcjeTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._wydatkiTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -4908,15 +4648,6 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(DatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._klienciTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Klienci.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._klienciTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._dokupioneTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Dokupione.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -4926,12 +4657,12 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._transakcjeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Transakcje.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._klienciTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Klienci.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._transakcjeTableAdapter.Update(updatedRows));
+                    result = (result + this._klienciTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4963,14 +4694,6 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(DatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._klienciTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Klienci.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._klienciTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._dokupioneTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Dokupione.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -4979,11 +4702,11 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._transakcjeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Transakcje.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._klienciTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Klienci.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._transakcjeTableAdapter.Update(addedRows));
+                    result = (result + this._klienciTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5029,11 +4752,11 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._transakcjeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Transakcje.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._klienciTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Klienci.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._transakcjeTableAdapter.Update(deletedRows));
+                    result = (result + this._klienciTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5042,14 +4765,6 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._dokupioneTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._klienciTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Klienci.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._klienciTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5099,11 +4814,6 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
             }
             if (((this._klienciTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._klienciTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._transakcjeTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._transakcjeTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -5165,15 +4875,6 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
                     if (this._klienciTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._klienciTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._klienciTableAdapter.Adapter);
-                    }
-                }
-                if ((this._transakcjeTableAdapter != null)) {
-                    revertConnections.Add(this._transakcjeTableAdapter, this._transakcjeTableAdapter.Connection);
-                    this._transakcjeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._transakcjeTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._transakcjeTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._transakcjeTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._transakcjeTableAdapter.Adapter);
                     }
                 }
                 if ((this._wydatkiTableAdapter != null)) {
@@ -5259,10 +4960,6 @@ SELECT Id, Grosze, Data, Notka FROM Wydatki WHERE (Id = @Id)";
                 if ((this._klienciTableAdapter != null)) {
                     this._klienciTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._klienciTableAdapter]));
                     this._klienciTableAdapter.Transaction = null;
-                }
-                if ((this._transakcjeTableAdapter != null)) {
-                    this._transakcjeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._transakcjeTableAdapter]));
-                    this._transakcjeTableAdapter.Transaction = null;
                 }
                 if ((this._wydatkiTableAdapter != null)) {
                     this._wydatkiTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._wydatkiTableAdapter]));

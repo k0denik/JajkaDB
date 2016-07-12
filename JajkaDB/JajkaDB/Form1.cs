@@ -19,6 +19,8 @@ namespace JajkaDB
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Klienci' table. You can move, or remove it, as needed.
+            this.klienciTableAdapter.Fill(this.databaseDataSet.Klienci);
             // TODO: This line of code loads data into the 'databaseDataSet.Dokupione' table. You can move, or remove it, as needed.
             this.dokupioneTableAdapter.Fill(this.databaseDataSet.Dokupione);
             // TODO: This line of code loads data into the 'databaseDataSet.Zniesione' table. You can move, or remove it, as needed.
@@ -77,7 +79,68 @@ namespace JajkaDB
 
         private void button2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int id = int.Parse(dataGridView2.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                dokupioneTableAdapter.DeleteByIdQuery(id);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+            }
+            dokupioneTableAdapter.Fill(databaseDataSet.Dokupione);
+        }
 
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string imie = textBoxImieKlienci.Text;
+                string nazwisko = textBoxNazwiskoKlienci.Text;
+                klienciTableAdapter.Insert(imie, nazwisko);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+            }
+            klienciTableAdapter.Fill(databaseDataSet.Klienci);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ilosc = int.Parse(textBoxDokupioneIlosc.Text);
+                int groszy = int.Parse(textBoxDokupionezloty.Text)*100;
+                groszy += int.Parse(textBoxDokupioneGroszy.Text);
+                string notka = textBoxDokupioneNotka.Text;
+                var data = dateTimePickerDokupione.Value;
+                dokupioneTableAdapter.Insert(ilosc, groszy, notka, data);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+            }
+            dokupioneTableAdapter.Fill(databaseDataSet.Dokupione);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(dataGridViewKlienci.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                klienciTableAdapter.DeleteByIdQuery(id);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+            }
+            klienciTableAdapter.Fill(databaseDataSet.Klienci);
         }
     }
 }
