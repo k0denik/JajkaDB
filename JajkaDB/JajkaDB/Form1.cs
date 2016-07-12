@@ -20,7 +20,8 @@ namespace JajkaDB
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'databaseDataSet11.KlienciZakupy' table. You can move, or remove it, as needed.
-            this.klienciZakupyTableAdapter.Fill(this.databaseDataSet11.KlienciZakupy);
+            dateTimePickerViewOd.Value = DateTime.Today - TimeSpan.FromDays(30);
+            dateTimePickerViewDo.Value = DateTime.Today;
             // TODO: This line of code loads data into the 'databaseDataSet1.Transakcje' table. You can move, or remove it, as needed.
             this.transakcjeTableAdapter.Fill(this.databaseDataSet1.Transakcje);
             // TODO: This line of code loads data into the 'databaseDataSet.Klienci' table. You can move, or remove it, as needed.
@@ -30,6 +31,7 @@ namespace JajkaDB
             // TODO: This line of code loads data into the 'databaseDataSet.Zniesione' table. You can move, or remove it, as needed.
             this.zniesioneTableAdapter.Fill(this.databaseDataSet.Zniesione);
             dateTimePicker1.Value = DateTime.Today;
+            refreshViews();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -189,6 +191,17 @@ namespace JajkaDB
                 MessageBox.Show("Coś poszło nie tak:" + exc.Message);
             }
             transakcjeTableAdapter.Fill(databaseDataSet1.Transakcje);
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refreshViews();
+        }
+
+        private void refreshViews()
+        {
+            klienciZakupyTableAdapter.FillByDate(this.databaseDataSet11.KlienciZakupy, dateTimePickerViewOd.Value.ToShortDateString(), dateTimePickerViewDo.Value.ToShortDateString());
+
         }
     }
 }

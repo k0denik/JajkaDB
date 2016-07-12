@@ -703,9 +703,7 @@ namespace JajkaDB {
             
             private global::System.Data.DataColumn columnJajka;
             
-            private global::System.Data.DataColumn columnGrosze;
-            
-            private global::System.Data.DataColumn columnData;
+            private global::System.Data.DataColumn columnZlote;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -766,17 +764,9 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn GroszeColumn {
+            public global::System.Data.DataColumn ZloteColumn {
                 get {
-                    return this.columnGrosze;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DataColumn {
-                get {
-                    return this.columnData;
+                    return this.columnZlote;
                 }
             }
             
@@ -817,14 +807,13 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public KlienciZakupyRow AddKlienciZakupyRow(string Imie, string Nazwisko, int Jajka, int Grosze, System.DateTime Data) {
+            public KlienciZakupyRow AddKlienciZakupyRow(string Imie, string Nazwisko, int Jajka, decimal Zlote) {
                 KlienciZakupyRow rowKlienciZakupyRow = ((KlienciZakupyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Imie,
                         Nazwisko,
                         Jajka,
-                        Grosze,
-                        Data};
+                        Zlote};
                 rowKlienciZakupyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowKlienciZakupyRow);
                 return rowKlienciZakupyRow;
@@ -850,8 +839,7 @@ namespace JajkaDB {
                 this.columnImie = base.Columns["Imie"];
                 this.columnNazwisko = base.Columns["Nazwisko"];
                 this.columnJajka = base.Columns["Jajka"];
-                this.columnGrosze = base.Columns["Grosze"];
-                this.columnData = base.Columns["Data"];
+                this.columnZlote = base.Columns["Zlote"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -863,10 +851,8 @@ namespace JajkaDB {
                 base.Columns.Add(this.columnNazwisko);
                 this.columnJajka = new global::System.Data.DataColumn("Jajka", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnJajka);
-                this.columnGrosze = new global::System.Data.DataColumn("Grosze", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGrosze);
-                this.columnData = new global::System.Data.DataColumn("Data", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnData);
+                this.columnZlote = new global::System.Data.DataColumn("Zlote", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZlote);
                 this.columnImie.MaxLength = 50;
                 this.columnNazwisko.MaxLength = 50;
             }
@@ -1857,33 +1843,17 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Grosze {
+            public decimal Zlote {
                 get {
                     try {
-                        return ((int)(this[this.tableKlienciZakupy.GroszeColumn]));
+                        return ((decimal)(this[this.tableKlienciZakupy.ZloteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Grosze\' in table \'KlienciZakupy\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Zlote\' in table \'KlienciZakupy\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableKlienciZakupy.GroszeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Data {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableKlienciZakupy.DataColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Data\' in table \'KlienciZakupy\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableKlienciZakupy.DataColumn] = value;
+                    this[this.tableKlienciZakupy.ZloteColumn] = value;
                 }
             }
             
@@ -1925,26 +1895,14 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsGroszeNull() {
-                return this.IsNull(this.tableKlienciZakupy.GroszeColumn);
+            public bool IsZloteNull() {
+                return this.IsNull(this.tableKlienciZakupy.ZloteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetGroszeNull() {
-                this[this.tableKlienciZakupy.GroszeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDataNull() {
-                return this.IsNull(this.tableKlienciZakupy.DataColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDataNull() {
-                this[this.tableKlienciZakupy.DataColumn] = global::System.Convert.DBNull;
+            public void SetZloteNull() {
+                this[this.tableKlienciZakupy.ZloteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2543,8 +2501,7 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("Imie", "Imie");
             tableMapping.ColumnMappings.Add("Nazwisko", "Nazwisko");
             tableMapping.ColumnMappings.Add("Jajka", "Jajka");
-            tableMapping.ColumnMappings.Add("Grosze", "Grosze");
-            tableMapping.ColumnMappings.Add("Data", "Data");
+            tableMapping.ColumnMappings.Add("Grosze", "Zlote");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2561,12 +2518,13 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Imie, Nazwisko, Jajka, Grosze, Data FROM dbo.KlienciZakupy";
+            this._commandCollection[0].CommandText = "SELECT Imie, Nazwisko, Jajka, Grosze FROM KlienciZakupy";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        Imie, Nazwisko, Jajka, Grosze, Data\r\nFROM            KlienciZakupy\r" +
-                "\nWHERE        (Data BETWEEN @dataOd AND @dataDo)";
+            this._commandCollection[1].CommandText = "SELECT        Imie, Nazwisko, SUM(Jajka) AS Jajka, CONVERT(DECIMAL(10, 2), SUM(Gr" +
+                "osze) / 100.0) AS Zlote\r\nFROM            KlienciZakupy\r\nWHERE        (Data BETWE" +
+                "EN @dataOd AND @dataDo)\r\nGROUP BY Imie, Nazwisko";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

@@ -122,21 +122,20 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.imieDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwiskoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jajkaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zloteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.klienciZakupyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSet11 = new JajkaDB.DatabaseDataSet1();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerViewDo = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerViewOd = new System.Windows.Forms.DateTimePicker();
             this.zniesioneTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.ZniesioneTableAdapter();
             this.dokupioneTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.DokupioneTableAdapter();
             this.klienciTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.KlienciTableAdapter();
             this.transakcjeTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.TransakcjeTableAdapter();
-            this.databaseDataSet11 = new JajkaDB.DatabaseDataSet1();
-            this.klienciZakupyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.klienciZakupyTableAdapter = new JajkaDB.DatabaseDataSet1TableAdapters.KlienciZakupyTableAdapter();
-            this.imieDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwiskoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jajkaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groszeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPageZniesione.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -165,8 +164,8 @@
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.klienciZakupyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -182,6 +181,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(744, 411);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPageZniesione
             // 
@@ -316,7 +316,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridView1.Size = new System.Drawing.Size(472, 288);
+            this.dataGridView1.Size = new System.Drawing.Size(624, 288);
             this.dataGridView1.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -889,7 +889,7 @@
             this.dataDataGridViewTextBoxColumn2,
             this.notkaDataGridViewTextBoxColumn2});
             this.dataGridViewTrans.DataSource = this.transakcjeBindingSource;
-            this.dataGridViewTrans.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridViewTrans.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewTrans.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewTrans.Name = "dataGridViewTrans";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
@@ -901,7 +901,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTrans.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTrans.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTrans.Size = new System.Drawing.Size(716, 255);
+            this.dataGridViewTrans.Size = new System.Drawing.Size(624, 283);
             this.dataGridViewTrans.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn2
@@ -959,8 +959,8 @@
             this.tabPageStatystyka.Controls.Add(this.label14);
             this.tabPageStatystyka.Controls.Add(this.label13);
             this.tabPageStatystyka.Controls.Add(this.tabControl2);
-            this.tabPageStatystyka.Controls.Add(this.dateTimePicker3);
-            this.tabPageStatystyka.Controls.Add(this.dateTimePicker2);
+            this.tabPageStatystyka.Controls.Add(this.dateTimePickerViewDo);
+            this.tabPageStatystyka.Controls.Add(this.dateTimePickerViewOd);
             this.tabPageStatystyka.Location = new System.Drawing.Point(4, 22);
             this.tabPageStatystyka.Name = "tabPageStatystyka";
             this.tabPageStatystyka.Size = new System.Drawing.Size(736, 385);
@@ -1009,51 +1009,91 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(563, 353);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Specyfikacja";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.AutoGenerateColumns = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.imieDataGridViewTextBoxColumn1,
             this.nazwiskoDataGridViewTextBoxColumn1,
             this.jajkaDataGridViewTextBoxColumn1,
-            this.groszeDataGridViewTextBoxColumn,
-            this.dataDataGridViewTextBoxColumn3});
+            this.zloteDataGridViewTextBoxColumn});
             this.dataGridView3.DataSource = this.klienciZakupyBindingSource;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
             this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
             this.dataGridView3.Size = new System.Drawing.Size(557, 347);
             this.dataGridView3.TabIndex = 0;
+            // 
+            // imieDataGridViewTextBoxColumn1
+            // 
+            this.imieDataGridViewTextBoxColumn1.DataPropertyName = "Imie";
+            this.imieDataGridViewTextBoxColumn1.HeaderText = "Imie";
+            this.imieDataGridViewTextBoxColumn1.Name = "imieDataGridViewTextBoxColumn1";
+            this.imieDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nazwiskoDataGridViewTextBoxColumn1
+            // 
+            this.nazwiskoDataGridViewTextBoxColumn1.DataPropertyName = "Nazwisko";
+            this.nazwiskoDataGridViewTextBoxColumn1.HeaderText = "Nazwisko";
+            this.nazwiskoDataGridViewTextBoxColumn1.Name = "nazwiskoDataGridViewTextBoxColumn1";
+            this.nazwiskoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // jajkaDataGridViewTextBoxColumn1
+            // 
+            this.jajkaDataGridViewTextBoxColumn1.DataPropertyName = "Jajka";
+            this.jajkaDataGridViewTextBoxColumn1.HeaderText = "Jajka";
+            this.jajkaDataGridViewTextBoxColumn1.Name = "jajkaDataGridViewTextBoxColumn1";
+            this.jajkaDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // zloteDataGridViewTextBoxColumn
+            // 
+            this.zloteDataGridViewTextBoxColumn.DataPropertyName = "Zlote";
+            this.zloteDataGridViewTextBoxColumn.HeaderText = "Zlote";
+            this.zloteDataGridViewTextBoxColumn.Name = "zloteDataGridViewTextBoxColumn";
+            this.zloteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // klienciZakupyBindingSource
+            // 
+            this.klienciZakupyBindingSource.DataMember = "KlienciZakupy";
+            this.klienciZakupyBindingSource.DataSource = this.databaseDataSet11;
+            // 
+            // databaseDataSet11
+            // 
+            this.databaseDataSet11.DataSetName = "DatabaseDataSet1";
+            this.databaseDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(411, 353);
+            this.tabPage2.Size = new System.Drawing.Size(563, 353);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker3
+            // dateTimePickerViewDo
             // 
-            this.dateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(583, 65);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(145, 20);
-            this.dateTimePicker3.TabIndex = 1;
+            this.dateTimePickerViewDo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePickerViewDo.Location = new System.Drawing.Point(583, 65);
+            this.dateTimePickerViewDo.Name = "dateTimePickerViewDo";
+            this.dateTimePickerViewDo.Size = new System.Drawing.Size(145, 20);
+            this.dateTimePickerViewDo.TabIndex = 1;
             // 
-            // dateTimePicker2
+            // dateTimePickerViewOd
             // 
-            this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(583, 19);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(145, 20);
-            this.dateTimePicker2.TabIndex = 0;
+            this.dateTimePickerViewOd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePickerViewOd.Location = new System.Drawing.Point(583, 19);
+            this.dateTimePickerViewOd.Name = "dateTimePickerViewOd";
+            this.dateTimePickerViewOd.Size = new System.Drawing.Size(145, 20);
+            this.dateTimePickerViewOd.TabIndex = 0;
             // 
             // zniesioneTableAdapter
             // 
@@ -1071,49 +1111,9 @@
             // 
             this.transakcjeTableAdapter.ClearBeforeFill = true;
             // 
-            // databaseDataSet11
-            // 
-            this.databaseDataSet11.DataSetName = "DatabaseDataSet1";
-            this.databaseDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // klienciZakupyBindingSource
-            // 
-            this.klienciZakupyBindingSource.DataMember = "KlienciZakupy";
-            this.klienciZakupyBindingSource.DataSource = this.databaseDataSet11;
-            // 
             // klienciZakupyTableAdapter
             // 
             this.klienciZakupyTableAdapter.ClearBeforeFill = true;
-            // 
-            // imieDataGridViewTextBoxColumn1
-            // 
-            this.imieDataGridViewTextBoxColumn1.DataPropertyName = "Imie";
-            this.imieDataGridViewTextBoxColumn1.HeaderText = "Imie";
-            this.imieDataGridViewTextBoxColumn1.Name = "imieDataGridViewTextBoxColumn1";
-            // 
-            // nazwiskoDataGridViewTextBoxColumn1
-            // 
-            this.nazwiskoDataGridViewTextBoxColumn1.DataPropertyName = "Nazwisko";
-            this.nazwiskoDataGridViewTextBoxColumn1.HeaderText = "Nazwisko";
-            this.nazwiskoDataGridViewTextBoxColumn1.Name = "nazwiskoDataGridViewTextBoxColumn1";
-            // 
-            // jajkaDataGridViewTextBoxColumn1
-            // 
-            this.jajkaDataGridViewTextBoxColumn1.DataPropertyName = "Jajka";
-            this.jajkaDataGridViewTextBoxColumn1.HeaderText = "Jajka";
-            this.jajkaDataGridViewTextBoxColumn1.Name = "jajkaDataGridViewTextBoxColumn1";
-            // 
-            // groszeDataGridViewTextBoxColumn
-            // 
-            this.groszeDataGridViewTextBoxColumn.DataPropertyName = "Grosze";
-            this.groszeDataGridViewTextBoxColumn.HeaderText = "Grosze";
-            this.groszeDataGridViewTextBoxColumn.Name = "groszeDataGridViewTextBoxColumn";
-            // 
-            // dataDataGridViewTextBoxColumn3
-            // 
-            this.dataDataGridViewTextBoxColumn3.DataPropertyName = "Data";
-            this.dataDataGridViewTextBoxColumn3.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn3.Name = "dataDataGridViewTextBoxColumn3";
             // 
             // MainForm
             // 
@@ -1159,8 +1159,8 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.klienciZakupyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1250,8 +1250,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pelneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn notkaDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerViewDo;
+        private System.Windows.Forms.DateTimePicker dateTimePickerViewOd;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TabControl tabControl2;
@@ -1264,8 +1264,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn imieDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwiskoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn jajkaDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groszeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zloteDataGridViewTextBoxColumn;
     }
 }
 
