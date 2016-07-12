@@ -74,6 +74,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,8 +115,8 @@
     </None>
     <None Include="DatabaseDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DatabaseDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>DatabaseDataSet11.Designer.cs</LastGenOutput>
     </None>
     <None Include="DatabaseDataSet1.xss">
       <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>

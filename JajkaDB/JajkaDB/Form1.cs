@@ -19,6 +19,8 @@ namespace JajkaDB
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSetViews.StatView' table. You can move, or remove it, as needed.
+            this.statViewTableAdapter.Fill(this.databaseDataSetViews.StatView);
             // TODO: This line of code loads data into the 'databaseDataSet11.KlienciZakupy' table. You can move, or remove it, as needed.
             dateTimePickerViewOd.Value = DateTime.Today - TimeSpan.FromDays(30);
             dateTimePickerViewDo.Value = DateTime.Today;
@@ -200,8 +202,20 @@ namespace JajkaDB
 
         private void refreshViews()
         {
-            klienciZakupyTableAdapter.FillByDate(this.databaseDataSet11.KlienciZakupy, dateTimePickerViewOd.Value.ToShortDateString(), dateTimePickerViewDo.Value.ToShortDateString());
+            var dataOd = dateTimePickerViewOd.Value;
+            var dataDo = dateTimePickerViewDo.Value;
+            klienciZakupyTableAdapter.FillByDate(this.databaseDataSet11.KlienciZakupy, dataOd.ToShortDateString(), dataDo.ToShortDateString());
+            statViewTableAdapter.FillByDate(this.databaseDataSetViews.StatView, dataOd, dataDo);
+        }
 
+        private void dateTimePickerViewOd_ValueChanged(object sender, EventArgs e)
+        {
+            refreshViews();
+        }
+
+        private void dateTimePickerViewDo_ValueChanged(object sender, EventArgs e)
+        {
+            refreshViews();
         }
     }
 }

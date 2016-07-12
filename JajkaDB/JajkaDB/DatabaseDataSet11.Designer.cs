@@ -20,9 +20,9 @@ namespace JajkaDB {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DatabaseDataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DatabaseDataSetViews")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DatabaseDataSet1 : global::System.Data.DataSet {
+    public partial class DatabaseDataSetViews : global::System.Data.DataSet {
         
         private KlienciPelneDataTable tableKlienciPelne;
         
@@ -34,7 +34,7 @@ namespace JajkaDB {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DatabaseDataSet1() {
+        public DatabaseDataSetViews() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace JajkaDB {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected DatabaseDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DatabaseDataSetViews(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -157,7 +157,7 @@ namespace JajkaDB {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DatabaseDataSet1 cln = ((DatabaseDataSet1)(base.Clone()));
+            DatabaseDataSetViews cln = ((DatabaseDataSetViews)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -247,7 +247,7 @@ namespace JajkaDB {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DatabaseDataSet1";
+            this.DataSetName = "DatabaseDataSetViews";
             this.Prefix = "";
             this.Namespace = "http://tempuri.org/DatabaseDataSet1.xsd";
             this.EnforceConstraints = true;
@@ -289,7 +289,7 @@ namespace JajkaDB {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DatabaseDataSet1 ds = new DatabaseDataSet1();
+            DatabaseDataSetViews ds = new DatabaseDataSetViews();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -561,7 +561,7 @@ namespace JajkaDB {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DatabaseDataSet1 ds = new DatabaseDataSet1();
+                DatabaseDataSetViews ds = new DatabaseDataSetViews();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -852,7 +852,7 @@ namespace JajkaDB {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DatabaseDataSet1 ds = new DatabaseDataSet1();
+                DatabaseDataSetViews ds = new DatabaseDataSetViews();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1145,7 +1145,7 @@ namespace JajkaDB {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DatabaseDataSet1 ds = new DatabaseDataSet1();
+                DatabaseDataSetViews ds = new DatabaseDataSetViews();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1615,7 +1615,7 @@ namespace JajkaDB {
         }
     }
 }
-namespace JajkaDB.DatabaseDataSet1TableAdapters {
+namespace JajkaDB.DatabaseDataSetViewsTableAdapters {
     
     
     /// <summary>
@@ -1765,7 +1765,7 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DatabaseDataSet1.KlienciPelneDataTable dataTable) {
+        public virtual int Fill(DatabaseDataSetViews.KlienciPelneDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1778,9 +1778,9 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DatabaseDataSet1.KlienciPelneDataTable GetData() {
+        public virtual DatabaseDataSetViews.KlienciPelneDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DatabaseDataSet1.KlienciPelneDataTable dataTable = new DatabaseDataSet1.KlienciPelneDataTable();
+            DatabaseDataSetViews.KlienciPelneDataTable dataTable = new DatabaseDataSetViews.KlienciPelneDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1943,7 +1943,7 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DatabaseDataSet1.KlienciZakupyDataTable dataTable) {
+        public virtual int Fill(DatabaseDataSetViews.KlienciZakupyDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1956,9 +1956,9 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DatabaseDataSet1.KlienciZakupyDataTable GetData() {
+        public virtual DatabaseDataSetViews.KlienciZakupyDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DatabaseDataSet1.KlienciZakupyDataTable dataTable = new DatabaseDataSet1.KlienciZakupyDataTable();
+            DatabaseDataSetViews.KlienciZakupyDataTable dataTable = new DatabaseDataSetViews.KlienciZakupyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1967,7 +1967,7 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByDate(DatabaseDataSet1.KlienciZakupyDataTable dataTable, string dataOd, string dataDo) {
+        public virtual int FillByDate(DatabaseDataSetViews.KlienciZakupyDataTable dataTable, string dataOd, string dataDo) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((dataOd == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -1992,7 +1992,7 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DatabaseDataSet1.KlienciZakupyDataTable GetDataByDate(string dataOd, string dataDo) {
+        public virtual DatabaseDataSetViews.KlienciZakupyDataTable GetDataByDate(string dataOd, string dataDo) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((dataOd == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -2006,7 +2006,7 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(dataDo));
             }
-            DatabaseDataSet1.KlienciZakupyDataTable dataTable = new DatabaseDataSet1.KlienciZakupyDataTable();
+            DatabaseDataSetViews.KlienciZakupyDataTable dataTable = new DatabaseDataSetViews.KlienciZakupyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2150,18 +2150,43 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Dochod, WydatkiJajka, WydatkiInne, Razem FROM dbo.StatView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        ISNULL(CONVERT(DECIMAL(10, 2),\r\n                             (SELEC" +
+                "T        SUM(Grosze) AS Expr1\r\n                               FROM            Tr" +
+                "ansakcje\r\n                               WHERE        (Data BETWEEN @dataOd AND " +
+                "@dataDo)) / 100.0), 0) AS Dochod, ISNULL(CONVERT(DECIMAL(10, 2),\r\n              " +
+                "               (SELECT        SUM(Grosze) AS Expr1\r\n                            " +
+                "   FROM            Dokupione\r\n                               WHERE        (Data " +
+                "BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS WydatkiJajka, ISNULL(CONVERT(DECIM" +
+                "AL(10, 2),\r\n                             (SELECT        SUM(Grosze) AS Expr1\r\n  " +
+                "                             FROM            Wydatki\r\n                          " +
+                "     WHERE        (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS WydatkiInn" +
+                "e, CONVERT(DECIMAL(10, 2), (ISNULL\r\n                             ((SELECT       " +
+                " SUM(Grosze) AS Expr1\r\n                                 FROM            Transakc" +
+                "je AS Transakcje_1\r\n                                 WHERE        (Data BETWEEN " +
+                "@dataOd AND @dataDo)), 0) - ISNULL\r\n                             ((SELECT       " +
+                " SUM(Grosze) AS Expr1\r\n                                 FROM            Dokupion" +
+                "e AS Dokupione_1\r\n                                 WHERE        (Data BETWEEN @d" +
+                "ataOd AND @dataDo)), 0) - ISNULL\r\n                             ((SELECT        S" +
+                "UM(Grosze) AS Expr1\r\n                                 FROM            Wydatki AS" +
+                " Wydatki_1\r\n                                 WHERE        (Data BETWEEN @dataOd " +
+                "AND @dataDo)), 0)) / 100.0) AS Razem";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DatabaseDataSet1.StatViewDataTable dataTable) {
+        public virtual int Fill(DatabaseDataSetViews.StatViewDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2174,9 +2199,57 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DatabaseDataSet1.StatViewDataTable GetData() {
+        public virtual DatabaseDataSetViews.StatViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DatabaseDataSet1.StatViewDataTable dataTable = new DatabaseDataSet1.StatViewDataTable();
+            DatabaseDataSetViews.StatViewDataTable dataTable = new DatabaseDataSetViews.StatViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByDate(DatabaseDataSetViews.StatViewDataTable dataTable, global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((dataOd.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(dataOd.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((dataDo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dataDo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DatabaseDataSetViews.StatViewDataTable GetDataByDate(global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((dataOd.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(dataOd.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((dataDo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dataDo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            DatabaseDataSetViews.StatViewDataTable dataTable = new DatabaseDataSetViews.StatViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2250,7 +2323,7 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(DatabaseDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DatabaseDataSetViews dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -2260,7 +2333,7 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(DatabaseDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DatabaseDataSetViews dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -2270,7 +2343,7 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(DatabaseDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DatabaseDataSetViews dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -2304,7 +2377,7 @@ namespace JajkaDB.DatabaseDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(DatabaseDataSet1 dataSet) {
+        public virtual int UpdateAll(DatabaseDataSetViews dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
