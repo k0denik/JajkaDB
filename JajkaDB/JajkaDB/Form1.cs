@@ -19,6 +19,8 @@ namespace JajkaDB
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet1.Transakcje' table. You can move, or remove it, as needed.
+            this.transakcjeTableAdapter.Fill(this.databaseDataSet1.Transakcje);
             // TODO: This line of code loads data into the 'databaseDataSet.Klienci' table. You can move, or remove it, as needed.
             this.klienciTableAdapter.Fill(this.databaseDataSet.Klienci);
             // TODO: This line of code loads data into the 'databaseDataSet.Dokupione' table. You can move, or remove it, as needed.

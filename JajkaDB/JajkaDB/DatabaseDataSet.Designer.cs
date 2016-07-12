@@ -740,6 +740,8 @@ namespace JajkaDB {
             
             private global::System.Data.DataColumn columnNazwisko;
             
+            private global::System.Data.DataColumn columnPelne;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public KlienciDataTable() {
@@ -799,6 +801,14 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PelneColumn {
+                get {
+                    return this.columnPelne;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -834,12 +844,13 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public KlienciRow AddKlienciRow(string Imie, string Nazwisko) {
+            public KlienciRow AddKlienciRow(string Imie, string Nazwisko, string Pelne) {
                 KlienciRow rowKlienciRow = ((KlienciRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Imie,
-                        Nazwisko};
+                        Nazwisko,
+                        Pelne};
                 rowKlienciRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowKlienciRow);
                 return rowKlienciRow;
@@ -872,6 +883,7 @@ namespace JajkaDB {
                 this.columnId = base.Columns["Id"];
                 this.columnImie = base.Columns["Imie"];
                 this.columnNazwisko = base.Columns["Nazwisko"];
+                this.columnPelne = base.Columns["Pelne"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -883,6 +895,8 @@ namespace JajkaDB {
                 base.Columns.Add(this.columnImie);
                 this.columnNazwisko = new global::System.Data.DataColumn("Nazwisko", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNazwisko);
+                this.columnPelne = new global::System.Data.DataColumn("Pelne", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPelne);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -893,6 +907,8 @@ namespace JajkaDB {
                 this.columnId.Unique = true;
                 this.columnImie.MaxLength = 50;
                 this.columnNazwisko.MaxLength = 50;
+                this.columnPelne.ReadOnly = true;
+                this.columnPelne.MaxLength = 101;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2161,6 +2177,22 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Pelne {
+                get {
+                    try {
+                        return ((string)(this[this.tableKlienci.PelneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Pelne\' in table \'Klienci\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKlienci.PelneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsImieNull() {
                 return this.IsNull(this.tableKlienci.ImieColumn);
             }
@@ -2181,6 +2213,18 @@ namespace JajkaDB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNazwiskoNull() {
                 this[this.tableKlienci.NazwiskoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPelneNull() {
+                return this.IsNull(this.tableKlienci.PelneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPelneNull() {
+                this[this.tableKlienci.PelneColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3305,6 +3349,7 @@ SELECT Id, Ilosc, Grosze, Notka, Data FROM Dokupione WHERE (Id = @Id)";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Imie", "Imie");
             tableMapping.ColumnMappings.Add("Nazwisko", "Nazwisko");
+            tableMapping.ColumnMappings.Add("Pelne", "Pelne");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -3320,14 +3365,15 @@ SELECT Id, Ilosc, Grosze, Notka, Data FROM Dokupione WHERE (Id = @Id)";
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Klienci] ([Imie], [Nazwisko]) VALUES (@Imie, @Nazwisko);\r\nSELE" +
-                "CT Id, Imie, Nazwisko FROM Klienci WHERE (Id = SCOPE_IDENTITY())";
+                "CT Id, Imie, Nazwisko, Imie + \' \' + Nazwisko AS Pelne FROM Klienci WHERE (Id = S" +
+                "COPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Imie", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imie", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nazwisko", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nazwisko", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Klienci] SET [Imie] = @Imie, [Nazwisko] = @Nazwisko WHERE (([Id] = @Original_Id) AND ((@IsNull_Imie = 1 AND [Imie] IS NULL) OR ([Imie] = @Original_Imie)) AND ((@IsNull_Nazwisko = 1 AND [Nazwisko] IS NULL) OR ([Nazwisko] = @Original_Nazwisko)));
-SELECT Id, Imie, Nazwisko FROM Klienci WHERE (Id = @Id)";
+SELECT Id, Imie, Nazwisko, Imie + ' ' + Nazwisko AS Pelne FROM Klienci WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Imie", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imie", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nazwisko", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nazwisko", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3352,7 +3398,7 @@ SELECT Id, Imie, Nazwisko FROM Klienci WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Imie, Nazwisko FROM dbo.Klienci";
+            this._commandCollection[0].CommandText = "SELECT Id, Imie, Nazwisko, (Imie + \' \' + Nazwisko) AS Pelne FROM dbo.Klienci";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
