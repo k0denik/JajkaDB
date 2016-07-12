@@ -19,6 +19,8 @@ namespace JajkaDB
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Wydatki' table. You can move, or remove it, as needed.
+            this.wydatkiTableAdapter.Fill(this.databaseDataSet.Wydatki);
             // TODO: This line of code loads data into the 'databaseDataSetViews.StatView' table. You can move, or remove it, as needed.
             this.statViewTableAdapter.Fill(this.databaseDataSetViews.StatView);
             // TODO: This line of code loads data into the 'databaseDataSet11.KlienciZakupy' table. You can move, or remove it, as needed.
@@ -216,6 +218,36 @@ namespace JajkaDB
         private void dateTimePickerViewDo_ValueChanged(object sender, EventArgs e)
         {
             refreshViews();
+        }
+
+        private void buttonDodajWydatki_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int groszy = getGrosze(textBoxWydatkiZloty.Text,textBoxWydatkiGroszy.Text);
+                string notka = textBoxWydatkiNotka.Text;
+                var data = dateTimePickerWydatki.Value;
+                wydatkiTableAdapter.InsertQuery(groszy, data, notka);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+            }
+            wydatkiTableAdapter.Fill(databaseDataSet.Wydatki);
+        }
+
+        private void buttonUsunWydatki_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(dataGridViewWydatki.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                wydatkiTableAdapter.DeleteByIdQuery(id);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+            }
+            wydatkiTableAdapter.Fill(databaseDataSet.Wydatki);
         }
     }
 }

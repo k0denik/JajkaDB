@@ -2,14 +2,18 @@
 {
 
 
-    partial class DatabaseDataSet1
+    partial class DatabaseDataSetViews
     {
     }
 }
 
-namespace JajkaDB.DatabaseDataSet1TableAdapters {
-    
-    
-    public partial class KlienciZakupyTableAdapter {
+namespace JajkaDB.DatabaseDataSetViewsTableAdapters
+{
+    partial class StatViewTableAdapter
+    {
+    }
+
+    public partial class KlienciZakupyTableAdapter
+    {
     }
 }

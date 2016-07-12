@@ -37,6 +37,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageZniesione = new System.Windows.Forms.TabPage();
@@ -138,13 +140,31 @@
             this.databaseDataSetViews = new JajkaDB.DatabaseDataSetViews();
             this.dateTimePickerViewDo = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerViewOd = new System.Windows.Forms.DateTimePicker();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxWydatkiGroszy = new System.Windows.Forms.TextBox();
+            this.textBoxWydatkiZloty = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBoxWydatkiNotka = new System.Windows.Forms.TextBox();
+            this.dateTimePickerWydatki = new System.Windows.Forms.DateTimePicker();
+            this.buttonDodajWydatki = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.buttonUsunWydatki = new System.Windows.Forms.Button();
+            this.dataGridViewWydatki = new System.Windows.Forms.DataGridView();
             this.zniesioneTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.ZniesioneTableAdapter();
             this.dokupioneTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.DokupioneTableAdapter();
             this.klienciTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.KlienciTableAdapter();
             this.transakcjeTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.TransakcjeTableAdapter();
             this.klienciZakupyTableAdapter = new JajkaDB.DatabaseDataSet1TableAdapters.KlienciZakupyTableAdapter();
             this.statViewTableAdapter = new JajkaDB.DatabaseDataSetViewsTableAdapters.StatViewTableAdapter();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.wydatkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.wydatkiTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.WydatkiTableAdapter();
+            this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zloteDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notkaDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPageZniesione.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -179,6 +199,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetViews)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWydatki)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wydatkiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1168,6 +1193,157 @@
             this.dateTimePickerViewOd.TabIndex = 0;
             this.dateTimePickerViewOd.ValueChanged += new System.EventHandler(this.dateTimePickerViewOd_ValueChanged);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox9);
+            this.tabPage3.Controls.Add(this.groupBox10);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(736, 385);
+            this.tabPage3.TabIndex = 5;
+            this.tabPage3.Text = "Wydatki";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox9.Controls.Add(this.label15);
+            this.groupBox9.Controls.Add(this.label16);
+            this.groupBox9.Controls.Add(this.textBoxWydatkiGroszy);
+            this.groupBox9.Controls.Add(this.textBoxWydatkiZloty);
+            this.groupBox9.Controls.Add(this.label17);
+            this.groupBox9.Controls.Add(this.textBoxWydatkiNotka);
+            this.groupBox9.Controls.Add(this.dateTimePickerWydatki);
+            this.groupBox9.Controls.Add(this.buttonDodajWydatki);
+            this.groupBox9.Location = new System.Drawing.Point(7, 319);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(722, 60);
+            this.groupBox9.TabIndex = 4;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Dodawanie jajek";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(87, 40);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(16, 13);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "gr";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(35, 40);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(16, 13);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "zł";
+            // 
+            // textBoxWydatkiGroszy
+            // 
+            this.textBoxWydatkiGroszy.Location = new System.Drawing.Point(57, 34);
+            this.textBoxWydatkiGroszy.Name = "textBoxWydatkiGroszy";
+            this.textBoxWydatkiGroszy.Size = new System.Drawing.Size(29, 20);
+            this.textBoxWydatkiGroszy.TabIndex = 10;
+            // 
+            // textBoxWydatkiZloty
+            // 
+            this.textBoxWydatkiZloty.Location = new System.Drawing.Point(6, 34);
+            this.textBoxWydatkiZloty.Name = "textBoxWydatkiZloty";
+            this.textBoxWydatkiZloty.Size = new System.Drawing.Size(29, 20);
+            this.textBoxWydatkiZloty.TabIndex = 9;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(106, 17);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(36, 13);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Notka";
+            // 
+            // textBoxWydatkiNotka
+            // 
+            this.textBoxWydatkiNotka.Location = new System.Drawing.Point(109, 34);
+            this.textBoxWydatkiNotka.Name = "textBoxWydatkiNotka";
+            this.textBoxWydatkiNotka.Size = new System.Drawing.Size(100, 20);
+            this.textBoxWydatkiNotka.TabIndex = 7;
+            // 
+            // dateTimePickerWydatki
+            // 
+            this.dateTimePickerWydatki.Location = new System.Drawing.Point(215, 34);
+            this.dateTimePickerWydatki.Name = "dateTimePickerWydatki";
+            this.dateTimePickerWydatki.Size = new System.Drawing.Size(153, 20);
+            this.dateTimePickerWydatki.TabIndex = 1;
+            // 
+            // buttonDodajWydatki
+            // 
+            this.buttonDodajWydatki.Location = new System.Drawing.Point(374, 32);
+            this.buttonDodajWydatki.Name = "buttonDodajWydatki";
+            this.buttonDodajWydatki.Size = new System.Drawing.Size(75, 23);
+            this.buttonDodajWydatki.TabIndex = 0;
+            this.buttonDodajWydatki.Text = "Dodaj";
+            this.buttonDodajWydatki.UseVisualStyleBackColor = true;
+            this.buttonDodajWydatki.Click += new System.EventHandler(this.buttonDodajWydatki_Click);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox10.Controls.Add(this.buttonUsunWydatki);
+            this.groupBox10.Controls.Add(this.dataGridViewWydatki);
+            this.groupBox10.Location = new System.Drawing.Point(7, 6);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(722, 307);
+            this.groupBox10.TabIndex = 3;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Wydatki Historia";
+            // 
+            // buttonUsunWydatki
+            // 
+            this.buttonUsunWydatki.Location = new System.Drawing.Point(633, 278);
+            this.buttonUsunWydatki.Name = "buttonUsunWydatki";
+            this.buttonUsunWydatki.Size = new System.Drawing.Size(83, 23);
+            this.buttonUsunWydatki.TabIndex = 1;
+            this.buttonUsunWydatki.Text = "Usuń";
+            this.buttonUsunWydatki.UseVisualStyleBackColor = true;
+            this.buttonUsunWydatki.Click += new System.EventHandler(this.buttonUsunWydatki_Click);
+            // 
+            // dataGridViewWydatki
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewWydatki.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewWydatki.AutoGenerateColumns = false;
+            this.dataGridViewWydatki.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridViewWydatki.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewWydatki.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridViewWydatki.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridViewWydatki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWydatki.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn3,
+            this.zloteDataGridViewTextBoxColumn1,
+            this.dataDataGridViewTextBoxColumn3,
+            this.notkaDataGridViewTextBoxColumn3});
+            this.dataGridViewWydatki.DataSource = this.wydatkiBindingSource;
+            this.dataGridViewWydatki.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridViewWydatki.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewWydatki.Name = "dataGridViewWydatki";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewWydatki.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewWydatki.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewWydatki.Size = new System.Drawing.Size(624, 288);
+            this.dataGridViewWydatki.TabIndex = 0;
+            // 
             // zniesioneTableAdapter
             // 
             this.zniesioneTableAdapter.ClearBeforeFill = true;
@@ -1192,15 +1368,40 @@
             // 
             this.statViewTableAdapter.ClearBeforeFill = true;
             // 
-            // tabPage3
+            // wydatkiBindingSource
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(736, 385);
-            this.tabPage3.TabIndex = 5;
-            this.tabPage3.Text = "Wydatki";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.wydatkiBindingSource.DataMember = "Wydatki";
+            this.wydatkiBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // wydatkiTableAdapter
+            // 
+            this.wydatkiTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn3
+            // 
+            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
+            this.idDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // zloteDataGridViewTextBoxColumn1
+            // 
+            this.zloteDataGridViewTextBoxColumn1.DataPropertyName = "Zlote";
+            this.zloteDataGridViewTextBoxColumn1.HeaderText = "Zlote";
+            this.zloteDataGridViewTextBoxColumn1.Name = "zloteDataGridViewTextBoxColumn1";
+            this.zloteDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataDataGridViewTextBoxColumn3
+            // 
+            this.dataDataGridViewTextBoxColumn3.DataPropertyName = "Data";
+            this.dataDataGridViewTextBoxColumn3.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn3.Name = "dataDataGridViewTextBoxColumn3";
+            // 
+            // notkaDataGridViewTextBoxColumn3
+            // 
+            this.notkaDataGridViewTextBoxColumn3.DataPropertyName = "Notka";
+            this.notkaDataGridViewTextBoxColumn3.HeaderText = "Notka";
+            this.notkaDataGridViewTextBoxColumn3.Name = "notkaDataGridViewTextBoxColumn3";
             // 
             // MainForm
             // 
@@ -1252,6 +1453,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetViews)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWydatki)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wydatkiBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1365,6 +1572,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn wydatkiInneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn razemDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBoxWydatkiGroszy;
+        private System.Windows.Forms.TextBox textBoxWydatkiZloty;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBoxWydatkiNotka;
+        private System.Windows.Forms.DateTimePicker dateTimePickerWydatki;
+        private System.Windows.Forms.Button buttonDodajWydatki;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Button buttonUsunWydatki;
+        private System.Windows.Forms.DataGridView dataGridViewWydatki;
+        private System.Windows.Forms.BindingSource wydatkiBindingSource;
+        private DatabaseDataSetTableAdapters.WydatkiTableAdapter wydatkiTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zloteDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notkaDataGridViewTextBoxColumn3;
     }
 }
 
