@@ -19,6 +19,8 @@ namespace JajkaDB
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet11.KlienciZakupy' table. You can move, or remove it, as needed.
+            this.klienciZakupyTableAdapter.Fill(this.databaseDataSet11.KlienciZakupy);
             // TODO: This line of code loads data into the 'databaseDataSet1.Transakcje' table. You can move, or remove it, as needed.
             this.transakcjeTableAdapter.Fill(this.databaseDataSet1.Transakcje);
             // TODO: This line of code loads data into the 'databaseDataSet.Klienci' table. You can move, or remove it, as needed.
@@ -121,7 +123,7 @@ namespace JajkaDB
                 int groszy = getGrosze(textBoxDokupionezloty.Text, textBoxDokupioneGroszy.Text);
                 string notka = textBoxDokupioneNotka.Text;
                 var data = dateTimePickerDokupione.Value;
-                dokupioneTableAdapter.Insert(ilosc, groszy, notka, data);
+                dokupioneTableAdapter.InsertQuery(ilosc, groszy, notka, data.ToShortDateString());
             }
             catch (Exception exc)
             {
