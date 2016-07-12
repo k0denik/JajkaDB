@@ -118,8 +118,7 @@ namespace JajkaDB
             try
             {
                 int ilosc = int.Parse(textBoxDokupioneIlosc.Text);
-                int groszy = int.Parse(textBoxDokupionezloty.Text)*100;
-                groszy += int.Parse(textBoxDokupioneGroszy.Text);
+                int groszy = getGrosze(textBoxDokupionezloty.Text, textBoxDokupioneGroszy.Text);
                 string notka = textBoxDokupioneNotka.Text;
                 var data = dateTimePickerDokupione.Value;
                 dokupioneTableAdapter.Insert(ilosc, groszy, notka, data);
@@ -143,6 +142,51 @@ namespace JajkaDB
                 MessageBox.Show("Coś poszło nie tak:" + exc.Message);
             }
             klienciTableAdapter.Fill(databaseDataSet.Klienci);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ilosc = int.Parse(textBoxIloscTrans.Text);
+                int groszy = getGrosze(textBoxZlotyTrans.Text, textBoxGroszyTrans.Text);
+                string notka = textBoxNotkaTrans.Text;
+                int klientId = int.Parse(comboBoxKlientTrans.SelectedValue.ToString());
+                var data = dateTimePickerTrans.Value;
+                transakcjeTableAdapter.InsertQuery(ilosc, groszy, klientId, notka, data.ToShortDateString());
+                
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+            }
+            transakcjeTableAdapter.Fill(databaseDataSet1.Transakcje);
+        }
+
+        private int getGrosze(string zloty, string groszy)
+        {
+            int groszyResult = 0;
+            int temp = 0;
+            int.TryParse(zloty, out temp);
+            groszyResult += temp * 100;
+            temp = 0;
+            int.TryParse(groszy, out temp);
+            groszyResult += temp;
+            return groszyResult;
+        }
+
+        private void buttonUsunTrans_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(dataGridViewTrans.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                transakcjeTableAdapter.DeleteByIdQuery(id);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+            }
+            transakcjeTableAdapter.Fill(databaseDataSet1.Transakcje);
         }
     }
 }
