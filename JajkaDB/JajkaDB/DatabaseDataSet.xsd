@@ -177,7 +177,7 @@ SELECT Id, Imie, Nazwisko, Imie + ' ' + Nazwisko AS Pelne FROM Klienci WHERE (Id
               <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="dbo.Transakcje" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Transakcje.Id, Transakcje.Jajka, CONVERT(DECIMAL(10,2),Transakcje.Grosze/100.0) AS Zloty, Klienci.Imie + ' ' + Klienci.Nazwisko AS Pelne, Transakcje.Notka, Transakcje.Data
+                    <CommandText>SELECT        Transakcje.Id, Transakcje.Jajka, CONVERT(DECIMAL(10,2),Transakcje.Grosze/100.0) AS Zloty, CONVERT(DECIMAL(10,2),Transakcje.Grosze/100.0/Transakcje.Jajka) AS Srednia,Klienci.Imie + ' ' + Klienci.Nazwisko AS Pelne, Transakcje.Notka, Transakcje.Data
 FROM            Transakcje INNER JOIN
                          Klienci ON Transakcje.Klient = Klienci.Id</CommandText>
                     <Parameters />
@@ -192,6 +192,7 @@ FROM            Transakcje INNER JOIN
               <Mapping SourceColumn="Data" DataSetColumn="Data" />
               <Mapping SourceColumn="Pelne" DataSetColumn="Pelne" />
               <Mapping SourceColumn="Zloty" DataSetColumn="Zloty" />
+              <Mapping SourceColumn="Srednia" DataSetColumn="Srednia" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByIdQuery" Modifier="Public" Name="DeleteByIdQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByIdQuery">
@@ -372,7 +373,7 @@ WHERE        (Id = @id)</CommandText>
   <xs:element name="DatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DatabaseDataSet" msprop:Generator_UserDSName="DatabaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Dokupione" msprop:Generator_TableClassName="DokupioneDataTable" msprop:Generator_TableVarName="tableDokupione" msprop:Generator_RowChangedName="DokupioneRowChanged" msprop:Generator_TablePropName="Dokupione" msprop:Generator_RowDeletingName="DokupioneRowDeleting" msprop:Generator_RowChangingName="DokupioneRowChanging" msprop:Generator_RowEvHandlerName="DokupioneRowChangeEventHandler" msprop:Generator_RowDeletedName="DokupioneRowDeleted" msprop:Generator_RowClassName="DokupioneRow" msprop:Generator_UserTableName="Dokupione" msprop:Generator_RowEvArgName="DokupioneRowChangeEvent">
+        <xs:element name="Dokupione" msprop:Generator_TableClassName="DokupioneDataTable" msprop:Generator_TableVarName="tableDokupione" msprop:Generator_TablePropName="Dokupione" msprop:Generator_RowDeletingName="DokupioneRowDeleting" msprop:Generator_RowChangingName="DokupioneRowChanging" msprop:Generator_RowEvHandlerName="DokupioneRowChangeEventHandler" msprop:Generator_RowDeletedName="DokupioneRowDeleted" msprop:Generator_UserTableName="Dokupione" msprop:Generator_RowChangedName="DokupioneRowChanged" msprop:Generator_RowEvArgName="DokupioneRowChangeEvent" msprop:Generator_RowClassName="DokupioneRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -389,7 +390,7 @@ WHERE        (Id = @id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Klienci" msprop:Generator_TableClassName="KlienciDataTable" msprop:Generator_TableVarName="tableKlienci" msprop:Generator_RowChangedName="KlienciRowChanged" msprop:Generator_TablePropName="Klienci" msprop:Generator_RowDeletingName="KlienciRowDeleting" msprop:Generator_RowChangingName="KlienciRowChanging" msprop:Generator_RowEvHandlerName="KlienciRowChangeEventHandler" msprop:Generator_RowDeletedName="KlienciRowDeleted" msprop:Generator_RowClassName="KlienciRow" msprop:Generator_UserTableName="Klienci" msprop:Generator_RowEvArgName="KlienciRowChangeEvent">
+        <xs:element name="Klienci" msprop:Generator_TableClassName="KlienciDataTable" msprop:Generator_TableVarName="tableKlienci" msprop:Generator_TablePropName="Klienci" msprop:Generator_RowDeletingName="KlienciRowDeleting" msprop:Generator_RowChangingName="KlienciRowChanging" msprop:Generator_RowEvHandlerName="KlienciRowChangeEventHandler" msprop:Generator_RowDeletedName="KlienciRowDeleted" msprop:Generator_UserTableName="Klienci" msprop:Generator_RowChangedName="KlienciRowChanged" msprop:Generator_RowEvArgName="KlienciRowChangeEvent" msprop:Generator_RowClassName="KlienciRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -417,7 +418,7 @@ WHERE        (Id = @id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Transakcje" msprop:Generator_TableClassName="TransakcjeDataTable" msprop:Generator_TableVarName="tableTransakcje" msprop:Generator_RowChangedName="TransakcjeRowChanged" msprop:Generator_TablePropName="Transakcje" msprop:Generator_RowDeletingName="TransakcjeRowDeleting" msprop:Generator_RowChangingName="TransakcjeRowChanging" msprop:Generator_RowEvHandlerName="TransakcjeRowChangeEventHandler" msprop:Generator_RowDeletedName="TransakcjeRowDeleted" msprop:Generator_RowClassName="TransakcjeRow" msprop:Generator_UserTableName="Transakcje" msprop:Generator_RowEvArgName="TransakcjeRowChangeEvent">
+        <xs:element name="Transakcje" msprop:Generator_TableClassName="TransakcjeDataTable" msprop:Generator_TableVarName="tableTransakcje" msprop:Generator_TablePropName="Transakcje" msprop:Generator_RowDeletingName="TransakcjeRowDeleting" msprop:Generator_RowChangingName="TransakcjeRowChanging" msprop:Generator_RowEvHandlerName="TransakcjeRowChangeEventHandler" msprop:Generator_RowDeletedName="TransakcjeRowDeleted" msprop:Generator_UserTableName="Transakcje" msprop:Generator_RowChangedName="TransakcjeRowChanged" msprop:Generator_RowEvArgName="TransakcjeRowChangeEvent" msprop:Generator_RowClassName="TransakcjeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -438,10 +439,11 @@ WHERE        (Id = @id)</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Zloty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnZloty" msprop:Generator_ColumnPropNameInRow="Zloty" msprop:Generator_ColumnPropNameInTable="ZlotyColumn" msprop:Generator_UserColumnName="Zloty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Srednia" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSrednia" msprop:Generator_ColumnPropNameInRow="Srednia" msprop:Generator_ColumnPropNameInTable="SredniaColumn" msprop:Generator_UserColumnName="Srednia" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Wydatki" msprop:Generator_TableClassName="WydatkiDataTable" msprop:Generator_TableVarName="tableWydatki" msprop:Generator_RowChangedName="WydatkiRowChanged" msprop:Generator_TablePropName="Wydatki" msprop:Generator_RowDeletingName="WydatkiRowDeleting" msprop:Generator_RowChangingName="WydatkiRowChanging" msprop:Generator_RowEvHandlerName="WydatkiRowChangeEventHandler" msprop:Generator_RowDeletedName="WydatkiRowDeleted" msprop:Generator_RowClassName="WydatkiRow" msprop:Generator_UserTableName="Wydatki" msprop:Generator_RowEvArgName="WydatkiRowChangeEvent">
+        <xs:element name="Wydatki" msprop:Generator_TableClassName="WydatkiDataTable" msprop:Generator_TableVarName="tableWydatki" msprop:Generator_TablePropName="Wydatki" msprop:Generator_RowDeletingName="WydatkiRowDeleting" msprop:Generator_RowChangingName="WydatkiRowChanging" msprop:Generator_RowEvHandlerName="WydatkiRowChangeEventHandler" msprop:Generator_RowDeletedName="WydatkiRowDeleted" msprop:Generator_UserTableName="Wydatki" msprop:Generator_RowChangedName="WydatkiRowChanged" msprop:Generator_RowEvArgName="WydatkiRowChangeEvent" msprop:Generator_RowClassName="WydatkiRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -457,7 +459,7 @@ WHERE        (Id = @id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Zniesione" msprop:Generator_TableClassName="ZniesioneDataTable" msprop:Generator_TableVarName="tableZniesione" msprop:Generator_RowChangedName="ZniesioneRowChanged" msprop:Generator_TablePropName="Zniesione" msprop:Generator_RowDeletingName="ZniesioneRowDeleting" msprop:Generator_RowChangingName="ZniesioneRowChanging" msprop:Generator_RowEvHandlerName="ZniesioneRowChangeEventHandler" msprop:Generator_RowDeletedName="ZniesioneRowDeleted" msprop:Generator_RowClassName="ZniesioneRow" msprop:Generator_UserTableName="Zniesione" msprop:Generator_RowEvArgName="ZniesioneRowChangeEvent">
+        <xs:element name="Zniesione" msprop:Generator_TableClassName="ZniesioneDataTable" msprop:Generator_TableVarName="tableZniesione" msprop:Generator_TablePropName="Zniesione" msprop:Generator_RowDeletingName="ZniesioneRowDeleting" msprop:Generator_RowChangingName="ZniesioneRowChanging" msprop:Generator_RowEvHandlerName="ZniesioneRowChangeEventHandler" msprop:Generator_RowDeletedName="ZniesioneRowDeleted" msprop:Generator_UserTableName="Zniesione" msprop:Generator_RowChangedName="ZniesioneRowChanged" msprop:Generator_RowEvArgName="ZniesioneRowChangeEvent" msprop:Generator_RowClassName="ZniesioneRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />

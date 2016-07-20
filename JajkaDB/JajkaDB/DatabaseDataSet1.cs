@@ -9,6 +9,10 @@
 
 namespace JajkaDB.DatabaseDataSetViewsTableAdapters
 {
+    partial class StatViewJajkaTableAdapter
+    {
+    }
+
     partial class StatViewTableAdapter
     {
     }

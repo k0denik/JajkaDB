@@ -1055,6 +1055,8 @@ namespace JajkaDB {
             
             private global::System.Data.DataColumn columnZloty;
             
+            private global::System.Data.DataColumn columnSrednia;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TransakcjeDataTable() {
@@ -1138,6 +1140,14 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SredniaColumn {
+                get {
+                    return this.columnSrednia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1173,7 +1183,7 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TransakcjeRow AddTransakcjeRow(int Jajka, string Notka, System.DateTime Data, string Pelne, decimal Zloty) {
+            public TransakcjeRow AddTransakcjeRow(int Jajka, string Notka, System.DateTime Data, string Pelne, decimal Zloty, decimal Srednia) {
                 TransakcjeRow rowTransakcjeRow = ((TransakcjeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1181,7 +1191,8 @@ namespace JajkaDB {
                         Notka,
                         Data,
                         Pelne,
-                        Zloty};
+                        Zloty,
+                        Srednia};
                 rowTransakcjeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTransakcjeRow);
                 return rowTransakcjeRow;
@@ -1217,6 +1228,7 @@ namespace JajkaDB {
                 this.columnData = base.Columns["Data"];
                 this.columnPelne = base.Columns["Pelne"];
                 this.columnZloty = base.Columns["Zloty"];
+                this.columnSrednia = base.Columns["Srednia"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1234,6 +1246,8 @@ namespace JajkaDB {
                 base.Columns.Add(this.columnPelne);
                 this.columnZloty = new global::System.Data.DataColumn("Zloty", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnZloty);
+                this.columnSrednia = new global::System.Data.DataColumn("Srednia", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSrednia);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -1246,6 +1260,7 @@ namespace JajkaDB {
                 this.columnPelne.ReadOnly = true;
                 this.columnPelne.MaxLength = 101;
                 this.columnZloty.ReadOnly = true;
+                this.columnSrednia.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2338,6 +2353,22 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Srednia {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTransakcje.SredniaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Srednia\' in table \'Transakcje\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransakcje.SredniaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsJajkaNull() {
                 return this.IsNull(this.tableTransakcje.JajkaColumn);
             }
@@ -2394,6 +2425,18 @@ namespace JajkaDB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetZlotyNull() {
                 this[this.tableTransakcje.ZlotyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSredniaNull() {
+                return this.IsNull(this.tableTransakcje.SredniaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSredniaNull() {
+                this[this.tableTransakcje.SredniaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3804,6 +3847,7 @@ SELECT Id, Imie, Nazwisko, Imie + ' ' + Nazwisko AS Pelne FROM Klienci WHERE (Id
             tableMapping.ColumnMappings.Add("Data", "Data");
             tableMapping.ColumnMappings.Add("Pelne", "Pelne");
             tableMapping.ColumnMappings.Add("Zloty", "Zloty");
+            tableMapping.ColumnMappings.Add("Srednia", "Srednia");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3820,7 +3864,7 @@ SELECT Id, Imie, Nazwisko, Imie + ' ' + Nazwisko AS Pelne FROM Klienci WHERE (Id
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Transakcje.Id, Transakcje.Jajka, CONVERT(DECIMAL(10,2),Transakcje.Grosze/100.0) AS Zloty, Klienci.Imie + ' ' + Klienci.Nazwisko AS Pelne, Transakcje.Notka, Transakcje.Data
+            this._commandCollection[0].CommandText = @"SELECT        Transakcje.Id, Transakcje.Jajka, CONVERT(DECIMAL(10,2),Transakcje.Grosze/100.0) AS Zloty, CONVERT(DECIMAL(10,2),Transakcje.Grosze/100.0/Transakcje.Jajka) AS Srednia,Klienci.Imie + ' ' + Klienci.Nazwisko AS Pelne, Transakcje.Notka, Transakcje.Data
 FROM            Transakcje INNER JOIN
                          Klienci ON Transakcje.Klient = Klienci.Id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;

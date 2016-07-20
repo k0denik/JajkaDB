@@ -208,6 +208,7 @@ namespace JajkaDB
             var dataDo = dateTimePickerViewDo.Value;
             klienciZakupyTableAdapter.FillByDate(this.databaseDataSet11.KlienciZakupy, dataOd.ToShortDateString(), dataDo.ToShortDateString());
             statViewTableAdapter.FillByDate(this.databaseDataSetViews.StatView, dataOd, dataDo);
+            statViewJajkaTableAdapter.Fill(this.databaseDataSetViews.StatViewJajka, dataOd, dataDo);
         }
 
         private void dateTimePickerViewOd_ValueChanged(object sender, EventArgs e)
@@ -248,6 +249,12 @@ namespace JajkaDB
                 MessageBox.Show("Coś poszło nie tak:" + exc.Message);
             }
             wydatkiTableAdapter.Fill(databaseDataSet.Wydatki);
+        }
+
+        private void buttonDateStartMin_Click(object sender, EventArgs e)
+        {
+            dateTimePickerViewOd.Value = dateTimePickerViewOd.MinDate;
+            refreshViews();
         }
     }
 }
