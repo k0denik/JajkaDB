@@ -19,6 +19,8 @@ namespace JajkaDB
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.WydatkiTypy' table. You can move, or remove it, as needed.
+            this.wydatkiTypyTableAdapter.Fill(this.databaseDataSet.WydatkiTypy);
             // TODO: This line of code loads data into the 'databaseDataSet.Wydatki' table. You can move, or remove it, as needed.
             this.wydatkiTableAdapter.Fill(this.databaseDataSet.Wydatki);
             // TODO: This line of code loads data into the 'databaseDataSetViews.StatView' table. You can move, or remove it, as needed.
@@ -228,7 +230,8 @@ namespace JajkaDB
                 int groszy = getGrosze(textBoxWydatkiZloty.Text,textBoxWydatkiGroszy.Text);
                 string notka = textBoxWydatkiNotka.Text;
                 var data = dateTimePickerWydatki.Value;
-                wydatkiTableAdapter.InsertQuery(groszy, data, notka);
+                int typId = Convert.ToInt32(comboBoxWydatkiTypy.SelectedValue);
+                wydatkiTableAdapter.InsertQuery(groszy, data, notka, typId);
             }
             catch (Exception exc)
             {
@@ -255,6 +258,20 @@ namespace JajkaDB
         {
             dateTimePickerViewOd.Value = dateTimePickerViewOd.MinDate;
             refreshViews();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string name = textBoxNewTypeName.Text;
+                wydatkiTypyTableAdapter.Insert(name);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+            }
+            wydatkiTypyTableAdapter.Fill(databaseDataSet.WydatkiTypy);
         }
     }
 }
