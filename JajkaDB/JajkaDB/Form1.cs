@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JajkaDB
@@ -19,27 +12,18 @@ namespace JajkaDB
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'databaseDataSet.Kury' table. You can move, or remove it, as needed.
-            this.kuryTableAdapter.Fill(this.databaseDataSet.Kury);
-            // TODO: This line of code loads data into the 'databaseDataSet.WydatkiTypy' table. You can move, or remove it, as needed.
-            this.wydatkiTypyTableAdapter.Fill(this.databaseDataSet.WydatkiTypy);
-            // TODO: This line of code loads data into the 'databaseDataSet.Wydatki' table. You can move, or remove it, as needed.
-            this.wydatkiTableAdapter.Fill(this.databaseDataSet.Wydatki);
-            // TODO: This line of code loads data into the 'databaseDataSetViews.StatView' table. You can move, or remove it, as needed.
-            this.statViewTableAdapter.Fill(this.databaseDataSetViews.StatView);
-            // TODO: This line of code loads data into the 'databaseDataSet11.KlienciZakupy' table. You can move, or remove it, as needed.
+            kuryTableAdapter.Fill(databaseDataSet.Kury);
+            wydatkiTypyTableAdapter.Fill(databaseDataSet.WydatkiTypy);
+            wydatkiTableAdapter.Fill(databaseDataSet.Wydatki);
+            statViewTableAdapter.Fill(databaseDataSetViews.StatView);
             dateTimePickerViewOd.Value = DateTime.Today - TimeSpan.FromDays(30);
             dateTimePickerViewDo.Value = DateTime.Today;
-            // TODO: This line of code loads data into the 'databaseDataSet1.Transakcje' table. You can move, or remove it, as needed.
-            this.transakcjeTableAdapter.Fill(this.databaseDataSet1.Transakcje);
-            // TODO: This line of code loads data into the 'databaseDataSet.Klienci' table. You can move, or remove it, as needed.
-            this.klienciTableAdapter.Fill(this.databaseDataSet.Klienci);
-            // TODO: This line of code loads data into the 'databaseDataSet.Dokupione' table. You can move, or remove it, as needed.
-            this.dokupioneTableAdapter.Fill(this.databaseDataSet.Dokupione);
-            // TODO: This line of code loads data into the 'databaseDataSet.Zniesione' table. You can move, or remove it, as needed.
-            this.zniesioneTableAdapter.Fill(this.databaseDataSet.Zniesione);
+            transakcjeTableAdapter.Fill(databaseDataSet1.Transakcje);
+            klienciTableAdapter.Fill(databaseDataSet.Klienci);
+            dokupioneTableAdapter.Fill(databaseDataSet.Dokupione);
+            zniesioneTableAdapter.Fill(databaseDataSet.Zniesione);
             dateTimePicker1.Value = DateTime.Today;
-            refreshViews();
+            RefreshViews();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,18 +36,13 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
                 throw;
             }
             zniesioneTableAdapter.Fill(databaseDataSet.Zniesione);
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -86,9 +65,9 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
             }
-            this.zniesioneTableAdapter.Fill(this.databaseDataSet.Zniesione);
+            zniesioneTableAdapter.Fill(databaseDataSet.Zniesione);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -100,7 +79,7 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
             }
             dokupioneTableAdapter.Fill(databaseDataSet.Dokupione);
         }
@@ -120,7 +99,7 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
             }
             klienciTableAdapter.Fill(databaseDataSet.Klienci);
         }
@@ -137,7 +116,7 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
             }
             dokupioneTableAdapter.Fill(databaseDataSet.Dokupione);
         }
@@ -151,7 +130,7 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
             }
             klienciTableAdapter.Fill(databaseDataSet.Klienci);
         }
@@ -170,14 +149,14 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
             }
             transakcjeTableAdapter.Fill(databaseDataSet1.Transakcje);
         }
 
         private int getGrosze(string zloty, string groszy)
         {
-            int groszyResult = 0;
+            var groszyResult = 0;
             int temp = 0;
             int.TryParse(zloty, out temp);
             groszyResult += temp * 100;
@@ -196,33 +175,34 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
             }
             transakcjeTableAdapter.Fill(databaseDataSet1.Transakcje);
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            refreshViews();
+            RefreshViews();
         }
 
-        private void refreshViews()
+        private void RefreshViews()
         {
             var dataOd = dateTimePickerViewOd.Value;
             var dataDo = dateTimePickerViewDo.Value;
-            klienciZakupyTableAdapter.FillByDate(this.databaseDataSet11.KlienciZakupy, dataOd.ToShortDateString(), dataDo.ToShortDateString());
-            statViewTableAdapter.FillByDate(this.databaseDataSetViews.StatView, dataOd, dataDo);
-            statViewJajkaTableAdapter.Fill(this.databaseDataSetViews.StatViewJajka, dataOd, dataDo);
+            klienciZakupyTableAdapter.FillByDate(databaseDataSet11.KlienciZakupy, dataOd.ToShortDateString(), dataDo.ToShortDateString());
+            statViewTableAdapter.FillByDate(databaseDataSetViews.StatView, dataOd, dataDo);
+            statViewJajkaTableAdapter.Fill(databaseDataSetViews.StatViewJajka, dataOd, dataDo);
+            textBoxKuryStat.Text = kuryTableAdapter.KurySumaQuery().ToString();
         }
 
         private void dateTimePickerViewOd_ValueChanged(object sender, EventArgs e)
         {
-            refreshViews();
+            RefreshViews();
         }
 
         private void dateTimePickerViewDo_ValueChanged(object sender, EventArgs e)
         {
-            refreshViews();
+            RefreshViews();
         }
 
         private void buttonDodajWydatki_Click(object sender, EventArgs e)
@@ -237,7 +217,7 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
             }
             wydatkiTableAdapter.Fill(databaseDataSet.Wydatki);
         }
@@ -251,7 +231,7 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
             }
             wydatkiTableAdapter.Fill(databaseDataSet.Wydatki);
         }
@@ -259,7 +239,7 @@ namespace JajkaDB
         private void buttonDateStartMin_Click(object sender, EventArgs e)
         {
             dateTimePickerViewOd.Value = dateTimePickerViewOd.MinDate;
-            refreshViews();
+            RefreshViews();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -271,9 +251,41 @@ namespace JajkaDB
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Coś poszło nie tak:" + exc.Message);
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
             }
             wydatkiTypyTableAdapter.Fill(databaseDataSet.WydatkiTypy);
+        }
+
+        private void buttonDodajKury_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ilosc = Convert.ToInt32(textBoxKuryIlosc.Text);
+                string notka = textBoxNoteKury.Text;
+                DateTime data = dateTimePickerKury.Value;
+                kuryTableAdapter.Insert(ilosc, data, notka);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
+            }
+            kuryTableAdapter.Fill(databaseDataSet.Kury);
+            RefreshViews();
+        }
+
+        private void buttonUsunKury_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(dataGridViewKury.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                kuryTableAdapter.DeleteByIdQuery(id);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(@"Coś poszło nie tak:" + exc.Message);
+            }
+            kuryTableAdapter.Fill(databaseDataSet.Kury);
+            RefreshViews();
         }
     }
 }
