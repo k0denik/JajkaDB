@@ -193,11 +193,13 @@ namespace JajkaDB
             statViewTableAdapter.FillByDate(databaseDataSetViews.StatView, dataOd, dataDo);
             statViewJajkaTableAdapter.Fill(databaseDataSetViews.StatViewJajka, dataOd, dataDo);
             textBoxKuryStat.Text = kuryTableAdapter.KurySumaQuery().ToString();
+            wydatkiTypyStatTableAdapter.Fill(databaseDataSetViews.WydatkiTypyStat,dataOd,dataDo);
         }
 
         private void dateTimePickerViewOd_ValueChanged(object sender, EventArgs e)
         {
             RefreshViews();
+
         }
 
         private void dateTimePickerViewDo_ValueChanged(object sender, EventArgs e)

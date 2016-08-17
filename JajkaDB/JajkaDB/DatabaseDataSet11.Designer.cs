@@ -32,7 +32,7 @@ namespace JajkaDB {
         
         private StatViewJajkaDataTable tableStatViewJajka;
         
-        private WydatkiTypyDataTable tableWydatkiTypy;
+        private WydatkiTypyStatDataTable tableWydatkiTypyStat;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -74,8 +74,8 @@ namespace JajkaDB {
                 if ((ds.Tables["StatViewJajka"] != null)) {
                     base.Tables.Add(new StatViewJajkaDataTable(ds.Tables["StatViewJajka"]));
                 }
-                if ((ds.Tables["WydatkiTypy"] != null)) {
-                    base.Tables.Add(new WydatkiTypyDataTable(ds.Tables["WydatkiTypy"]));
+                if ((ds.Tables["WydatkiTypyStat"] != null)) {
+                    base.Tables.Add(new WydatkiTypyStatDataTable(ds.Tables["WydatkiTypyStat"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -139,9 +139,9 @@ namespace JajkaDB {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public WydatkiTypyDataTable WydatkiTypy {
+        public WydatkiTypyStatDataTable WydatkiTypyStat {
             get {
-                return this.tableWydatkiTypy;
+                return this.tableWydatkiTypyStat;
             }
         }
         
@@ -224,8 +224,8 @@ namespace JajkaDB {
                 if ((ds.Tables["StatViewJajka"] != null)) {
                     base.Tables.Add(new StatViewJajkaDataTable(ds.Tables["StatViewJajka"]));
                 }
-                if ((ds.Tables["WydatkiTypy"] != null)) {
-                    base.Tables.Add(new WydatkiTypyDataTable(ds.Tables["WydatkiTypy"]));
+                if ((ds.Tables["WydatkiTypyStat"] != null)) {
+                    base.Tables.Add(new WydatkiTypyStatDataTable(ds.Tables["WydatkiTypyStat"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -284,10 +284,10 @@ namespace JajkaDB {
                     this.tableStatViewJajka.InitVars();
                 }
             }
-            this.tableWydatkiTypy = ((WydatkiTypyDataTable)(base.Tables["WydatkiTypy"]));
+            this.tableWydatkiTypyStat = ((WydatkiTypyStatDataTable)(base.Tables["WydatkiTypyStat"]));
             if ((initTable == true)) {
-                if ((this.tableWydatkiTypy != null)) {
-                    this.tableWydatkiTypy.InitVars();
+                if ((this.tableWydatkiTypyStat != null)) {
+                    this.tableWydatkiTypyStat.InitVars();
                 }
             }
         }
@@ -308,8 +308,8 @@ namespace JajkaDB {
             base.Tables.Add(this.tableStatView);
             this.tableStatViewJajka = new StatViewJajkaDataTable();
             base.Tables.Add(this.tableStatViewJajka);
-            this.tableWydatkiTypy = new WydatkiTypyDataTable();
-            base.Tables.Add(this.tableWydatkiTypy);
+            this.tableWydatkiTypyStat = new WydatkiTypyStatDataTable();
+            base.Tables.Add(this.tableWydatkiTypyStat);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -338,7 +338,7 @@ namespace JajkaDB {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeWydatkiTypy() {
+        private bool ShouldSerializeWydatkiTypyStat() {
             return false;
         }
         
@@ -410,7 +410,7 @@ namespace JajkaDB {
         public delegate void StatViewJajkaRowChangeEventHandler(object sender, StatViewJajkaRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void WydatkiTypyRowChangeEventHandler(object sender, WydatkiTypyRowChangeEvent e);
+        public delegate void WydatkiTypyStatRowChangeEventHandler(object sender, WydatkiTypyStatRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1602,7 +1602,7 @@ namespace JajkaDB {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class WydatkiTypyDataTable : global::System.Data.TypedTableBase<WydatkiTypyRow> {
+        public partial class WydatkiTypyStatDataTable : global::System.Data.TypedTableBase<WydatkiTypyStatRow> {
             
             private global::System.Data.DataColumn columnTypWydatku;
             
@@ -1610,8 +1610,8 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WydatkiTypyDataTable() {
-                this.TableName = "WydatkiTypy";
+            public WydatkiTypyStatDataTable() {
+                this.TableName = "WydatkiTypyStat";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1619,7 +1619,7 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal WydatkiTypyDataTable(global::System.Data.DataTable table) {
+            internal WydatkiTypyStatDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1636,7 +1636,7 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected WydatkiTypyDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected WydatkiTypyStatDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1668,46 +1668,46 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WydatkiTypyRow this[int index] {
+            public WydatkiTypyStatRow this[int index] {
                 get {
-                    return ((WydatkiTypyRow)(this.Rows[index]));
+                    return ((WydatkiTypyStatRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event WydatkiTypyRowChangeEventHandler WydatkiTypyRowChanging;
+            public event WydatkiTypyStatRowChangeEventHandler WydatkiTypyStatRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event WydatkiTypyRowChangeEventHandler WydatkiTypyRowChanged;
+            public event WydatkiTypyStatRowChangeEventHandler WydatkiTypyStatRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event WydatkiTypyRowChangeEventHandler WydatkiTypyRowDeleting;
+            public event WydatkiTypyStatRowChangeEventHandler WydatkiTypyStatRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event WydatkiTypyRowChangeEventHandler WydatkiTypyRowDeleted;
+            public event WydatkiTypyStatRowChangeEventHandler WydatkiTypyStatRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddWydatkiTypyRow(WydatkiTypyRow row) {
+            public void AddWydatkiTypyStatRow(WydatkiTypyStatRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WydatkiTypyRow AddWydatkiTypyRow(string TypWydatku, int Grosze) {
-                WydatkiTypyRow rowWydatkiTypyRow = ((WydatkiTypyRow)(this.NewRow()));
+            public WydatkiTypyStatRow AddWydatkiTypyStatRow(string TypWydatku, int Grosze) {
+                WydatkiTypyStatRow rowWydatkiTypyStatRow = ((WydatkiTypyStatRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TypWydatku,
                         Grosze};
-                rowWydatkiTypyRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowWydatkiTypyRow);
-                return rowWydatkiTypyRow;
+                rowWydatkiTypyStatRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowWydatkiTypyStatRow);
+                return rowWydatkiTypyStatRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                WydatkiTypyDataTable cln = ((WydatkiTypyDataTable)(base.Clone()));
+                WydatkiTypyStatDataTable cln = ((WydatkiTypyStatDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1715,7 +1715,7 @@ namespace JajkaDB {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new WydatkiTypyDataTable();
+                return new WydatkiTypyStatDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1738,28 +1738,28 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WydatkiTypyRow NewWydatkiTypyRow() {
-                return ((WydatkiTypyRow)(this.NewRow()));
+            public WydatkiTypyStatRow NewWydatkiTypyStatRow() {
+                return ((WydatkiTypyStatRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new WydatkiTypyRow(builder);
+                return new WydatkiTypyStatRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(WydatkiTypyRow);
+                return typeof(WydatkiTypyStatRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.WydatkiTypyRowChanged != null)) {
-                    this.WydatkiTypyRowChanged(this, new WydatkiTypyRowChangeEvent(((WydatkiTypyRow)(e.Row)), e.Action));
+                if ((this.WydatkiTypyStatRowChanged != null)) {
+                    this.WydatkiTypyStatRowChanged(this, new WydatkiTypyStatRowChangeEvent(((WydatkiTypyStatRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1767,8 +1767,8 @@ namespace JajkaDB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.WydatkiTypyRowChanging != null)) {
-                    this.WydatkiTypyRowChanging(this, new WydatkiTypyRowChangeEvent(((WydatkiTypyRow)(e.Row)), e.Action));
+                if ((this.WydatkiTypyStatRowChanging != null)) {
+                    this.WydatkiTypyStatRowChanging(this, new WydatkiTypyStatRowChangeEvent(((WydatkiTypyStatRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1776,8 +1776,8 @@ namespace JajkaDB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.WydatkiTypyRowDeleted != null)) {
-                    this.WydatkiTypyRowDeleted(this, new WydatkiTypyRowChangeEvent(((WydatkiTypyRow)(e.Row)), e.Action));
+                if ((this.WydatkiTypyStatRowDeleted != null)) {
+                    this.WydatkiTypyStatRowDeleted(this, new WydatkiTypyStatRowChangeEvent(((WydatkiTypyStatRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1785,14 +1785,14 @@ namespace JajkaDB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.WydatkiTypyRowDeleting != null)) {
-                    this.WydatkiTypyRowDeleting(this, new WydatkiTypyRowChangeEvent(((WydatkiTypyRow)(e.Row)), e.Action));
+                if ((this.WydatkiTypyStatRowDeleting != null)) {
+                    this.WydatkiTypyStatRowDeleting(this, new WydatkiTypyStatRowChangeEvent(((WydatkiTypyStatRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveWydatkiTypyRow(WydatkiTypyRow row) {
+            public void RemoveWydatkiTypyStatRow(WydatkiTypyStatRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1819,7 +1819,7 @@ namespace JajkaDB {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "WydatkiTypyDataTable";
+                attribute2.FixedValue = "WydatkiTypyStatDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2354,15 +2354,15 @@ namespace JajkaDB {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class WydatkiTypyRow : global::System.Data.DataRow {
+        public partial class WydatkiTypyStatRow : global::System.Data.DataRow {
             
-            private WydatkiTypyDataTable tableWydatkiTypy;
+            private WydatkiTypyStatDataTable tableWydatkiTypyStat;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal WydatkiTypyRow(global::System.Data.DataRowBuilder rb) : 
+            internal WydatkiTypyStatRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableWydatkiTypy = ((WydatkiTypyDataTable)(this.Table));
+                this.tableWydatkiTypyStat = ((WydatkiTypyStatDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2370,14 +2370,14 @@ namespace JajkaDB {
             public string TypWydatku {
                 get {
                     try {
-                        return ((string)(this[this.tableWydatkiTypy.TypWydatkuColumn]));
+                        return ((string)(this[this.tableWydatkiTypyStat.TypWydatkuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TypWydatku\' in table \'WydatkiTypy\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TypWydatku\' in table \'WydatkiTypyStat\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableWydatkiTypy.TypWydatkuColumn] = value;
+                    this[this.tableWydatkiTypyStat.TypWydatkuColumn] = value;
                 }
             }
             
@@ -2386,39 +2386,39 @@ namespace JajkaDB {
             public int Grosze {
                 get {
                     try {
-                        return ((int)(this[this.tableWydatkiTypy.GroszeColumn]));
+                        return ((int)(this[this.tableWydatkiTypyStat.GroszeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Grosze\' in table \'WydatkiTypy\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Grosze\' in table \'WydatkiTypyStat\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableWydatkiTypy.GroszeColumn] = value;
+                    this[this.tableWydatkiTypyStat.GroszeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTypWydatkuNull() {
-                return this.IsNull(this.tableWydatkiTypy.TypWydatkuColumn);
+                return this.IsNull(this.tableWydatkiTypyStat.TypWydatkuColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTypWydatkuNull() {
-                this[this.tableWydatkiTypy.TypWydatkuColumn] = global::System.Convert.DBNull;
+                this[this.tableWydatkiTypyStat.TypWydatkuColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsGroszeNull() {
-                return this.IsNull(this.tableWydatkiTypy.GroszeColumn);
+                return this.IsNull(this.tableWydatkiTypyStat.GroszeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetGroszeNull() {
-                this[this.tableWydatkiTypy.GroszeColumn] = global::System.Convert.DBNull;
+                this[this.tableWydatkiTypyStat.GroszeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2562,22 +2562,22 @@ namespace JajkaDB {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class WydatkiTypyRowChangeEvent : global::System.EventArgs {
+        public class WydatkiTypyStatRowChangeEvent : global::System.EventArgs {
             
-            private WydatkiTypyRow eventRow;
+            private WydatkiTypyStatRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WydatkiTypyRowChangeEvent(WydatkiTypyRow row, global::System.Data.DataRowAction action) {
+            public WydatkiTypyStatRowChangeEvent(WydatkiTypyStatRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WydatkiTypyRow Row {
+            public WydatkiTypyStatRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3469,7 +3469,7 @@ FROM            StatView";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class WydatkiTypyTableAdapter : global::System.ComponentModel.Component {
+    public partial class WydatkiTypyStatTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3483,7 +3483,7 @@ FROM            StatView";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public WydatkiTypyTableAdapter() {
+        public WydatkiTypyStatTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3580,7 +3580,7 @@ FROM            StatView";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "WydatkiTypy";
+            tableMapping.DataSetTable = "WydatkiTypyStat";
             tableMapping.ColumnMappings.Add("TypWydatku", "TypWydatku");
             tableMapping.ColumnMappings.Add("Grosze", "Grosze");
             this._adapter.TableMappings.Add(tableMapping);
@@ -3605,27 +3605,27 @@ FROM            Wydatki INNER JOIN
 WHERE        (Wydatki.Data BETWEEN @dataOd AND @dataDo)
 GROUP BY WydatkiTypy.TypWydatku";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DatabaseDataSetViews.WydatkiTypyDataTable dataTable, string dataOd, string dataDo) {
+        public virtual int Fill(DatabaseDataSetViews.WydatkiTypyStatDataTable dataTable, global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((dataOd == null)) {
+            if ((dataOd.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(dataOd.Value));
+            }
+            else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(dataOd));
+            if ((dataDo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dataDo.Value));
             }
-            if ((dataDo == null)) {
+            else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(dataDo));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3638,21 +3638,21 @@ GROUP BY WydatkiTypy.TypWydatku";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DatabaseDataSetViews.WydatkiTypyDataTable GetData(string dataOd, string dataDo) {
+        public virtual DatabaseDataSetViews.WydatkiTypyStatDataTable GetData(global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((dataOd == null)) {
+            if ((dataOd.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(dataOd.Value));
+            }
+            else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(dataOd));
+            if ((dataDo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dataDo.Value));
             }
-            if ((dataDo == null)) {
+            else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(dataDo));
-            }
-            DatabaseDataSetViews.WydatkiTypyDataTable dataTable = new DatabaseDataSetViews.WydatkiTypyDataTable();
+            DatabaseDataSetViews.WydatkiTypyStatDataTable dataTable = new DatabaseDataSetViews.WydatkiTypyStatDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
