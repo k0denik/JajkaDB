@@ -705,6 +705,8 @@ namespace JajkaDB {
             
             private global::System.Data.DataColumn columnZlote;
             
+            private global::System.Data.DataColumn columnOstatnio;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public KlienciZakupyDataTable() {
@@ -772,6 +774,14 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OstatnioColumn {
+                get {
+                    return this.columnOstatnio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -807,13 +817,14 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public KlienciZakupyRow AddKlienciZakupyRow(string Imie, string Nazwisko, int Jajka, decimal Zlote) {
+            public KlienciZakupyRow AddKlienciZakupyRow(string Imie, string Nazwisko, int Jajka, decimal Zlote, System.DateTime Ostatnio) {
                 KlienciZakupyRow rowKlienciZakupyRow = ((KlienciZakupyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Imie,
                         Nazwisko,
                         Jajka,
-                        Zlote};
+                        Zlote,
+                        Ostatnio};
                 rowKlienciZakupyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowKlienciZakupyRow);
                 return rowKlienciZakupyRow;
@@ -840,6 +851,7 @@ namespace JajkaDB {
                 this.columnNazwisko = base.Columns["Nazwisko"];
                 this.columnJajka = base.Columns["Jajka"];
                 this.columnZlote = base.Columns["Zlote"];
+                this.columnOstatnio = base.Columns["Ostatnio"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -853,8 +865,12 @@ namespace JajkaDB {
                 base.Columns.Add(this.columnJajka);
                 this.columnZlote = new global::System.Data.DataColumn("Zlote", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnZlote);
+                this.columnOstatnio = new global::System.Data.DataColumn("Ostatnio", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOstatnio);
                 this.columnImie.MaxLength = 50;
                 this.columnNazwisko.MaxLength = 50;
+                this.columnZlote.ReadOnly = true;
+                this.columnOstatnio.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1994,6 +2010,22 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Ostatnio {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableKlienciZakupy.OstatnioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Ostatnio\' in table \'KlienciZakupy\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKlienciZakupy.OstatnioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsImieNull() {
                 return this.IsNull(this.tableKlienciZakupy.ImieColumn);
             }
@@ -2038,6 +2070,18 @@ namespace JajkaDB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetZloteNull() {
                 this[this.tableKlienciZakupy.ZloteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOstatnioNull() {
+                return this.IsNull(this.tableKlienciZakupy.OstatnioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOstatnioNull() {
+                this[this.tableKlienciZakupy.OstatnioColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2888,7 +2932,8 @@ namespace JajkaDB.DatabaseDataSetViewsTableAdapters {
             tableMapping.ColumnMappings.Add("Imie", "Imie");
             tableMapping.ColumnMappings.Add("Nazwisko", "Nazwisko");
             tableMapping.ColumnMappings.Add("Jajka", "Jajka");
-            tableMapping.ColumnMappings.Add("Grosze", "Zlote");
+            tableMapping.ColumnMappings.Add("Zlote", "Zlote");
+            tableMapping.ColumnMappings.Add("Ostatnio", "Ostatnio");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2905,13 +2950,22 @@ namespace JajkaDB.DatabaseDataSetViewsTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Imie, Nazwisko, Jajka, Grosze FROM KlienciZakupy";
+            this._commandCollection[0].CommandText = @"SELECT                      KlienciZakupy.Imie, KlienciZakupy.Nazwisko, SUM(KlienciZakupy.Jajka) AS Jajka, CONVERT(DECIMAL(10, 2), SUM(KlienciZakupy.Grosze) / 100.0) AS Zlote, Derived.Ostatnio
+FROM                         KlienciZakupy INNER JOIN
+                                          (SELECT                      Imie, MAX(Data) AS Ostatnio
+                                                FROM                         KlienciZakupy AS KlienciZakupy_1
+                                                GROUP BY              Imie) AS Derived ON KlienciZakupy.Imie = Derived.Imie
+GROUP BY              KlienciZakupy.Imie, KlienciZakupy.Nazwisko, Derived.Ostatnio";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        Imie, Nazwisko, SUM(Jajka) AS Jajka, CONVERT(DECIMAL(10, 2), SUM(Gr" +
-                "osze) / 100.0) AS Zlote\r\nFROM            KlienciZakupy\r\nWHERE        (Data BETWE" +
-                "EN @dataOd AND @dataDo)\r\nGROUP BY Imie, Nazwisko";
+            this._commandCollection[1].CommandText = @"SELECT                      KlienciZakupy.Imie, KlienciZakupy.Nazwisko, SUM(KlienciZakupy.Jajka) AS Jajka, CONVERT(DECIMAL(10, 2), SUM(KlienciZakupy.Grosze) / 100.0) AS Zlote, Derived.Ostatnio
+FROM                         KlienciZakupy INNER JOIN
+                                          (SELECT                      Imie, MAX(Data) AS Ostatnio
+                                                FROM                         KlienciZakupy AS KlienciZakupy_1
+                                                GROUP BY              Imie) AS Derived ON KlienciZakupy.Imie = Derived.Imie
+WHERE                       (KlienciZakupy.Data BETWEEN @dataOd AND @dataDo)
+GROUP BY              KlienciZakupy.Imie, KlienciZakupy.Nazwisko, Derived.Ostatnio";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

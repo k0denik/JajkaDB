@@ -12,6 +12,10 @@ namespace JajkaDB
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSetViews.KlienciZakupy' table. You can move, or remove it, as needed.
+            this.klienciZakupyTableAdapter1.Fill(this.databaseDataSetViews.KlienciZakupy);
+            // TODO: This line of code loads data into the 'databaseDataSetViews.KlienciPelne' table. You can move, or remove it, as needed.
+            this.klienciPelneTableAdapter.Fill(this.databaseDataSetViews.KlienciPelne);
             kuryTableAdapter.Fill(databaseDataSet.Kury);
             wydatkiTypyTableAdapter.Fill(databaseDataSet.WydatkiTypy);
             wydatkiTableAdapter.Fill(databaseDataSet.Wydatki);
