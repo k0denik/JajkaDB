@@ -3194,30 +3194,38 @@ FROM            StatView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        ISNULL(CONVERT(DECIMAL(10, 2),\r\n                             (SELEC" +
-                "T        SUM(Grosze) AS Expr1\r\n                               FROM            Tr" +
-                "ansakcje\r\n                               WHERE        (Data BETWEEN @dataOd AND " +
-                "@dataDo)) / 100.0), 0) AS Dochod, ISNULL(CONVERT(DECIMAL(10, 2),\r\n              " +
-                "               (SELECT        SUM(Grosze) AS Expr1\r\n                            " +
-                "   FROM            Dokupione\r\n                               WHERE        (Data " +
-                "BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS WydatkiJajka, ISNULL(CONVERT(DECIM" +
-                "AL(10, 2),\r\n                             (SELECT        SUM(Grosze) AS Expr1\r\n  " +
-                "                             FROM            Wydatki\r\n                          " +
-                "     WHERE        (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS WydatkiInn" +
-                "e, CONVERT(DECIMAL(10, 2), (ISNULL\r\n                             ((SELECT       " +
-                " SUM(Grosze) AS Expr1\r\n                                 FROM            Transakc" +
-                "je AS Transakcje_1\r\n                                 WHERE        (Data BETWEEN " +
-                "@dataOd AND @dataDo)), 0) - ISNULL\r\n                             ((SELECT       " +
-                " SUM(Grosze) AS Expr1\r\n                                 FROM            Dokupion" +
-                "e AS Dokupione_1\r\n                                 WHERE        (Data BETWEEN @d" +
-                "ataOd AND @dataDo)), 0) - ISNULL\r\n                             ((SELECT        S" +
-                "UM(Grosze) AS Expr1\r\n                                 FROM            Wydatki AS" +
-                " Wydatki_1\r\n                                 WHERE        (Data BETWEEN @dataOd " +
-                "AND @dataDo)), 0)) / 100.0) AS Razem, ISNULL(CONVERT(DECIMAL(10, 2),\r\n          " +
-                "                   (SELECT        AVG(Grosze / Jajka) AS Expr1\r\n                " +
-                "               FROM            Transakcje AS Transakcje_2\r\n                     " +
-                "          WHERE        (Grosze > 0) AND (Data BETWEEN @dataOd AND @dataDo)) / 10" +
-                "0.0), 0) AS Srednio";
+            this._commandCollection[1].CommandText = "SELECT                      ISNULL(CONVERT(DECIMAL(10, 2),\r\n                     " +
+                "                     (SELECT                      SUM(Grosze) AS Expr1\r\n        " +
+                "                                        FROM                         Transakcje\r" +
+                "\n                                                WHERE                       (Da" +
+                "ta BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Dochod, ISNULL(CONVERT(DECIMAL(" +
+                "10, 2),\r\n                                          (SELECT                      " +
+                "SUM(Grosze) AS Expr1\r\n                                                FROM      " +
+                "                   Dokupione\r\n                                                WH" +
+                "ERE                       (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Wy" +
+                "datkiJajka, ISNULL(CONVERT(DECIMAL(10, 2),\r\n                                    " +
+                "      (SELECT                      SUM(Grosze) AS Expr1\r\n                       " +
+                "                         FROM                         Wydatki\r\n                 " +
+                "                               WHERE                       (Data BETWEEN @dataOd" +
+                " AND @dataDo)) / 100.0), 0) AS WydatkiInne, CONVERT(DECIMAL(10, 2), (ISNULL\r\n   " +
+                "                                       ((SELECT                      SUM(Grosze)" +
+                " AS Expr1\r\n                                                  FROM               " +
+                "          Transakcje AS Transakcje_1\r\n                                          " +
+                "        WHERE                       (Data BETWEEN @dataOd AND @dataDo)), 0) - IS" +
+                "NULL\r\n                                          ((SELECT                      SU" +
+                "M(Grosze) AS Expr1\r\n                                                  FROM      " +
+                "                   Dokupione AS Dokupione_1\r\n                                   " +
+                "               WHERE                       (Data BETWEEN @dataOd AND @dataDo)), " +
+                "0) - ISNULL\r\n                                          ((SELECT                 " +
+                "     SUM(Grosze) AS Expr1\r\n                                                  FRO" +
+                "M                         Wydatki AS Wydatki_1\r\n                                " +
+                "                  WHERE                       (Data BETWEEN @dataOd AND @dataDo)" +
+                "), 0)) / 100.0) AS Razem, ISNULL(CONVERT(DECIMAL(10, 2),\r\n                      " +
+                "                    (SELECT                      (SUM(Grosze / Jajka) / DATEDIFF" +
+                "(day, @dataOd, @dataDo)) AS Expr1\r\n                                             " +
+                "   FROM                         Transakcje AS Transakcje_2\r\n                    " +
+                "                            WHERE                       (Grosze > 0) AND (Data B" +
+                "ETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Srednio";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3438,28 +3446,26 @@ FROM            StatView";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        ISNULL\r\n                             ((SELECT        SUM(Ilosc) AS " +
-                "Expr1\r\n                                 FROM            Zniesione\r\n             " +
-                "                    WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Znie" +
-                "sione, ISNULL\r\n                             ((SELECT        SUM(Ilosc) AS Expr1\r" +
-                "\n                                 FROM            Dokupione\r\n                   " +
-                "              WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Dokupione," +
-                " ISNULL\r\n                             ((SELECT        SUM(Jajka) AS Expr1\r\n     " +
-                "                            FROM            Transakcje\r\n                        " +
-                "         WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Sprzedane, ISNU" +
-                "LL\r\n                             ((SELECT        SUM(Ilosc) AS Expr1\r\n          " +
-                "                       FROM            Zniesione AS Zniesione_1\r\n               " +
-                "                  WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) + ISNULL\r" +
-                "\n                             ((SELECT        SUM(Ilosc) AS Expr1\r\n             " +
-                "                    FROM            Dokupione AS Dokupione_1\r\n                  " +
-                "               WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) - ISNULL\r\n  " +
-                "                           ((SELECT        SUM(Jajka) AS Expr1\r\n                " +
-                "                 FROM            Transakcje AS Transakcje_1\r\n                   " +
-                "              WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Razem, ISN" +
-                "ULL\r\n                             ((SELECT        AVG(Ilosc) AS Expr1\r\n         " +
-                "                        FROM            Zniesione AS Zniesione_2\r\n              " +
-                "                   WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Sredn" +
-                "ioZniesione";
+            this._commandCollection[0].CommandText = " SELECT        ISNULL\r\n                             ((SELECT        SUM(Ilosc) AS" +
+                " Expr1\r\n                                 FROM            Zniesione\r\n            " +
+                "                     WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Zni" +
+                "esione, ISNULL\r\n                             ((SELECT        SUM(Ilosc) AS Expr1" +
+                "\r\n                                 FROM            Dokupione\r\n                  " +
+                "               WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Dokupione" +
+                ", ISNULL\r\n                             ((SELECT        SUM(Jajka) AS Expr1\r\n    " +
+                "                             FROM            Transakcje\r\n                       " +
+                "          WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Sprzedane, ISN" +
+                "ULL\r\n                             ((SELECT        SUM(Ilosc) AS Expr1\r\n         " +
+                "                        FROM            Zniesione AS Zniesione_1\r\n              " +
+                "                   ), 0) + ISNULL\r\n                             ((SELECT        " +
+                "SUM(Ilosc) AS Expr1\r\n                                 FROM            Dokupione " +
+                "AS Dokupione_1\r\n                                 ), 0) - ISNULL\r\n               " +
+                "              ((SELECT        SUM(Jajka) AS Expr1\r\n                             " +
+                "    FROM            Transakcje AS Transakcje_1\r\n                                " +
+                " ), 0) AS Razem, ISNULL\r\n                             ((SELECT        (SUM(Ilosc" +
+                ")/DATEDIFF(day, @dataOd, @dataDo) )AS Expr1\r\n                                 FR" +
+                "OM            Zniesione AS Zniesione_2\r\n                                 WHERE  " +
+                "      (Data BETWEEN @dataOd AND @dataDo)), 0) AS SrednioZniesione";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

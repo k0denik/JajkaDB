@@ -174,14 +174,13 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.klienciZakupyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.databaseDataSet11 = new JajkaDB.DatabaseDataSet1();
+            this.klienciZakupyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSetViews = new JajkaDB.DatabaseDataSetViews();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewWydatkiStat = new System.Windows.Forms.DataGridView();
             this.typWydatkuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groszeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wydatkiTypyStatBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.databaseDataSetViews = new JajkaDB.DatabaseDataSetViews();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.zniesioneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -199,6 +198,8 @@
             this.statViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePickerViewDo = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerViewOd = new System.Windows.Forms.DateTimePicker();
+            this.klienciZakupyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSet11 = new JajkaDB.DatabaseDataSet1();
             this.zniesioneTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.ZniesioneTableAdapter();
             this.dokupioneTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.DokupioneTableAdapter();
             this.klienciTableAdapter = new JajkaDB.DatabaseDataSetTableAdapters.KlienciTableAdapter();
@@ -214,7 +215,6 @@
             this.statViewBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.klienciPelneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.klienciPelneTableAdapter = new JajkaDB.DatabaseDataSetViewsTableAdapters.KlienciPelneTableAdapter();
-            this.klienciZakupyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.klienciZakupyTableAdapter1 = new JajkaDB.DatabaseDataSetViewsTableAdapters.KlienciZakupyTableAdapter();
             this.Imie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nazwisko = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -260,21 +260,21 @@
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.klienciZakupyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.klienciZakupyBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetViews)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWydatkiStat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wydatkiTypyStatBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetViews)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statViewJajkaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.klienciZakupyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statViewBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.klienciPelneBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.klienciZakupyBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1654,15 +1654,15 @@
             this.dataGridView3.Size = new System.Drawing.Size(557, 347);
             this.dataGridView3.TabIndex = 0;
             // 
-            // klienciZakupyBindingSource
+            // klienciZakupyBindingSource1
             // 
-            this.klienciZakupyBindingSource.DataMember = "KlienciZakupy";
-            this.klienciZakupyBindingSource.DataSource = this.databaseDataSet11;
+            this.klienciZakupyBindingSource1.DataMember = "KlienciZakupy";
+            this.klienciZakupyBindingSource1.DataSource = this.databaseDataSetViews;
             // 
-            // databaseDataSet11
+            // databaseDataSetViews
             // 
-            this.databaseDataSet11.DataSetName = "DatabaseDataSet1";
-            this.databaseDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.databaseDataSetViews.DataSetName = "DatabaseDataSetViews";
+            this.databaseDataSetViews.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage3
             // 
@@ -1710,11 +1710,6 @@
             // 
             this.wydatkiTypyStatBindingSource.DataMember = "WydatkiTypyStat";
             this.wydatkiTypyStatBindingSource.DataSource = this.databaseDataSetViews;
-            // 
-            // databaseDataSetViews
-            // 
-            this.databaseDataSetViews.DataSetName = "DatabaseDataSetViews";
-            this.databaseDataSetViews.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage2
             // 
@@ -1864,6 +1859,16 @@
             this.dateTimePickerViewOd.TabIndex = 0;
             this.dateTimePickerViewOd.ValueChanged += new System.EventHandler(this.dateTimePickerViewOd_ValueChanged);
             // 
+            // klienciZakupyBindingSource
+            // 
+            this.klienciZakupyBindingSource.DataMember = "KlienciZakupy";
+            this.klienciZakupyBindingSource.DataSource = this.databaseDataSet11;
+            // 
+            // databaseDataSet11
+            // 
+            this.databaseDataSet11.DataSetName = "DatabaseDataSet1";
+            this.databaseDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // zniesioneTableAdapter
             // 
             this.zniesioneTableAdapter.ClearBeforeFill = true;
@@ -1927,11 +1932,6 @@
             // 
             this.klienciPelneTableAdapter.ClearBeforeFill = true;
             // 
-            // klienciZakupyBindingSource1
-            // 
-            this.klienciZakupyBindingSource1.DataMember = "KlienciZakupy";
-            this.klienciZakupyBindingSource1.DataSource = this.databaseDataSetViews;
-            // 
             // klienciZakupyTableAdapter1
             // 
             this.klienciZakupyTableAdapter1.ClearBeforeFill = true;
@@ -1946,7 +1946,7 @@
             // Nazwisko
             // 
             this.Nazwisko.DataPropertyName = "Nazwisko";
-            this.Nazwisko.HeaderText = "Nazwisko";
+            this.Nazwisko.HeaderText = "Notka";
             this.Nazwisko.Name = "Nazwisko";
             this.Nazwisko.ReadOnly = true;
             // 
@@ -2030,21 +2030,21 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.klienciZakupyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.klienciZakupyBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetViews)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWydatkiStat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wydatkiTypyStatBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetViews)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statViewJajkaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.klienciZakupyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet11BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statViewBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.klienciPelneBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.klienciZakupyBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

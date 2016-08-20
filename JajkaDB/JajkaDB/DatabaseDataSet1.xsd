@@ -93,28 +93,28 @@ FROM            StatView</CommandText>
               <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDate" GeneratorSourceName="FillByDate" GetMethodModifier="Public" GetMethodName="GetDataByDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDate" UserSourceName="FillByDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        ISNULL(CONVERT(DECIMAL(10, 2),
-                             (SELECT        SUM(Grosze) AS Expr1
-                               FROM            Transakcje
-                               WHERE        (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Dochod, ISNULL(CONVERT(DECIMAL(10, 2),
-                             (SELECT        SUM(Grosze) AS Expr1
-                               FROM            Dokupione
-                               WHERE        (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS WydatkiJajka, ISNULL(CONVERT(DECIMAL(10, 2),
-                             (SELECT        SUM(Grosze) AS Expr1
-                               FROM            Wydatki
-                               WHERE        (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS WydatkiInne, CONVERT(DECIMAL(10, 2), (ISNULL
-                             ((SELECT        SUM(Grosze) AS Expr1
-                                 FROM            Transakcje AS Transakcje_1
-                                 WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) - ISNULL
-                             ((SELECT        SUM(Grosze) AS Expr1
-                                 FROM            Dokupione AS Dokupione_1
-                                 WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) - ISNULL
-                             ((SELECT        SUM(Grosze) AS Expr1
-                                 FROM            Wydatki AS Wydatki_1
-                                 WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0)) / 100.0) AS Razem, ISNULL(CONVERT(DECIMAL(10, 2),
-                             (SELECT        AVG(Grosze / Jajka) AS Expr1
-                               FROM            Transakcje AS Transakcje_2
-                               WHERE        (Grosze &gt; 0) AND (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Srednio</CommandText>
+                    <CommandText>SELECT                      ISNULL(CONVERT(DECIMAL(10, 2),
+                                          (SELECT                      SUM(Grosze) AS Expr1
+                                                FROM                         Transakcje
+                                                WHERE                       (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Dochod, ISNULL(CONVERT(DECIMAL(10, 2),
+                                          (SELECT                      SUM(Grosze) AS Expr1
+                                                FROM                         Dokupione
+                                                WHERE                       (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS WydatkiJajka, ISNULL(CONVERT(DECIMAL(10, 2),
+                                          (SELECT                      SUM(Grosze) AS Expr1
+                                                FROM                         Wydatki
+                                                WHERE                       (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS WydatkiInne, CONVERT(DECIMAL(10, 2), (ISNULL
+                                          ((SELECT                      SUM(Grosze) AS Expr1
+                                                  FROM                         Transakcje AS Transakcje_1
+                                                  WHERE                       (Data BETWEEN @dataOd AND @dataDo)), 0) - ISNULL
+                                          ((SELECT                      SUM(Grosze) AS Expr1
+                                                  FROM                         Dokupione AS Dokupione_1
+                                                  WHERE                       (Data BETWEEN @dataOd AND @dataDo)), 0) - ISNULL
+                                          ((SELECT                      SUM(Grosze) AS Expr1
+                                                  FROM                         Wydatki AS Wydatki_1
+                                                  WHERE                       (Data BETWEEN @dataOd AND @dataDo)), 0)) / 100.0) AS Razem, ISNULL(CONVERT(DECIMAL(10, 2),
+                                          (SELECT                      (SUM(Grosze / Jajka) / DATEDIFF(day, @dataOd, @dataDo)) AS Expr1
+                                                FROM                         Transakcje AS Transakcje_2
+                                                WHERE                       (Grosze &gt; 0) AND (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Srednio</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="dataOd" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="@dataOd" Precision="0" ProviderType="DateTime" Scale="0" Size="3" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="dataDo" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="@dataDo" Precision="0" ProviderType="DateTime" Scale="0" Size="3" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -129,7 +129,7 @@ FROM            StatView</CommandText>
               <DbSource ConnectionRef="DatabaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        ISNULL
+                    <CommandText> SELECT        ISNULL
                              ((SELECT        SUM(Ilosc) AS Expr1
                                  FROM            Zniesione
                                  WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Zniesione, ISNULL
@@ -141,14 +141,14 @@ FROM            StatView</CommandText>
                                  WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Sprzedane, ISNULL
                              ((SELECT        SUM(Ilosc) AS Expr1
                                  FROM            Zniesione AS Zniesione_1
-                                 WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) + ISNULL
+                                 ), 0) + ISNULL
                              ((SELECT        SUM(Ilosc) AS Expr1
                                  FROM            Dokupione AS Dokupione_1
-                                 WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) - ISNULL
+                                 ), 0) - ISNULL
                              ((SELECT        SUM(Jajka) AS Expr1
                                  FROM            Transakcje AS Transakcje_1
-                                 WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Razem, ISNULL
-                             ((SELECT        AVG(Ilosc) AS Expr1
+                                 ), 0) AS Razem, ISNULL
+                             ((SELECT        (SUM(Ilosc)/DATEDIFF(day, @dataOd, @dataDo) )AS Expr1
                                  FROM            Zniesione AS Zniesione_2
                                  WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS SrednioZniesione</CommandText>
                     <Parameters>
@@ -200,7 +200,7 @@ GROUP BY WydatkiTypy.TypWydatku</CommandText>
   <xs:element name="DatabaseDataSetViews" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DatabaseDataSetViews" msprop:Generator_UserDSName="DatabaseDataSetViews">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="KlienciPelne" msprop:Generator_TableClassName="KlienciPelneDataTable" msprop:Generator_TableVarName="tableKlienciPelne" msprop:Generator_TablePropName="KlienciPelne" msprop:Generator_RowDeletingName="KlienciPelneRowDeleting" msprop:Generator_RowChangingName="KlienciPelneRowChanging" msprop:Generator_RowEvHandlerName="KlienciPelneRowChangeEventHandler" msprop:Generator_RowDeletedName="KlienciPelneRowDeleted" msprop:Generator_UserTableName="KlienciPelne" msprop:Generator_RowChangedName="KlienciPelneRowChanged" msprop:Generator_RowEvArgName="KlienciPelneRowChangeEvent" msprop:Generator_RowClassName="KlienciPelneRow">
+        <xs:element name="KlienciPelne" msprop:Generator_TableClassName="KlienciPelneDataTable" msprop:Generator_TableVarName="tableKlienciPelne" msprop:Generator_RowChangedName="KlienciPelneRowChanged" msprop:Generator_TablePropName="KlienciPelne" msprop:Generator_RowDeletingName="KlienciPelneRowDeleting" msprop:Generator_RowChangingName="KlienciPelneRowChanging" msprop:Generator_RowEvHandlerName="KlienciPelneRowChangeEventHandler" msprop:Generator_RowDeletedName="KlienciPelneRowDeleted" msprop:Generator_RowClassName="KlienciPelneRow" msprop:Generator_UserTableName="KlienciPelne" msprop:Generator_RowEvArgName="KlienciPelneRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -214,7 +214,7 @@ GROUP BY WydatkiTypy.TypWydatku</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="KlienciZakupy" msprop:Generator_TableClassName="KlienciZakupyDataTable" msprop:Generator_TableVarName="tableKlienciZakupy" msprop:Generator_TablePropName="KlienciZakupy" msprop:Generator_RowDeletingName="KlienciZakupyRowDeleting" msprop:Generator_RowChangingName="KlienciZakupyRowChanging" msprop:Generator_RowEvHandlerName="KlienciZakupyRowChangeEventHandler" msprop:Generator_RowDeletedName="KlienciZakupyRowDeleted" msprop:Generator_UserTableName="KlienciZakupy" msprop:Generator_RowChangedName="KlienciZakupyRowChanged" msprop:Generator_RowEvArgName="KlienciZakupyRowChangeEvent" msprop:Generator_RowClassName="KlienciZakupyRow">
+        <xs:element name="KlienciZakupy" msprop:Generator_TableClassName="KlienciZakupyDataTable" msprop:Generator_TableVarName="tableKlienciZakupy" msprop:Generator_RowChangedName="KlienciZakupyRowChanged" msprop:Generator_TablePropName="KlienciZakupy" msprop:Generator_RowDeletingName="KlienciZakupyRowDeleting" msprop:Generator_RowChangingName="KlienciZakupyRowChanging" msprop:Generator_RowEvHandlerName="KlienciZakupyRowChangeEventHandler" msprop:Generator_RowDeletedName="KlienciZakupyRowDeleted" msprop:Generator_RowClassName="KlienciZakupyRow" msprop:Generator_UserTableName="KlienciZakupy" msprop:Generator_RowEvArgName="KlienciZakupyRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Imie" msprop:Generator_ColumnVarNameInTable="columnImie" msprop:Generator_ColumnPropNameInRow="Imie" msprop:Generator_ColumnPropNameInTable="ImieColumn" msprop:Generator_UserColumnName="Imie" minOccurs="0">
@@ -237,7 +237,7 @@ GROUP BY WydatkiTypy.TypWydatku</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatView" msprop:Generator_TableClassName="StatViewDataTable" msprop:Generator_TableVarName="tableStatView" msprop:Generator_RowChangedName="StatViewRowChanged" msprop:Generator_TablePropName="StatView" msprop:Generator_RowDeletingName="StatViewRowDeleting" msprop:Generator_RowChangingName="StatViewRowChanging" msprop:Generator_RowEvHandlerName="StatViewRowChangeEventHandler" msprop:Generator_RowDeletedName="StatViewRowDeleted" msprop:Generator_RowClassName="StatViewRow" msprop:Generator_UserTableName="StatView" msprop:Generator_RowEvArgName="StatViewRowChangeEvent">
+        <xs:element name="StatView" msprop:Generator_TableClassName="StatViewDataTable" msprop:Generator_TableVarName="tableStatView" msprop:Generator_TablePropName="StatView" msprop:Generator_RowDeletingName="StatViewRowDeleting" msprop:Generator_RowChangingName="StatViewRowChanging" msprop:Generator_RowEvHandlerName="StatViewRowChangeEventHandler" msprop:Generator_RowDeletedName="StatViewRowDeleted" msprop:Generator_UserTableName="StatView" msprop:Generator_RowChangedName="StatViewRowChanged" msprop:Generator_RowEvArgName="StatViewRowChangeEvent" msprop:Generator_RowClassName="StatViewRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Dochod" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDochod" msprop:Generator_ColumnPropNameInRow="Dochod" msprop:Generator_ColumnPropNameInTable="DochodColumn" msprop:Generator_UserColumnName="Dochod" type="xs:decimal" minOccurs="0" />
@@ -248,7 +248,7 @@ GROUP BY WydatkiTypy.TypWydatku</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StatViewJajka" msprop:Generator_TableClassName="StatViewJajkaDataTable" msprop:Generator_TableVarName="tableStatViewJajka" msprop:Generator_TablePropName="StatViewJajka" msprop:Generator_RowDeletingName="StatViewJajkaRowDeleting" msprop:Generator_RowChangingName="StatViewJajkaRowChanging" msprop:Generator_RowEvHandlerName="StatViewJajkaRowChangeEventHandler" msprop:Generator_RowDeletedName="StatViewJajkaRowDeleted" msprop:Generator_UserTableName="StatViewJajka" msprop:Generator_RowChangedName="StatViewJajkaRowChanged" msprop:Generator_RowEvArgName="StatViewJajkaRowChangeEvent" msprop:Generator_RowClassName="StatViewJajkaRow">
+        <xs:element name="StatViewJajka" msprop:Generator_TableClassName="StatViewJajkaDataTable" msprop:Generator_TableVarName="tableStatViewJajka" msprop:Generator_RowChangedName="StatViewJajkaRowChanged" msprop:Generator_TablePropName="StatViewJajka" msprop:Generator_RowDeletingName="StatViewJajkaRowDeleting" msprop:Generator_RowChangingName="StatViewJajkaRowChanging" msprop:Generator_RowEvHandlerName="StatViewJajkaRowChangeEventHandler" msprop:Generator_RowDeletedName="StatViewJajkaRowDeleted" msprop:Generator_RowClassName="StatViewJajkaRow" msprop:Generator_UserTableName="StatViewJajka" msprop:Generator_RowEvArgName="StatViewJajkaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Zniesione" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnZniesione" msprop:Generator_ColumnPropNameInRow="Zniesione" msprop:Generator_ColumnPropNameInTable="ZniesioneColumn" msprop:Generator_UserColumnName="Zniesione" type="xs:int" minOccurs="0" />
@@ -259,7 +259,7 @@ GROUP BY WydatkiTypy.TypWydatku</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="WydatkiTypyStat" msprop:Generator_TableClassName="WydatkiTypyStatDataTable" msprop:Generator_TableVarName="tableWydatkiTypyStat" msprop:Generator_TablePropName="WydatkiTypyStat" msprop:Generator_RowDeletingName="WydatkiTypyStatRowDeleting" msprop:Generator_RowChangingName="WydatkiTypyStatRowChanging" msprop:Generator_RowEvHandlerName="WydatkiTypyStatRowChangeEventHandler" msprop:Generator_RowDeletedName="WydatkiTypyStatRowDeleted" msprop:Generator_UserTableName="WydatkiTypyStat" msprop:Generator_RowChangedName="WydatkiTypyStatRowChanged" msprop:Generator_RowEvArgName="WydatkiTypyStatRowChangeEvent" msprop:Generator_RowClassName="WydatkiTypyStatRow">
+        <xs:element name="WydatkiTypyStat" msprop:Generator_TableClassName="WydatkiTypyStatDataTable" msprop:Generator_TableVarName="tableWydatkiTypyStat" msprop:Generator_RowChangedName="WydatkiTypyStatRowChanged" msprop:Generator_TablePropName="WydatkiTypyStat" msprop:Generator_RowDeletingName="WydatkiTypyStatRowDeleting" msprop:Generator_RowChangingName="WydatkiTypyStatRowChanging" msprop:Generator_RowEvHandlerName="WydatkiTypyStatRowChangeEventHandler" msprop:Generator_RowDeletedName="WydatkiTypyStatRowDeleted" msprop:Generator_RowClassName="WydatkiTypyStatRow" msprop:Generator_UserTableName="WydatkiTypyStat" msprop:Generator_RowEvArgName="WydatkiTypyStatRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TypWydatku" msprop:Generator_ColumnVarNameInTable="columnTypWydatku" msprop:Generator_ColumnPropNameInRow="TypWydatku" msprop:Generator_ColumnPropNameInTable="TypWydatkuColumn" msprop:Generator_UserColumnName="TypWydatku" minOccurs="0">
