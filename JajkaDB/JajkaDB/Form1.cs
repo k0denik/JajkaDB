@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using JajkaDB.DatabaseDataSetViewsTableAdapters;
 
 namespace JajkaDB
 {
@@ -19,7 +20,6 @@ namespace JajkaDB
             kuryTableAdapter.Fill(databaseDataSet.Kury);
             wydatkiTypyTableAdapter.Fill(databaseDataSet.WydatkiTypy);
             wydatkiTableAdapter.Fill(databaseDataSet.Wydatki);
-            statViewTableAdapter.Fill(databaseDataSetViews.StatView);
             dateTimePickerViewOd.Value = DateTime.Today - TimeSpan.FromDays(30);
             dateTimePickerViewDo.Value = DateTime.Today;
             transakcjeTableAdapter.Fill(databaseDataSet1.Transakcje);
@@ -193,11 +193,14 @@ namespace JajkaDB
         {
             var dataOd = dateTimePickerViewOd.Value;
             var dataDo = dateTimePickerViewDo.Value;
-            klienciZakupyTableAdapter.FillByDate(databaseDataSet11.KlienciZakupy, dataOd.ToShortDateString(), dataDo.ToShortDateString());
-            statViewTableAdapter.FillByDate(databaseDataSetViews.StatView, dataOd, dataDo);
+            klienciZakupyTableAdapter1.FillByDate(databaseDataSetViews.KlienciZakupy, dataOd, dataDo);
+            statViewTableAdapter.Fill(databaseDataSetViews.StatView, dataOd, dataDo);
             statViewJajkaTableAdapter.Fill(databaseDataSetViews.StatViewJajka, dataOd, dataDo);
             textBoxKuryStat.Text = kuryTableAdapter.KurySumaQuery().ToString();
             wydatkiTypyStatTableAdapter.Fill(databaseDataSetViews.WydatkiTypyStat,dataOd,dataDo);
+            kuryStatViewTableAdapter.Fill(databaseDataSetViews.KuryStatView, dataOd, dataDo);
+            textBoxLiczbaKlientow.Text = databaseDataSetViews.KlienciZakupy.Rows.Count.ToString();
+
         }
 
         private void dateTimePickerViewOd_ValueChanged(object sender, EventArgs e)

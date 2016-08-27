@@ -34,6 +34,8 @@ namespace JajkaDB {
         
         private WydatkiTypyStatDataTable tableWydatkiTypyStat;
         
+        private KuryStatViewDataTable tableKuryStatView;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -76,6 +78,9 @@ namespace JajkaDB {
                 }
                 if ((ds.Tables["WydatkiTypyStat"] != null)) {
                     base.Tables.Add(new WydatkiTypyStatDataTable(ds.Tables["WydatkiTypyStat"]));
+                }
+                if ((ds.Tables["KuryStatView"] != null)) {
+                    base.Tables.Add(new KuryStatViewDataTable(ds.Tables["KuryStatView"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -142,6 +147,16 @@ namespace JajkaDB {
         public WydatkiTypyStatDataTable WydatkiTypyStat {
             get {
                 return this.tableWydatkiTypyStat;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public KuryStatViewDataTable KuryStatView {
+            get {
+                return this.tableKuryStatView;
             }
         }
         
@@ -227,6 +242,9 @@ namespace JajkaDB {
                 if ((ds.Tables["WydatkiTypyStat"] != null)) {
                     base.Tables.Add(new WydatkiTypyStatDataTable(ds.Tables["WydatkiTypyStat"]));
                 }
+                if ((ds.Tables["KuryStatView"] != null)) {
+                    base.Tables.Add(new KuryStatViewDataTable(ds.Tables["KuryStatView"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -290,6 +308,12 @@ namespace JajkaDB {
                     this.tableWydatkiTypyStat.InitVars();
                 }
             }
+            this.tableKuryStatView = ((KuryStatViewDataTable)(base.Tables["KuryStatView"]));
+            if ((initTable == true)) {
+                if ((this.tableKuryStatView != null)) {
+                    this.tableKuryStatView.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -310,6 +334,8 @@ namespace JajkaDB {
             base.Tables.Add(this.tableStatViewJajka);
             this.tableWydatkiTypyStat = new WydatkiTypyStatDataTable();
             base.Tables.Add(this.tableWydatkiTypyStat);
+            this.tableKuryStatView = new KuryStatViewDataTable();
+            base.Tables.Add(this.tableKuryStatView);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -339,6 +365,12 @@ namespace JajkaDB {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeWydatkiTypyStat() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeKuryStatView() {
             return false;
         }
         
@@ -411,6 +443,9 @@ namespace JajkaDB {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void WydatkiTypyStatRowChangeEventHandler(object sender, WydatkiTypyStatRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void KuryStatViewRowChangeEventHandler(object sender, KuryStatViewRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1012,6 +1047,8 @@ namespace JajkaDB {
             
             private global::System.Data.DataColumn columnRazem;
             
+            private global::System.Data.DataColumn columnSredniPrzychod;
+            
             private global::System.Data.DataColumn columnSrednio;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1081,6 +1118,14 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SredniPrzychodColumn {
+                get {
+                    return this.columnSredniPrzychod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn SrednioColumn {
                 get {
                     return this.columnSrednio;
@@ -1124,13 +1169,14 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public StatViewRow AddStatViewRow(decimal Dochod, decimal WydatkiJajka, decimal WydatkiInne, decimal Razem, decimal Srednio) {
+            public StatViewRow AddStatViewRow(decimal Dochod, decimal WydatkiJajka, decimal WydatkiInne, decimal Razem, decimal SredniPrzychod, decimal Srednio) {
                 StatViewRow rowStatViewRow = ((StatViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Dochod,
                         WydatkiJajka,
                         WydatkiInne,
                         Razem,
+                        SredniPrzychod,
                         Srednio};
                 rowStatViewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStatViewRow);
@@ -1158,6 +1204,7 @@ namespace JajkaDB {
                 this.columnWydatkiJajka = base.Columns["WydatkiJajka"];
                 this.columnWydatkiInne = base.Columns["WydatkiInne"];
                 this.columnRazem = base.Columns["Razem"];
+                this.columnSredniPrzychod = base.Columns["SredniPrzychod"];
                 this.columnSrednio = base.Columns["Srednio"];
             }
             
@@ -1172,12 +1219,15 @@ namespace JajkaDB {
                 base.Columns.Add(this.columnWydatkiInne);
                 this.columnRazem = new global::System.Data.DataColumn("Razem", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRazem);
+                this.columnSredniPrzychod = new global::System.Data.DataColumn("SredniPrzychod", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSredniPrzychod);
                 this.columnSrednio = new global::System.Data.DataColumn("Srednio", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSrednio);
                 this.columnDochod.ReadOnly = true;
                 this.columnWydatkiJajka.ReadOnly = true;
                 this.columnWydatkiInne.ReadOnly = true;
                 this.columnRazem.ReadOnly = true;
+                this.columnSredniPrzychod.ReadOnly = true;
                 this.columnSrednio.ReadOnly = true;
             }
             
@@ -1322,6 +1372,8 @@ namespace JajkaDB {
             
             private global::System.Data.DataColumn columnSrednioZniesione;
             
+            private global::System.Data.DataColumn columnSrednioSprzedane;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StatViewJajkaDataTable() {
@@ -1397,6 +1449,14 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SrednioSprzedaneColumn {
+                get {
+                    return this.columnSrednioSprzedane;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1432,14 +1492,15 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public StatViewJajkaRow AddStatViewJajkaRow(int Zniesione, int Dokupione, int Sprzedane, int Razem, int SrednioZniesione) {
+            public StatViewJajkaRow AddStatViewJajkaRow(int Zniesione, int Dokupione, int Sprzedane, int Razem, int SrednioZniesione, int SrednioSprzedane) {
                 StatViewJajkaRow rowStatViewJajkaRow = ((StatViewJajkaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Zniesione,
                         Dokupione,
                         Sprzedane,
                         Razem,
-                        SrednioZniesione};
+                        SrednioZniesione,
+                        SrednioSprzedane};
                 rowStatViewJajkaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStatViewJajkaRow);
                 return rowStatViewJajkaRow;
@@ -1467,6 +1528,7 @@ namespace JajkaDB {
                 this.columnSprzedane = base.Columns["Sprzedane"];
                 this.columnRazem = base.Columns["Razem"];
                 this.columnSrednioZniesione = base.Columns["SrednioZniesione"];
+                this.columnSrednioSprzedane = base.Columns["SrednioSprzedane"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1482,11 +1544,14 @@ namespace JajkaDB {
                 base.Columns.Add(this.columnRazem);
                 this.columnSrednioZniesione = new global::System.Data.DataColumn("SrednioZniesione", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSrednioZniesione);
+                this.columnSrednioSprzedane = new global::System.Data.DataColumn("SrednioSprzedane", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSrednioSprzedane);
                 this.columnZniesione.ReadOnly = true;
                 this.columnDokupione.ReadOnly = true;
                 this.columnSprzedane.ReadOnly = true;
                 this.columnRazem.ReadOnly = true;
                 this.columnSrednioZniesione.ReadOnly = true;
+                this.columnSrednioSprzedane.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1877,6 +1942,284 @@ namespace JajkaDB {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class KuryStatViewDataTable : global::System.Data.TypedTableBase<KuryStatViewRow> {
+            
+            private global::System.Data.DataColumn columnPrzybylo;
+            
+            private global::System.Data.DataColumn columnWyszło;
+            
+            private global::System.Data.DataColumn columnObecnieKur;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KuryStatViewDataTable() {
+                this.TableName = "KuryStatView";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal KuryStatViewDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected KuryStatViewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PrzybyloColumn {
+                get {
+                    return this.columnPrzybylo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WyszłoColumn {
+                get {
+                    return this.columnWyszło;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ObecnieKurColumn {
+                get {
+                    return this.columnObecnieKur;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KuryStatViewRow this[int index] {
+                get {
+                    return ((KuryStatViewRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KuryStatViewRowChangeEventHandler KuryStatViewRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KuryStatViewRowChangeEventHandler KuryStatViewRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KuryStatViewRowChangeEventHandler KuryStatViewRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event KuryStatViewRowChangeEventHandler KuryStatViewRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddKuryStatViewRow(KuryStatViewRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KuryStatViewRow AddKuryStatViewRow(int Przybylo, int Wyszło, int ObecnieKur) {
+                KuryStatViewRow rowKuryStatViewRow = ((KuryStatViewRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Przybylo,
+                        Wyszło,
+                        ObecnieKur};
+                rowKuryStatViewRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowKuryStatViewRow);
+                return rowKuryStatViewRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                KuryStatViewDataTable cln = ((KuryStatViewDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new KuryStatViewDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnPrzybylo = base.Columns["Przybylo"];
+                this.columnWyszło = base.Columns["Wyszło"];
+                this.columnObecnieKur = base.Columns["ObecnieKur"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnPrzybylo = new global::System.Data.DataColumn("Przybylo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrzybylo);
+                this.columnWyszło = new global::System.Data.DataColumn("Wyszło", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWyszło);
+                this.columnObecnieKur = new global::System.Data.DataColumn("ObecnieKur", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnObecnieKur);
+                this.columnPrzybylo.ReadOnly = true;
+                this.columnWyszło.ReadOnly = true;
+                this.columnObecnieKur.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KuryStatViewRow NewKuryStatViewRow() {
+                return ((KuryStatViewRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new KuryStatViewRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(KuryStatViewRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.KuryStatViewRowChanged != null)) {
+                    this.KuryStatViewRowChanged(this, new KuryStatViewRowChangeEvent(((KuryStatViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.KuryStatViewRowChanging != null)) {
+                    this.KuryStatViewRowChanging(this, new KuryStatViewRowChangeEvent(((KuryStatViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.KuryStatViewRowDeleted != null)) {
+                    this.KuryStatViewRowDeleted(this, new KuryStatViewRowChangeEvent(((KuryStatViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.KuryStatViewRowDeleting != null)) {
+                    this.KuryStatViewRowDeleting(this, new KuryStatViewRowChangeEvent(((KuryStatViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveKuryStatViewRow(KuryStatViewRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DatabaseDataSetViews ds = new DatabaseDataSetViews();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "KuryStatViewDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class KlienciPelneRow : global::System.Data.DataRow {
@@ -2165,6 +2508,22 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal SredniPrzychod {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableStatView.SredniPrzychodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SredniPrzychod\' in table \'StatView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStatView.SredniPrzychodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal Srednio {
                 get {
                     try {
@@ -2225,6 +2584,18 @@ namespace JajkaDB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetRazemNull() {
                 this[this.tableStatView.RazemColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSredniPrzychodNull() {
+                return this.IsNull(this.tableStatView.SredniPrzychodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSredniPrzychodNull() {
+                this[this.tableStatView.SredniPrzychodColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2336,6 +2707,22 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int SrednioSprzedane {
+                get {
+                    try {
+                        return ((int)(this[this.tableStatViewJajka.SrednioSprzedaneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SrednioSprzedane\' in table \'StatViewJajka\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStatViewJajka.SrednioSprzedaneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsZniesioneNull() {
                 return this.IsNull(this.tableStatViewJajka.ZniesioneColumn);
             }
@@ -2392,6 +2779,18 @@ namespace JajkaDB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetSrednioZniesioneNull() {
                 this[this.tableStatViewJajka.SrednioZniesioneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSrednioSprzedaneNull() {
+                return this.IsNull(this.tableStatViewJajka.SrednioSprzedaneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSrednioSprzedaneNull() {
+                this[this.tableStatViewJajka.SrednioSprzedaneColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2463,6 +2862,105 @@ namespace JajkaDB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetGroszeNull() {
                 this[this.tableWydatkiTypyStat.GroszeColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class KuryStatViewRow : global::System.Data.DataRow {
+            
+            private KuryStatViewDataTable tableKuryStatView;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal KuryStatViewRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableKuryStatView = ((KuryStatViewDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Przybylo {
+                get {
+                    try {
+                        return ((int)(this[this.tableKuryStatView.PrzybyloColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Przybylo\' in table \'KuryStatView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKuryStatView.PrzybyloColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Wyszło {
+                get {
+                    try {
+                        return ((int)(this[this.tableKuryStatView.WyszłoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Wyszło\' in table \'KuryStatView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKuryStatView.WyszłoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ObecnieKur {
+                get {
+                    try {
+                        return ((int)(this[this.tableKuryStatView.ObecnieKurColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ObecnieKur\' in table \'KuryStatView\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKuryStatView.ObecnieKurColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrzybyloNull() {
+                return this.IsNull(this.tableKuryStatView.PrzybyloColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrzybyloNull() {
+                this[this.tableKuryStatView.PrzybyloColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWyszłoNull() {
+                return this.IsNull(this.tableKuryStatView.WyszłoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWyszłoNull() {
+                this[this.tableKuryStatView.WyszłoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsObecnieKurNull() {
+                return this.IsNull(this.tableKuryStatView.ObecnieKurColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetObecnieKurNull() {
+                this[this.tableKuryStatView.ObecnieKurColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2622,6 +3120,40 @@ namespace JajkaDB {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public WydatkiTypyStatRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class KuryStatViewRowChangeEvent : global::System.EventArgs {
+            
+            private KuryStatViewRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KuryStatViewRowChangeEvent(KuryStatViewRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KuryStatViewRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2959,16 +3491,17 @@ GROUP BY              KlienciZakupy.Imie, KlienciZakupy.Nazwisko, Derived.Ostatn
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT                      KlienciZakupy.Imie, KlienciZakupy.Nazwisko, SUM(KlienciZakupy.Jajka) AS Jajka, CONVERT(DECIMAL(10, 2), SUM(KlienciZakupy.Grosze) / 100.0) AS Zlote, Derived.Ostatnio
-FROM                         KlienciZakupy INNER JOIN
+            this._commandCollection[1].CommandText = @"SELECT                      derivedtbl_1.Imie, derivedtbl_1.Nazwisko, SUM(derivedtbl_1.Jajka) AS Jajka, CONVERT(DECIMAL(10, 2), SUM(derivedtbl_1.Grosze) / 100.0) AS Zlote, Derived.Ostatnio
+FROM                         (SELECT                      Imie, Nazwisko, Jajka, Grosze, Data
+                                        FROM                         KlienciZakupy
+                                        WHERE                       (Data BETWEEN @dataOd AND @dataDo)) AS derivedtbl_1 INNER JOIN
                                           (SELECT                      Imie, MAX(Data) AS Ostatnio
                                                 FROM                         KlienciZakupy AS KlienciZakupy_1
-                                                GROUP BY              Imie) AS Derived ON KlienciZakupy.Imie = Derived.Imie
-WHERE                       (KlienciZakupy.Data BETWEEN @dataOd AND @dataDo)
-GROUP BY              KlienciZakupy.Imie, KlienciZakupy.Nazwisko, Derived.Ostatnio";
+                                                GROUP BY              Imie) AS Derived ON derivedtbl_1.Imie = Derived.Imie
+GROUP BY              derivedtbl_1.Imie, derivedtbl_1.Nazwisko, Derived.Ostatnio";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2999,19 +3532,19 @@ GROUP BY              KlienciZakupy.Imie, KlienciZakupy.Nazwisko, Derived.Ostatn
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByDate(DatabaseDataSetViews.KlienciZakupyDataTable dataTable, string dataOd, string dataDo) {
+        public virtual int FillByDate(DatabaseDataSetViews.KlienciZakupyDataTable dataTable, global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((dataOd == null)) {
+            if ((dataOd.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(dataOd.Value));
+            }
+            else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(dataOd));
+            if ((dataDo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dataDo.Value));
             }
-            if ((dataDo == null)) {
+            else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(dataDo));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3024,19 +3557,19 @@ GROUP BY              KlienciZakupy.Imie, KlienciZakupy.Nazwisko, Derived.Ostatn
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DatabaseDataSetViews.KlienciZakupyDataTable GetDataByDate(string dataOd, string dataDo) {
+        public virtual DatabaseDataSetViews.KlienciZakupyDataTable GetDataByDate(global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((dataOd == null)) {
+            if ((dataOd.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(dataOd.Value));
+            }
+            else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(dataOd));
+            if ((dataDo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dataDo.Value));
             }
-            if ((dataDo == null)) {
+            else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(dataDo));
             }
             DatabaseDataSetViews.KlienciZakupyDataTable dataTable = new DatabaseDataSetViews.KlienciZakupyDataTable();
             this.Adapter.Fill(dataTable);
@@ -3169,6 +3702,7 @@ GROUP BY              KlienciZakupy.Imie, KlienciZakupy.Nazwisko, Derived.Ostatn
             tableMapping.ColumnMappings.Add("WydatkiJajka", "WydatkiJajka");
             tableMapping.ColumnMappings.Add("WydatkiInne", "WydatkiInne");
             tableMapping.ColumnMappings.Add("Razem", "Razem");
+            tableMapping.ColumnMappings.Add("SredniPrzychod", "SredniPrzychod");
             tableMapping.ColumnMappings.Add("Srednio", "Srednio");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -3183,84 +3717,57 @@ GROUP BY              KlienciZakupy.Imie, KlienciZakupy.Nazwisko, Derived.Ostatn
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Dochod, WydatkiJajka, WydatkiInne, Razem,
-                             (SELECT        AVG(Grosze / Jajka) AS Expr1
-                               FROM            Transakcje
-                               WHERE        (Grosze > 0)) AS Srednio
-FROM            StatView";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT                      ISNULL(CONVERT(DECIMAL(10, 2),\r\n                     " +
-                "                     (SELECT                      SUM(Grosze) AS Expr1\r\n        " +
-                "                                        FROM                         Transakcje\r" +
-                "\n                                                WHERE                       (Da" +
-                "ta BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Dochod, ISNULL(CONVERT(DECIMAL(" +
-                "10, 2),\r\n                                          (SELECT                      " +
-                "SUM(Grosze) AS Expr1\r\n                                                FROM      " +
-                "                   Dokupione\r\n                                                WH" +
-                "ERE                       (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Wy" +
-                "datkiJajka, ISNULL(CONVERT(DECIMAL(10, 2),\r\n                                    " +
-                "      (SELECT                      SUM(Grosze) AS Expr1\r\n                       " +
-                "                         FROM                         Wydatki\r\n                 " +
-                "                               WHERE                       (Data BETWEEN @dataOd" +
-                " AND @dataDo)) / 100.0), 0) AS WydatkiInne, CONVERT(DECIMAL(10, 2), (ISNULL\r\n   " +
+            this._commandCollection[0].CommandText = "\r\nSELECT                      ISNULL(CONVERT(DECIMAL(10, 2),\r\n                   " +
+                "                       (SELECT                      SUM(Grosze) AS Expr1\r\n      " +
+                "                                          FROM                         Transakcj" +
+                "e\r\n                                                WHERE                       (" +
+                "Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Dochod,ISNULL(CONVERT(DECIMAL" +
+                "(10, 2),\r\n                                          (SELECT                     " +
+                " SUM(Grosze)/DATEDIFF(day, @dataOd, @dataDo) AS Expr1\r\n                         " +
+                "                       FROM                         Transakcje\r\n                " +
+                "                                WHERE                       (Data BETWEEN @dataO" +
+                "d AND @dataDo)) / 100.0), 0) AS SredniPrzychod, ISNULL(CONVERT(DECIMAL(10, 2),\r\n" +
+                "                                          (SELECT                      SUM(Grosz" +
+                "e) AS Expr1\r\n                                                FROM               " +
+                "          Dokupione\r\n                                                WHERE      " +
+                "                 (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS WydatkiJajk" +
+                "a, ISNULL(CONVERT(DECIMAL(10, 2),\r\n                                          (SE" +
+                "LECT                      SUM(Grosze) AS Expr1\r\n                                " +
+                "                FROM                         Wydatki\r\n                          " +
+                "                      WHERE                       (Data BETWEEN @dataOd AND @dat" +
+                "aDo)) / 100.0), 0) AS WydatkiInne, CONVERT(DECIMAL(10, 2), (ISNULL\r\n            " +
+                "                              ((SELECT                      SUM(Grosze) AS Expr1" +
+                "\r\n                                                  FROM                        " +
+                " Transakcje AS Transakcje_1\r\n                                                  W" +
+                "HERE                       (Data BETWEEN @dataOd AND @dataDo)), 0) - ISNULL\r\n   " +
                 "                                       ((SELECT                      SUM(Grosze)" +
                 " AS Expr1\r\n                                                  FROM               " +
-                "          Transakcje AS Transakcje_1\r\n                                          " +
-                "        WHERE                       (Data BETWEEN @dataOd AND @dataDo)), 0) - IS" +
-                "NULL\r\n                                          ((SELECT                      SU" +
-                "M(Grosze) AS Expr1\r\n                                                  FROM      " +
-                "                   Dokupione AS Dokupione_1\r\n                                   " +
-                "               WHERE                       (Data BETWEEN @dataOd AND @dataDo)), " +
-                "0) - ISNULL\r\n                                          ((SELECT                 " +
-                "     SUM(Grosze) AS Expr1\r\n                                                  FRO" +
-                "M                         Wydatki AS Wydatki_1\r\n                                " +
-                "                  WHERE                       (Data BETWEEN @dataOd AND @dataDo)" +
-                "), 0)) / 100.0) AS Razem, ISNULL(CONVERT(DECIMAL(10, 2),\r\n                      " +
-                "                    (SELECT                      (SUM(Grosze / Jajka) / DATEDIFF" +
-                "(day, @dataOd, @dataDo)) AS Expr1\r\n                                             " +
-                "   FROM                         Transakcje AS Transakcje_2\r\n                    " +
-                "                            WHERE                       (Grosze > 0) AND (Data B" +
-                "ETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS Srednio";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+                "          Dokupione AS Dokupione_1\r\n                                            " +
+                "      WHERE                       (Data BETWEEN @dataOd AND @dataDo)), 0) - ISNU" +
+                "LL\r\n                                          ((SELECT                      SUM(" +
+                "Grosze) AS Expr1\r\n                                                  FROM        " +
+                "                 Wydatki AS Wydatki_1\r\n                                         " +
+                "         WHERE                       (Data BETWEEN @dataOd AND @dataDo)), 0)) / " +
+                "100.0) AS Razem, ISNULL(CONVERT(DECIMAL(10, 2),\r\n                               " +
+                "           (SELECT                      SUM(Grosze / Jajka) / DATEDIFF(day, @dat" +
+                "aOd, @dataDo) AS Expr1\r\n                                                FROM    " +
+                "                     Transakcje AS Transakcje_2\r\n                               " +
+                "                 WHERE                       (Grosze > 0) AND (Data BETWEEN @dat" +
+                "aOd AND @dataDo)) / 100.0), 0) AS Srednio";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DatabaseDataSetViews.StatViewDataTable dataTable) {
+        public virtual int Fill(DatabaseDataSetViews.StatViewDataTable dataTable, global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DatabaseDataSetViews.StatViewDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            DatabaseDataSetViews.StatViewDataTable dataTable = new DatabaseDataSetViews.StatViewDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByDate(DatabaseDataSetViews.StatViewDataTable dataTable, global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((dataOd.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(dataOd.Value));
             }
@@ -3283,9 +3790,9 @@ FROM            StatView";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DatabaseDataSetViews.StatViewDataTable GetDataByDate(global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DatabaseDataSetViews.StatViewDataTable GetData(global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((dataOd.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(dataOd.Value));
             }
@@ -3430,6 +3937,7 @@ FROM            StatView";
             tableMapping.ColumnMappings.Add("Sprzedane", "Sprzedane");
             tableMapping.ColumnMappings.Add("Razem", "Razem");
             tableMapping.ColumnMappings.Add("SrednioZniesione", "SrednioZniesione");
+            tableMapping.ColumnMappings.Add("SrednioSprzedane", "SrednioSprzedane");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -3446,26 +3954,37 @@ FROM            StatView";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = " SELECT        ISNULL\r\n                             ((SELECT        SUM(Ilosc) AS" +
-                " Expr1\r\n                                 FROM            Zniesione\r\n            " +
-                "                     WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Zni" +
-                "esione, ISNULL\r\n                             ((SELECT        SUM(Ilosc) AS Expr1" +
-                "\r\n                                 FROM            Dokupione\r\n                  " +
-                "               WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Dokupione" +
-                ", ISNULL\r\n                             ((SELECT        SUM(Jajka) AS Expr1\r\n    " +
-                "                             FROM            Transakcje\r\n                       " +
-                "          WHERE        (Data BETWEEN @dataOd AND @dataDo)), 0) AS Sprzedane, ISN" +
-                "ULL\r\n                             ((SELECT        SUM(Ilosc) AS Expr1\r\n         " +
-                "                        FROM            Zniesione AS Zniesione_1\r\n              " +
-                "                   ), 0) + ISNULL\r\n                             ((SELECT        " +
-                "SUM(Ilosc) AS Expr1\r\n                                 FROM            Dokupione " +
-                "AS Dokupione_1\r\n                                 ), 0) - ISNULL\r\n               " +
-                "              ((SELECT        SUM(Jajka) AS Expr1\r\n                             " +
-                "    FROM            Transakcje AS Transakcje_1\r\n                                " +
-                " ), 0) AS Razem, ISNULL\r\n                             ((SELECT        (SUM(Ilosc" +
-                ")/DATEDIFF(day, @dataOd, @dataDo) )AS Expr1\r\n                                 FR" +
-                "OM            Zniesione AS Zniesione_2\r\n                                 WHERE  " +
-                "      (Data BETWEEN @dataOd AND @dataDo)), 0) AS SrednioZniesione";
+            this._commandCollection[0].CommandText = "SELECT                      ISNULL\r\n                                          ((S" +
+                "ELECT                      SUM(Ilosc) AS Expr1\r\n                                " +
+                "                  FROM                         Zniesione\r\n                      " +
+                "                            WHERE                       (Data BETWEEN @dataOd AN" +
+                "D @dataDo)), 0) AS Zniesione, ISNULL\r\n                                          " +
+                "((SELECT                      SUM(Ilosc) AS Expr1\r\n                             " +
+                "                     FROM                         Dokupione\r\n                   " +
+                "                               WHERE                       (Data BETWEEN @dataOd" +
+                " AND @dataDo)), 0) AS Dokupione, ISNULL\r\n                                       " +
+                "   ((SELECT                      SUM(Jajka) AS Expr1\r\n                          " +
+                "                        FROM                         Transakcje\r\n               " +
+                "                                   WHERE                       (Data BETWEEN @da" +
+                "taOd AND @dataDo)), 0) AS Sprzedane, ISNULL\r\n                                   " +
+                "       ((SELECT                      SUM(Ilosc) AS Expr1\r\n                      " +
+                "                            FROM                         Zniesione AS Zniesione_" +
+                "1), 0) + ISNULL\r\n                                          ((SELECT             " +
+                "         SUM(Ilosc) AS Expr1\r\n                                                  " +
+                "FROM                         Dokupione AS Dokupione_1), 0) - ISNULL\r\n           " +
+                "                               ((SELECT                      SUM(Jajka) AS Expr1" +
+                "\r\n                                                  FROM                        " +
+                " Transakcje AS Transakcje_1), 0) AS Razem, ISNULL\r\n                             " +
+                "             ((SELECT                      SUM(Ilosc) / DATEDIFF(day, @dataOd, @" +
+                "dataDo) AS Expr1\r\n                                                  FROM        " +
+                "                 Zniesione AS Zniesione_2\r\n                                     " +
+                "             WHERE                       (Data BETWEEN @dataOd AND @dataDo)), 0)" +
+                " AS SrednioZniesione, ISNULL\r\n                                          ((SELECT" +
+                "                      SUM(Jajka) / DATEDIFF(day, @dataOd, @dataDo) AS Expr1\r\n   " +
+                "                                               FROM                         Tran" +
+                "sakcje AS Transakcje_2\r\n                                                  WHERE " +
+                "                      (Data BETWEEN @dataOd AND @dataDo)), 0) AS SrednioSprzedan" +
+                "e";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3713,6 +4232,211 @@ GROUP BY WydatkiTypy.TypWydatku";
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             DatabaseDataSetViews.WydatkiTypyStatDataTable dataTable = new DatabaseDataSetViews.WydatkiTypyStatDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class KuryStatViewTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public KuryStatViewTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "KuryStatView";
+            tableMapping.ColumnMappings.Add("Przybylo", "Przybylo");
+            tableMapping.ColumnMappings.Add("Wyszło", "Wyszło");
+            tableMapping.ColumnMappings.Add("ObecnieKur", "ObecnieKur");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::JajkaDB.Properties.Settings.Default.DatabaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT                      ISNULL
+                                          ((SELECT                      SUM(Ilosc) AS Expr1
+                                                  FROM                         Kury
+                                                  WHERE                       (Data BETWEEN @dataOd AND @dataDo) AND (Ilosc > 0)), 0) AS Przybylo, ISNULL
+                                          ((SELECT                      SUM(Ilosc) AS Expr1
+                                                  FROM                         Kury AS Kury_2
+                                                  WHERE                       (Data BETWEEN @dataOd AND @dataDo) AND (Ilosc < 0)), 0) AS Wyszło, ISNULL
+                                          ((SELECT                      SUM(Ilosc) AS Expr1
+                                                  FROM                         Kury AS Kury_1
+                                                  WHERE                       (Data BETWEEN @dataOd AND @dataDo)), 0) AS ObecnieKur
+FROM                         Kury AS KuryStatView";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DatabaseDataSetViews.KuryStatViewDataTable dataTable, global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((dataOd.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(dataOd.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((dataDo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dataDo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DatabaseDataSetViews.KuryStatViewDataTable GetData(global::System.Nullable<global::System.DateTime> dataOd, global::System.Nullable<global::System.DateTime> dataDo) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((dataOd.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(dataOd.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((dataDo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(dataDo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            DatabaseDataSetViews.KuryStatViewDataTable dataTable = new DatabaseDataSetViews.KuryStatViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
