@@ -1775,7 +1775,7 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WydatkiTypyStatRow AddWydatkiTypyStatRow(string TypWydatku, int Grosze) {
+            public WydatkiTypyStatRow AddWydatkiTypyStatRow(string TypWydatku, decimal Grosze) {
                 WydatkiTypyStatRow rowWydatkiTypyStatRow = ((WydatkiTypyStatRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TypWydatku,
@@ -1811,7 +1811,7 @@ namespace JajkaDB {
             private void InitClass() {
                 this.columnTypWydatku = new global::System.Data.DataColumn("TypWydatku", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTypWydatku);
-                this.columnGrosze = new global::System.Data.DataColumn("Grosze", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnGrosze = new global::System.Data.DataColumn("Grosze", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGrosze);
                 this.columnTypWydatku.MaxLength = 50;
                 this.columnGrosze.ReadOnly = true;
@@ -2826,10 +2826,10 @@ namespace JajkaDB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Grosze {
+            public decimal Grosze {
                 get {
                     try {
-                        return ((int)(this[this.tableWydatkiTypyStat.GroszeColumn]));
+                        return ((decimal)(this[this.tableWydatkiTypyStat.GroszeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Grosze\' in table \'WydatkiTypyStat\' is DBNull.", e);
@@ -3752,11 +3752,11 @@ GROUP BY              derivedtbl_1.Imie, derivedtbl_1.Nazwisko, Derived.Ostatnio
                 "                 Wydatki AS Wydatki_1\r\n                                         " +
                 "         WHERE                       (Data BETWEEN @dataOd AND @dataDo)), 0)) / " +
                 "100.0) AS Razem, ISNULL(CONVERT(DECIMAL(10, 2),\r\n                               " +
-                "           (SELECT                      SUM(Grosze / Jajka) / DATEDIFF(day, @dat" +
-                "aOd, @dataDo) AS Expr1\r\n                                                FROM    " +
-                "                     Transakcje AS Transakcje_2\r\n                               " +
-                "                 WHERE                       (Grosze > 0) AND (Data BETWEEN @dat" +
-                "aOd AND @dataDo)) / 100.0), 0) AS Srednio";
+                "           (SELECT                      AVG(Grosze / Jajka) AS Expr1\r\n          " +
+                "                                      FROM                         Transakcje AS" +
+                " Transakcje_2\r\n                                                WHERE            " +
+                "           (Grosze > 0) AND (Data BETWEEN @dataOd AND @dataDo)) / 100.0), 0) AS " +
+                "Srednio";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4178,11 +4178,11 @@ GROUP BY              derivedtbl_1.Imie, derivedtbl_1.Nazwisko, Derived.Ostatnio
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        WydatkiTypy.TypWydatku, SUM(Wydatki.Grosze) AS Grosze
-FROM            Wydatki INNER JOIN
-                         WydatkiTypy ON Wydatki.TypId = WydatkiTypy.Id
-WHERE        (Wydatki.Data BETWEEN @dataOd AND @dataDo)
-GROUP BY WydatkiTypy.TypWydatku";
+            this._commandCollection[0].CommandText = @"SELECT                      WydatkiTypy.TypWydatku, CONVERT(DECIMAL(10, 2), SUM(Wydatki.Grosze) / 100.0) AS Grosze
+FROM                         Wydatki INNER JOIN
+                                      WydatkiTypy ON Wydatki.TypId = WydatkiTypy.Id
+WHERE                       (Wydatki.Data BETWEEN @dataOd AND @dataDo)
+GROUP BY              WydatkiTypy.TypWydatku";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataOd", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dataDo", global::System.Data.SqlDbType.DateTime, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Data", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

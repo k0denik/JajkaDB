@@ -157,33 +157,22 @@
             this.label21 = new System.Windows.Forms.Label();
             this.buttonUsunKury = new System.Windows.Forms.Button();
             this.dataGridViewKury = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Notka = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iloscDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notkaDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kuryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageStatystyka = new System.Windows.Forms.TabPage();
+            this.textBoxLiczbaKlientow = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.buttonDateStartMin = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.Imie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nazwisko = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Jajka = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Zlote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ostatnio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.klienciZakupyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.databaseDataSetViews = new JajkaDB.DatabaseDataSetViews();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewWydatkiStat = new System.Windows.Forms.DataGridView();
-            this.typWydatkuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groszeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grosze = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wydatkiTypyStatBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
@@ -232,13 +221,17 @@
             this.klienciZakupyTableAdapter1 = new JajkaDB.DatabaseDataSetViewsTableAdapters.KlienciZakupyTableAdapter();
             this.kuryStatViewTableAdapter = new JajkaDB.DatabaseDataSetViewsTableAdapters.KuryStatViewTableAdapter();
             this.klienciZakupyBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.imieDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwiskoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jajkaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zloteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ostatnioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBoxLiczbaKlientow = new System.Windows.Forms.TextBox();
+            this.typWydatkuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groszeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Notka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nazwisko = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jajka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zlote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ostatnio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPageZniesione.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1493,11 +1486,7 @@
             this.Id,
             this.Ilosc,
             this.Data,
-            this.Notka,
-            this.idDataGridViewTextBoxColumn4,
-            this.iloscDataGridViewTextBoxColumn2,
-            this.dataDataGridViewTextBoxColumn4,
-            this.notkaDataGridViewTextBoxColumn4});
+            this.Notka});
             this.dataGridViewKury.DataSource = this.kuryBindingSource;
             this.dataGridViewKury.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewKury.Location = new System.Drawing.Point(3, 16);
@@ -1514,63 +1503,6 @@
             this.dataGridViewKury.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.dataGridViewKury.Size = new System.Drawing.Size(624, 288);
             this.dataGridViewKury.TabIndex = 0;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // Ilosc
-            // 
-            this.Ilosc.DataPropertyName = "Ilosc";
-            this.Ilosc.HeaderText = "Ilosc";
-            this.Ilosc.Name = "Ilosc";
-            this.Ilosc.ReadOnly = true;
-            // 
-            // Data
-            // 
-            this.Data.DataPropertyName = "Data";
-            this.Data.HeaderText = "Data";
-            this.Data.Name = "Data";
-            this.Data.ReadOnly = true;
-            // 
-            // Notka
-            // 
-            this.Notka.DataPropertyName = "Notka";
-            this.Notka.HeaderText = "Notka";
-            this.Notka.Name = "Notka";
-            this.Notka.ReadOnly = true;
-            // 
-            // idDataGridViewTextBoxColumn4
-            // 
-            this.idDataGridViewTextBoxColumn4.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn4.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn4.Name = "idDataGridViewTextBoxColumn4";
-            this.idDataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // iloscDataGridViewTextBoxColumn2
-            // 
-            this.iloscDataGridViewTextBoxColumn2.DataPropertyName = "Ilosc";
-            this.iloscDataGridViewTextBoxColumn2.HeaderText = "Ilosc";
-            this.iloscDataGridViewTextBoxColumn2.Name = "iloscDataGridViewTextBoxColumn2";
-            this.iloscDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataDataGridViewTextBoxColumn4
-            // 
-            this.dataDataGridViewTextBoxColumn4.DataPropertyName = "Data";
-            this.dataDataGridViewTextBoxColumn4.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn4.Name = "dataDataGridViewTextBoxColumn4";
-            this.dataDataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // notkaDataGridViewTextBoxColumn4
-            // 
-            this.notkaDataGridViewTextBoxColumn4.DataPropertyName = "Notka";
-            this.notkaDataGridViewTextBoxColumn4.HeaderText = "Notka";
-            this.notkaDataGridViewTextBoxColumn4.Name = "notkaDataGridViewTextBoxColumn4";
-            this.notkaDataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // kuryBindingSource
             // 
@@ -1593,6 +1525,23 @@
             this.tabPageStatystyka.TabIndex = 3;
             this.tabPageStatystyka.Text = "Statystyka";
             this.tabPageStatystyka.UseVisualStyleBackColor = true;
+            // 
+            // textBoxLiczbaKlientow
+            // 
+            this.textBoxLiczbaKlientow.Location = new System.Drawing.Point(649, 355);
+            this.textBoxLiczbaKlientow.Name = "textBoxLiczbaKlientow";
+            this.textBoxLiczbaKlientow.ReadOnly = true;
+            this.textBoxLiczbaKlientow.Size = new System.Drawing.Size(79, 20);
+            this.textBoxLiczbaKlientow.TabIndex = 7;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(646, 339);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(83, 13);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "Liczba klientów:";
             // 
             // buttonDateStartMin
             // 
@@ -1661,12 +1610,7 @@
             this.Nazwisko,
             this.Jajka,
             this.Zlote,
-            this.Ostatnio,
-            this.imieDataGridViewTextBoxColumn1,
-            this.nazwiskoDataGridViewTextBoxColumn1,
-            this.jajkaDataGridViewTextBoxColumn1,
-            this.zloteDataGridViewTextBoxColumn,
-            this.ostatnioDataGridViewTextBoxColumn});
+            this.Ostatnio});
             this.dataGridView3.DataSource = this.klienciZakupyBindingSource1;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
@@ -1674,41 +1618,6 @@
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.Size = new System.Drawing.Size(557, 347);
             this.dataGridView3.TabIndex = 0;
-            // 
-            // Imie
-            // 
-            this.Imie.DataPropertyName = "Imie";
-            this.Imie.HeaderText = "Imie";
-            this.Imie.Name = "Imie";
-            this.Imie.ReadOnly = true;
-            // 
-            // Nazwisko
-            // 
-            this.Nazwisko.DataPropertyName = "Nazwisko";
-            this.Nazwisko.HeaderText = "Nazwisko";
-            this.Nazwisko.Name = "Nazwisko";
-            this.Nazwisko.ReadOnly = true;
-            // 
-            // Jajka
-            // 
-            this.Jajka.DataPropertyName = "Jajka";
-            this.Jajka.HeaderText = "Jajka";
-            this.Jajka.Name = "Jajka";
-            this.Jajka.ReadOnly = true;
-            // 
-            // Zlote
-            // 
-            this.Zlote.DataPropertyName = "Zlote";
-            this.Zlote.HeaderText = "Zlote";
-            this.Zlote.Name = "Zlote";
-            this.Zlote.ReadOnly = true;
-            // 
-            // Ostatnio
-            // 
-            this.Ostatnio.DataPropertyName = "Ostatnio";
-            this.Ostatnio.HeaderText = "Ostatnio";
-            this.Ostatnio.Name = "Ostatnio";
-            this.Ostatnio.ReadOnly = true;
             // 
             // klienciZakupyBindingSource1
             // 
@@ -1738,6 +1647,8 @@
             this.dataGridViewWydatkiStat.AutoGenerateColumns = false;
             this.dataGridViewWydatkiStat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewWydatkiStat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.Grosze,
             this.typWydatkuDataGridViewTextBoxColumn,
             this.groszeDataGridViewTextBoxColumn});
             this.dataGridViewWydatkiStat.DataSource = this.wydatkiTypyStatBindingSource;
@@ -1748,19 +1659,19 @@
             this.dataGridViewWydatkiStat.Size = new System.Drawing.Size(557, 347);
             this.dataGridViewWydatkiStat.TabIndex = 0;
             // 
-            // typWydatkuDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.typWydatkuDataGridViewTextBoxColumn.DataPropertyName = "TypWydatku";
-            this.typWydatkuDataGridViewTextBoxColumn.HeaderText = "TypWydatku";
-            this.typWydatkuDataGridViewTextBoxColumn.Name = "typWydatkuDataGridViewTextBoxColumn";
-            this.typWydatkuDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TypWydatku";
+            this.dataGridViewTextBoxColumn3.HeaderText = "TypWydatku";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // groszeDataGridViewTextBoxColumn
+            // Grosze
             // 
-            this.groszeDataGridViewTextBoxColumn.DataPropertyName = "Grosze";
-            this.groszeDataGridViewTextBoxColumn.HeaderText = "Grosze";
-            this.groszeDataGridViewTextBoxColumn.Name = "groszeDataGridViewTextBoxColumn";
-            this.groszeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Grosze.DataPropertyName = "Grosze";
+            this.Grosze.HeaderText = "Złote";
+            this.Grosze.Name = "Grosze";
+            this.Grosze.ReadOnly = true;
             // 
             // wydatkiTypyStatBindingSource
             // 
@@ -2094,57 +2005,83 @@
             this.klienciZakupyBindingSource2.DataMember = "KlienciZakupy";
             this.klienciZakupyBindingSource2.DataSource = this.databaseDataSetViews;
             // 
-            // imieDataGridViewTextBoxColumn1
+            // typWydatkuDataGridViewTextBoxColumn
             // 
-            this.imieDataGridViewTextBoxColumn1.DataPropertyName = "Imie";
-            this.imieDataGridViewTextBoxColumn1.HeaderText = "Imie";
-            this.imieDataGridViewTextBoxColumn1.Name = "imieDataGridViewTextBoxColumn1";
-            this.imieDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.typWydatkuDataGridViewTextBoxColumn.DataPropertyName = "TypWydatku";
+            this.typWydatkuDataGridViewTextBoxColumn.HeaderText = "TypWydatku";
+            this.typWydatkuDataGridViewTextBoxColumn.Name = "typWydatkuDataGridViewTextBoxColumn";
+            this.typWydatkuDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // nazwiskoDataGridViewTextBoxColumn1
+            // groszeDataGridViewTextBoxColumn
             // 
-            this.nazwiskoDataGridViewTextBoxColumn1.DataPropertyName = "Nazwisko";
-            this.nazwiskoDataGridViewTextBoxColumn1.HeaderText = "Nazwisko";
-            this.nazwiskoDataGridViewTextBoxColumn1.Name = "nazwiskoDataGridViewTextBoxColumn1";
-            this.nazwiskoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.groszeDataGridViewTextBoxColumn.DataPropertyName = "Grosze";
+            this.groszeDataGridViewTextBoxColumn.HeaderText = "Grosze";
+            this.groszeDataGridViewTextBoxColumn.Name = "groszeDataGridViewTextBoxColumn";
+            this.groszeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // jajkaDataGridViewTextBoxColumn1
+            // Id
             // 
-            this.jajkaDataGridViewTextBoxColumn1.DataPropertyName = "Jajka";
-            this.jajkaDataGridViewTextBoxColumn1.HeaderText = "Jajka";
-            this.jajkaDataGridViewTextBoxColumn1.Name = "jajkaDataGridViewTextBoxColumn1";
-            this.jajkaDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
-            // zloteDataGridViewTextBoxColumn
+            // Ilosc
             // 
-            this.zloteDataGridViewTextBoxColumn.DataPropertyName = "Zlote";
-            this.zloteDataGridViewTextBoxColumn.HeaderText = "Zlote";
-            this.zloteDataGridViewTextBoxColumn.Name = "zloteDataGridViewTextBoxColumn";
-            this.zloteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Ilosc.DataPropertyName = "Ilosc";
+            this.Ilosc.HeaderText = "Ilosc";
+            this.Ilosc.Name = "Ilosc";
+            this.Ilosc.ReadOnly = true;
             // 
-            // ostatnioDataGridViewTextBoxColumn
+            // Data
             // 
-            this.ostatnioDataGridViewTextBoxColumn.DataPropertyName = "Ostatnio";
-            this.ostatnioDataGridViewTextBoxColumn.HeaderText = "Ostatnio";
-            this.ostatnioDataGridViewTextBoxColumn.Name = "ostatnioDataGridViewTextBoxColumn";
-            this.ostatnioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Data.DataPropertyName = "Data";
+            this.Data.HeaderText = "Data";
+            this.Data.Name = "Data";
+            this.Data.ReadOnly = true;
             // 
-            // label25
+            // Notka
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(646, 339);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(83, 13);
-            this.label25.TabIndex = 6;
-            this.label25.Text = "Liczba klientów:";
+            this.Notka.DataPropertyName = "Notka";
+            this.Notka.HeaderText = "Notka";
+            this.Notka.Name = "Notka";
+            this.Notka.ReadOnly = true;
             // 
-            // textBoxLiczbaKlientow
+            // Imie
             // 
-            this.textBoxLiczbaKlientow.Location = new System.Drawing.Point(649, 355);
-            this.textBoxLiczbaKlientow.Name = "textBoxLiczbaKlientow";
-            this.textBoxLiczbaKlientow.ReadOnly = true;
-            this.textBoxLiczbaKlientow.Size = new System.Drawing.Size(79, 20);
-            this.textBoxLiczbaKlientow.TabIndex = 7;
+            this.Imie.DataPropertyName = "Imie";
+            this.Imie.HeaderText = "Imie";
+            this.Imie.Name = "Imie";
+            this.Imie.ReadOnly = true;
+            // 
+            // Nazwisko
+            // 
+            this.Nazwisko.DataPropertyName = "Nazwisko";
+            this.Nazwisko.HeaderText = "Nazwisko";
+            this.Nazwisko.Name = "Nazwisko";
+            this.Nazwisko.ReadOnly = true;
+            // 
+            // Jajka
+            // 
+            this.Jajka.DataPropertyName = "Jajka";
+            this.Jajka.HeaderText = "Jajka";
+            this.Jajka.Name = "Jajka";
+            this.Jajka.ReadOnly = true;
+            // 
+            // Zlote
+            // 
+            this.Zlote.DataPropertyName = "Zlote";
+            this.Zlote.HeaderText = "Zlote";
+            this.Zlote.Name = "Zlote";
+            this.Zlote.ReadOnly = true;
+            // 
+            // Ostatnio
+            // 
+            this.Ostatnio.DataPropertyName = "Ostatnio";
+            this.Ostatnio.HeaderText = "Ostatnio";
+            this.Ostatnio.Name = "Ostatnio";
+            this.Ostatnio.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -2369,8 +2306,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridViewWydatkiStat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typWydatkuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groszeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource wydatkiTypyStatBindingSource;
         private System.Windows.Forms.BindingSource databaseDataSet11BindingSource;
         private DatabaseDataSetViewsTableAdapters.WydatkiTypyStatTableAdapter wydatkiTypyStatTableAdapter;
@@ -2406,27 +2341,22 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private DatabaseDataSetViewsTableAdapters.KuryStatViewTableAdapter kuryStatViewTableAdapter;
+        private System.Windows.Forms.BindingSource klienciZakupyBindingSource2;
+        private System.Windows.Forms.TextBox textBoxLiczbaKlientow;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Grosze;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ilosc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn Notka;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iloscDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notkaDataGridViewTextBoxColumn4;
-        private System.Windows.Forms.BindingSource klienciZakupyBindingSource2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Imie;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nazwisko;
         private System.Windows.Forms.DataGridViewTextBoxColumn Jajka;
         private System.Windows.Forms.DataGridViewTextBoxColumn Zlote;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ostatnio;
-        private System.Windows.Forms.TextBox textBoxLiczbaKlientow;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imieDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nazwiskoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jajkaDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zloteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ostatnioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typWydatkuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groszeDataGridViewTextBoxColumn;
     }
 }
 
